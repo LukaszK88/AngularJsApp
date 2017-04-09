@@ -4,17 +4,13 @@ angular.module('myApp', [
     //External
     'ngRoute',
     'ngResource',
-
-
-    //tables
-    'tableAll',
-    'tableBohurt',
     
     //Internal
     'rankingNav',
     'navBar',
     'userService',
     'authService',
+    'ranking',
 
     'mainController',
     'registration',

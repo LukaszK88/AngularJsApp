@@ -1,9 +1,9 @@
 'use-strict';
 
-angular.module('tableAll').
+angular.module('ranking').
 component('tableAll', {
 
-    templateUrl: 'app/components/ranking/tables/all/tableAll.template.html',
+    templateUrl: 'app/components/ranking/tableAll.template.html',
 
     controller: function ($http, $location, $rootScope, $routeParams, $scope) {
 

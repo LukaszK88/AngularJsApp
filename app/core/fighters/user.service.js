@@ -6,8 +6,8 @@ angular.
 
             var userFactory = {};
 
-            userFactory.store = function (email) {
-              return  $http.post('http://127.0.0.1:8000/api/fighters/store', email);
+            userFactory.store = function (data) {
+              return  $http.post('http://127.0.0.1:8000/api/fighters/store', data);
             };
 
             return userFactory;
