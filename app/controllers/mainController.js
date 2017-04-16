@@ -1,23 +1,48 @@
 
-angular.module('mainController', ['authService']).
-    controller('mainCtrl', function (Auth, $http, $location, $rootScope, $routeParams, $scope, $timeout) {
+angular.module('mainController', ['appCore']).
+    controller('mainCtrl', function (Auth,$auth , $http, $location, $rootScope, $routeParams, $scope, $timeout, $window) {
 
-
-                $scope.loginUser = function (data) {
-                   Auth.login(data).then(function (data) {
-
-                        if(data.data.message) {
-                            $scope.message = data.data.message;
-                            $timeout(function () {
-                                $location.path('/')
-                            },2000);
-                        }else {
-                            $scope.authError = data.data.authError;
-                            $scope.errors = data.data.errors;
-                            console.log(data.data.errors);
-                        }
-
+            $rootScope.$on('$routeChangeStart', function () {
+                if($auth.isAuthenticated()){
+                    Auth.currentUser().then(function (data) {
+                        $scope.currentUser = data.data;
                     });
+                }else{
+                        $scope.currentUser = '';
+                }
+            });
 
-            }
-        });
+            $scope.logout = function () {
+                $auth.logout();
+                $timeout(function () {
+                    $location.path('/');
+                    $window.location.reload();
+                },1000);
+            };
+
+                $scope.login = function(user) {
+                    $auth.login(user)
+                        .then(function(data) {
+
+                            console.log(data);
+                            $location.path('/');
+                        })
+                        .catch(function(error) {
+                            console.log(error.data.error);
+                            $scope.errors = error.data.error
+                        });
+                };
+
+
+
+                $scope.authenticate = function(provider) {
+                    $auth.authenticate(provider).then(function(response) {
+                        $timeout(function () {
+                            $location.path('/');
+                            $window.location.reload();
+                        },1000);
+                    }).catch(function(response) {
+                        // Something went wrong.
+                    });
+                };
+});

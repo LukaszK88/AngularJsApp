@@ -10,17 +10,17 @@
             <div ng-if="message" class="alert-success">{{ message }}</div>
 
 
-            <form ng-submit="registerUser(data);">
+            <form ng-submit="signup(user)">
                 <fieldset>
                     <div ng-if="errors" class="alert-danger">{{ errors.email[0] }}</div>
                     <div class="form-group ">
-                        <input class="form-control" ng-model="data.email" placeholder="E-mail" name="email" type="text" value="">
+                        <input class="form-control" ng-model="user.email" placeholder="E-mail" name="email" type="text" value="">
 
                     </div>
                     <div ng-if="errors" class="alert-danger">{{ errors.password[0] }}</div>
 
                     <div class="form-group ">
-                        <input class="form-control" ng-model="data.password" placeholder="password" name="password" type="text" value="">
+                        <input class="form-control" ng-model="user.password" placeholder="password" name="password" type="text" value="">
 
                     </div>
 

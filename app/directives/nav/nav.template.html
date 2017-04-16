@@ -20,15 +20,26 @@
                 <li>
                     <a href="#">Portfolio</a>
                 </li>
-                <li>
+
+                <li ng-if="!currentUser">
                     <a href="/login">Log in</a>
                 </li>
-                <li>
+                <li ng-if="!currentUser">
                     <a href="/register">Register</a>
+                </li>
+                <li ng-if="currentUser" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ currentUser.username }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>

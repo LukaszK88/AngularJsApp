@@ -4,16 +4,19 @@ angular.module('myApp', [
     //External
     'ngRoute',
     'ngResource',
+    'satellizer',
+
+
     
     //Internal
     'rankingNav',
     'navBar',
-    'userService',
-    'authService',
+    'appCore',
     'ranking',
 
     'mainController',
-    'registration',
+
+
      'home',
      'footer'
 ]);
