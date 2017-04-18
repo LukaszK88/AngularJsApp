@@ -4,7 +4,11 @@ angular.module('myApp', [
     //External
     'ngRoute',
     'ngResource',
+    'ngMessages',
+    // 'ngAnimate',
     'satellizer',
+    'ngMaterial',
+
 
 
     
@@ -13,10 +17,7 @@ angular.module('myApp', [
     'navBar',
     'appCore',
     'ranking',
-
     'mainController',
-
-
-     'home',
+    'home',
      'footer'
 ]);

@@ -1,6 +1,6 @@
 
-angular.module('mainController', ['appCore']).
-    controller('mainCtrl', function (Auth,$auth , $http, $location, $rootScope, $routeParams, $scope, $timeout, $window) {
+angular.module('mainController', ['appCore',]).
+    controller('mainCtrl', function (Auth,$auth, User, $mdDialog , $http, $location, $rootScope, $routeParams, $scope, $timeout, $window) {
 
             $rootScope.$on('$routeChangeStart', function () {
                 if($auth.isAuthenticated()){
@@ -12,24 +12,24 @@ angular.module('mainController', ['appCore']).
                 }
             });
 
-            $scope.logout = function () {
+        $scope.logout = function () {
                 $auth.logout();
                 $timeout(function () {
                     $location.path('/');
                     $window.location.reload();
-                },1000);
+                },2000);
+            User.toast('error', 'You are being logged out, redirecting...');
             };
 
                 $scope.login = function(user) {
                     $auth.login(user)
                         .then(function(data) {
 
-                            console.log(data);
                             $location.path('/');
+                            User.toast('success', data.data.message);
                         })
                         .catch(function(error) {
-                            console.log(error.data.error);
-                            $scope.errors = error.data.error
+                            User.toast('error', error.data.error);
                         });
                 };
 
@@ -40,9 +40,10 @@ angular.module('mainController', ['appCore']).
                         $timeout(function () {
                             $location.path('/');
                             $window.location.reload();
-                        },1000);
+                        },2000);
+                        User.toast('success',response.data.message);
                     }).catch(function(response) {
-                        // Something went wrong.
+                        User.toast('error', 'Something went wrong');
                     });
                 };
 });

@@ -2,14 +2,21 @@
 
 angular.
     module('appCore').
-        factory('User', function($http, $resource){
+        factory('User', function($http, $resource, $mdToast){
 
             var userFactory = {};
 
-            userFactory.store = function (data) {
-              return  $http.post('http://127.0.0.1:8000/api/fighters/store', data);
+            userFactory.toast = function(type, string){
+                $mdToast.show(
+                    $mdToast.simple()
+                        .content(string)
+                        .theme(type + "-toast")
+                        .parent($("#bs-example-navbar-collapse-1"))
+                        .position('top center')
+                        .hideDelay(4000)
+                        .action('OK')
+                );
             };
 
             return userFactory;
-
         });

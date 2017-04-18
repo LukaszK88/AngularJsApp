@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('rankingNav', []);
+angular.module('rankingNav', ['ngMaterial']);

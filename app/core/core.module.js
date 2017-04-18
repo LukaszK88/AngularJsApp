@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('appCore', ['ngResource']);
+angular.module('appCore', ['ngMessages']);

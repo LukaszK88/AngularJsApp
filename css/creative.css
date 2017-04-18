@@ -7,6 +7,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  margin-top: 60px;
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
@@ -100,15 +101,9 @@ aside {
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
   color: #a2a2a2 !important;
-  background-color: transparent;
-}
-.navbar-default .nav > li.active > a:hover,
-.navbar-default .nav > li.active > a:focus:hover {
-  background-color: transparent;
 }
 @media (min-width: 768px) {
   .navbar-default {
-    background-color: transparent;
     border-color: rgba(255, 255, 255, 0.3);
   }
   .navbar-default .navbar-header .navbar-brand {
@@ -406,12 +401,31 @@ fieldset[disabled] .btn-primary.active {
 }
 img::selection {
   color: white;
-  background: transparent;
 }
 img::-moz-selection {
   color: white;
-  background: transparent;
 }
 body {
   webkit-tap-highlight-color: #222222;
+}
+.message {
+  z-index: 1;
+  margin-top: 10%;
+}
+md-toast.md-error-toast-theme .md-toast-content {
+  background-color: red;
+}
+md-toast.md-success-toast-theme .md-toast-content {
+  background-color: green;
+}
+md-toast {
+  z-index: 10000;
+}
+.md-fixed-top {
+  position: fixed;
+  top: 66px;
+}
+md-toast.md-center {
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
 }

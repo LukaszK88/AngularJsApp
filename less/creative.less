@@ -6,6 +6,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    margin-top: 60px;
 }
 
 body {
@@ -97,6 +98,7 @@ aside {
     }
     .nav {
         > li {
+
             > a,
             > a:focus {
                 text-transform: uppercase;
@@ -111,16 +113,16 @@ aside {
                 > a,
                 > a:focus {
                     color: @theme-primary !important;
-                    background-color: transparent;
+                    //background-color: transparent;
                     &:hover {
-                        background-color: transparent;
+                       // background-color: transparent;
                     }
                 }
             }
         }
     }
     @media (min-width: 768px) {
-        background-color: transparent;
+        //background-color: transparent;
         border-color: fade(white, 30%);
         .navbar-header .navbar-brand {
             color: fade(#000000, 70%);
@@ -349,12 +351,12 @@ header {
 
 img::selection {
     color: white;
-    background: transparent;
+    //background: transparent;
 }
 
 img::-moz-selection {
     color: white;
-    background: transparent;
+    //background: transparent;
 }
 
 body {
@@ -363,5 +365,33 @@ body {
 .message{
     z-index: 1;
     margin-top: 10%;
-
 }
+
+md-toast.md-error-toast-theme {
+    .md-toast-content {
+        background-color: red;
+
+    }
+}
+
+md-toast.md-success-toast-theme {
+    .md-toast-content {
+        background-color: green;
+
+    }
+}
+
+md-toast {
+    z-index: 10000;
+}
+.md-fixed-top {
+    position: fixed;
+    top: 66px; // size of my navbar + 16px
+}
+
+md-toast.md-center {
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+}
+
+
