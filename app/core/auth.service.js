@@ -1,7 +1,7 @@
 'use strict';
 
 angular.
-    module('appCore').
+    module('myApp').
         factory('Auth', function($http, $q, $auth, $window, $filter){
 
 

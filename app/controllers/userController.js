@@ -34,6 +34,7 @@ angular.module('myApp')
                     });
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
+                    console.log($s)
                 });
         };
 

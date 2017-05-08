@@ -6,6 +6,8 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
+var ts = require("gulp-typescript");
+var tsProject = ts.createProject("tsconfig.json");
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -50,6 +52,16 @@ gulp.task('minify-js', function() {
         }))
 });
 
+gulp.task('type', function () {
+    return tsProject.src()
+        .pipe(tsProject())
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('watchTs', ['type'], function() {
+    gulp.watch('app/**/*.ts', ['type']);
+});
+
 // Copy vendor libraries from /node_modules into /vendor
 gulp.task('copy', function() {
     gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
@@ -76,7 +88,7 @@ gulp.task('copy', function() {
 });
 
 // Run everything
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy', 'type']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {

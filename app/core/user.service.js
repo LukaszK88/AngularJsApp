@@ -1,7 +1,7 @@
 'use strict';
 
 angular.
-    module('appCore').
+    module('myApp').
         factory('User', function($http, $resource, $mdToast){
 
             var userFactory = {};

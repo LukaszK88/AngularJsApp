@@ -21,12 +21,6 @@
                                                 Your email must be between 10 and 64 characters long and look like an e-mail address.
                                             </div>
                                         </div>
-                                        <div ng-if="error" class="text-danger">
-                                            <div>
-                                               {{ error }}
-                                            </div>
-                                        </div>
-
                                     </md-input-container>
 
                                     <md-input-container class="md-block" flex-gt-sm>
@@ -43,61 +37,14 @@
                         </md-card-title>
 
                         <md-card-actions layout="row" layout-align="end center">
-                            <button ng-click="login(user)" class="btn btn-success pull-left" >Log in</button>
+                            <button ng-click="main.login(user)" ng-disabled="loginForm.$invalid" class="btn btn-success pull-left" >Log in</button>
                             <span > Or Log in with  </span>
-                            <md-button class="md-raised md-primary" ng-click="authenticate('facebook')">Facebook</md-button>
-                            <md-button class="md-raised md-warn" ng-click="authenticate('google')">Google</md-button>
+                            <md-button class="md-raised md-primary" ng-click="main.authenticate('facebook')">Facebook</md-button>
+                            <md-button class="md-raised md-warn" ng-click="main.authenticate('google')">Google</md-button>
                         </md-card-actions>
                     </md-card>
                 </div>
             </md-content>
-
-
-
-
-
-
-
-            <!--<div  class="login-panel panel panel-default">-->
-                <!--<div class="panel-heading">-->
-                    <!--<h3 class="panel-title">Log in</h3>-->
-        <!--</div>-->
-        <!--<div class="panel-body">-->
-            <!--<div ng-if="message" class="alert-success">{{ message }}</div>-->
-            <!--<div ng-if="errors" class="alert-danger">{{ errors }}</div>-->
-            <!--<form name="loginForm">-->
-                <!--<fieldset>-->
-                    <!--<div class="form-group ">-->
-
-                        <!--<md-input-container class="md-block" flex-gt-sm>-->
-                            <!--<label>Name</label>-->
-                            <!--<input type="text" name="Name" ng-model='user.name'-->
-                                   <!--required >-->
-                            <!--<div ng-messages="loginForm.Name.$error" ng-show="loginForm.Name.$touched">-->
-                                <!--<div ng-message="required">This is required.</div>-->
-                            <!--</div>-->
-
-                        <!--</md-input-container>-->
-
-                        <!--&lt;!&ndash;<input required class="form-control" ng-model="user.username" placeholder="E-mail" name="username" type="text" value="" >&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div ng-messages="loginForm.username.$error">&ndash;&gt;-->
-                            <!--&lt;!&ndash;<div ng-message="required">This is required.</div>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--</div>-->
-
-                    <!--<div class="form-group ">-->
-                        <!--<input class="form-control" ng-model="user.password" placeholder="Password" name="password" type="text" value="">-->
-                    <!--</div>-->
-
-                    <!--<button  ng-click="login(user)" class="btn btn-lg btn-success btn-block">Log in</button>-->
-                    <!--<button class="btn btn-block btn-facebook" ng-click="authenticate('facebook')">-->
-                        <!--<i class="ion-social-facebook"></i> Sign in with Facebook-->
-                    <!--</button>-->
-                    <!--<button ng-click="authenticate('google')">Sign in with Google</button>-->
-                <!--</fieldset>-->
-            <!--</form>-->
-        <!--</div>-->
-    <!--</div>-->
         </div>
     </div>
 </div>

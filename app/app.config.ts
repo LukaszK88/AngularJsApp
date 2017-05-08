@@ -1,19 +1,13 @@
-'use strict';
 
-angular.module('myApp').
-    config(
-        function(
-            $locationProvider,
-            $routeProvider,
-            $httpProvider,
-            $authProvider
+/// <reference path="_all.ts" />
+/// <reference path="components/ranking/tableAllController.ts" />
+angular.module('myApp').config(['$routeProvider', '$locationProvider', '$authProvider',
+    function routes($routeProvider: ng.route.IRouteProvider,
+                    $locationProvider: ng.ILocationProvider,
+                    $authProvider: any
 
-            ){
-                $locationProvider.html5Mode(true);
-                //$httpProvider.interceptors.push('AuthInterceptors');
-            //$authProvider.httpInterceptor = false;
-
-            $authProvider.facebook({
+    ) {
+        $authProvider.facebook({
                 clientId: '1884018281856728'
             });
 
@@ -58,20 +52,24 @@ angular.module('myApp').
                 oauthType: '2.0',
                 popupOptions: { width: 452, height: 633 }
             });
+        $locationProvider.html5Mode(true);
 
-
-
-
-
-            $routeProvider.
-                    when("/", {template:"<home></home>"}).
-                    when("/ranking", {template:"<ranking-nav></ranking-nav><table-all></table-all>"}).
-                    when("/ranking/bohurt", {template:"<ranking-nav></ranking-nav><table-bohurt></table-bohurt>"}).
-                    when("/register", {
-                        templateUrl:'app/templates/register.template.html',
-                         controller: 'SignupCtrl'
-                    }).
-                    when("/login", {templateUrl:'app/templates/login.template.html'}).
-                    otherwise({template: "not found"})
-
-});
+        $routeProvider.
+            when("/", {
+                templateUrl:'app/templates/home.template.html'}).
+            when("/ranking", {
+                templateUrl:'app/components/ranking/tableAll.template.html',
+                controller: 'myApp.ranking.TableAllController',
+                controllerAs: 'ranking'
+            }).
+            when("/ranking/bohurt", {
+                templateUrl:'app/components/ranking/tableBohurt.template.html',
+                controller: 'myApp.ranking.TableBohurtController',}).
+            when("/register", {
+                templateUrl:'app/templates/register.template.html',
+                controller: 'myApp.SignupCtrl'
+            }).
+            when("/login", {templateUrl:'app/templates/login.template.html'}).
+            otherwise({template: "not found"})
+    }
+]);

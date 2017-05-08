@@ -12,7 +12,7 @@
 
         <md-dialog-content>
             <div class="md-dialog-content">
-                <form name="editForm" novalidate >
+                <form name="editForm" >
                 <div layout-gt-sm="row">
 
                     <md-input-container class="md-block" flex-gt-sm>
@@ -66,9 +66,9 @@
             </div>
         </md-dialog-content>
 
-        <md-dialog-actions layout="row">
+        <md-dialog-actions  layout="row">
 
-            <md-button ng-if="!editForm.Name.$error" ng-click="submit(user)">
+            <md-button ng-disabled="!user.name || !user.weight" ng-click="submit(user)">
                Submit
 
             </md-button>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp" >
+<html lang="en" ng-app="myApp" ng-controller="myApp.MainCtrl as main">
 
 <head>
     <base href="/" >
@@ -40,7 +40,9 @@
 
 </head>
 
-<body id="page-top" ng-controller="mainCtrl">
+<body id="page-top" >
+
+
 
 <nav-bar></nav-bar>
 
@@ -51,7 +53,7 @@
 
 
 <!-- Satellizer CDN -->
-<script src="https://cdn.jsdelivr.net/satellizer/0.15.5/satellizer.min.js"></script>
+<script src="node_modules/satellizer/dist/satellizer.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
@@ -62,36 +64,33 @@
 
 <!-- Angular Material Library -->
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-<script src="app/app.module.js"></script>
-<script src="app/app.config.js"></script>
+<script src="dist/app.module.js"></script>
+<script src="dist/app.config.js"></script>
+<script src="dist/_all.js"></script>
+<script src="dist/main.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
 
 
-<script src="app/components/home/home.module.js"></script>
-<script src="app/components/home/home.component.js"></script>
-
-<script src="app/controllers/mainController.js"></script>
-<script src="app/controllers/signupController.js"></script>
+<script src="dist/controllers/mainController.js"></script>
+<script src="dist/controllers/signupController.js"></script>
 <script src="app/controllers/userController.js"></script>
 
-<script src="app/components/ranking/ranking.module.js"></script>
-<script src="app/components/ranking/tableAll.component.js"></script>
+<script src="dist/components/ranking/ranking.module.js"></script>
+<script src="dist/components/ranking/tableAllController.js"></script>
 
-<script src="app/components/ranking/tableBohurt.component.js"></script>
+<script src="dist/components/ranking/tableBohurtController.js"></script>
 
-<script src="app/filters/array.js"></script>
-<script src="app/filters/abs.js"></script>
+<script src="dist/filters/array.js"></script>
+<script src="dist/filters/abs.js"></script>
 
-<script src="app/core/core.module.js"></script>
 <script src="app/core/user.service.js"></script>
 <script src="app/core/auth.service.js"></script>
 
-<script src="app/directives/nav/nav.module.js"></script>
 <script src="app/directives/nav/nav.directive.js"></script>
-<script src="app/directives/rankingNav/rankingNav.module.js"></script>
-<script src="app/directives/rankingNav/rankingNav.directive.js"></script>
 
-<script src="app/directives/footer/footer.module.js"></script>
-<script src="app/directives/footer/footer.directive.js"></script>
+
+
+<script src="dist/directives/footer/footer.directive.js"></script>
 <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
