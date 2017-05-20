@@ -5,8 +5,8 @@ module myApp{
                 '$scope',
                 '$location',
                 '$auth',
-                'User',
-                'Auth',
+                'toastService',
+                'auth',
                 '$mdDialog',
                 '$rootScope',
                 '$timeout',
@@ -17,7 +17,7 @@ module myApp{
         constructor(public $scope:any,
                     public $location:any,
                     public $auth:any,
-                    public User:any,
+                    public Toast:any,
                     public Auth:any,
                     public $mdDialog:any,
                     public $rootScope:any,
@@ -25,13 +25,9 @@ module myApp{
                     public $window:any,
                     public Upload:any
                     ){
-
             this.checkIfLoggedIn();
-
-                
-                   
-
         }
+
 
         public upload(file){
             this.Upload.upload({
@@ -44,22 +40,29 @@ module myApp{
                             });
         }
 
-        
 
         public checkIfLoggedIn(){
             if(this.$auth.isAuthenticated()){
                     this.Auth.currentUser().then((data) => {
                         this.$scope.currentUser = data.data;
 
+                        if(data.data.role === 2){
+                            console.log(data.data.role);
+                            this.$scope.admin = true;
+                        }
+
                         var fb = data.data.facebook_picture;
                         var google =data.data.google_picture;
-                        if (fb){
-                            this.$scope.image = fb
-                        }else if (google){
-                            this.$scope.image = google
+                        if(data.data.image){
+                            this.$scope.image = data.data.image
                         }else {
-                            this.$scope.image = this.$location.$$protocol + '://' + this.$location.$$host+'/img/profile_placeholder.png'
-
+                            if (fb) {
+                                this.$scope.image = fb
+                            } else if (google) {
+                                this.$scope.image = google
+                            } else {
+                                this.$scope.image = this.$location.$$protocol + '://' + this.$location.$$host + '/img/profile_placeholder.png'
+                            }
                         }
 
                     });
@@ -74,7 +77,7 @@ module myApp{
                     this.$location.path('/');
                     this.$window.location.reload();
                 },2000);
-            this.User.toast('error', 'You are being logged out, redirecting...');
+            this.Toast.makeToast('error', 'You are being logged out, redirecting...');
         }
 
         public login(user){
@@ -84,10 +87,10 @@ module myApp{
                                 this.$location.path('/');
                                 this.$window.location.reload();
                             },2000);
-                            this.User.toast('success', data.data.message);
+                            this.Toast.makeToast('success', data.data.message);
                         })
                         .catch((error) => {
-                            this.User.toast('error', error.data.error);
+                            this.Toast.makeToast('error', error.data.error);
                         });
         }
 
@@ -97,9 +100,9 @@ module myApp{
                             this.$location.path('/');
                             this.$window.location.reload();
                         },2000);
-                        this.User.toast('success',response.data.message);
+                 this.Toast.makeToast('success',response.data.message);
                     }).catch((response) => {
-                        this.User.toast('error', 'Something went wrong');
+                 this.Toast.makeToast('error', 'Something went wrong');
                     });
         }
 
@@ -113,78 +116,3 @@ module myApp{
     angular.module('myApp').controller('myApp.MainCtrl',MainCtrl);
 }
 
-
-
-
-
-
-
-// angular.module('myApp').
-//     controller('mainCtrl', function (Auth,$auth, User, $mdDialog , $http, $location, $rootScope, $routeParams, $scope, $timeout, $window) {
-
-//             $rootScope.$on('$routeChangeStart', function () {
-//                 if($auth.isAuthenticated()){
-//                     Auth.currentUser().then(function (data) {
-//                         $scope.currentUser = data.data;
-
-//                         var fb = data.data.facebook_picture;
-//                         var google =data.data.google_picture;
-//                         if (fb){
-//                             $scope.image = fb
-//                         }else if (google){
-//                             $scope.image = google
-//                         }else {
-//                             $scope.image = $location.$$protocol + '://' + $location.$$host+'/img/profile_placeholder.png'
-
-//                         }
-
-//                     });
-//                 }else{
-//                         $scope.currentUser = '';
-//                 }
-//             });
-
-//             if($auth.isAuthenticated()){
-//                 Auth.currentUser().then(function (data) {
-
-//                 });
-//             }
-
-// $scope.kaka = 'test';
-
-
-//         $scope.logout = function () {
-//                 $auth.logout();
-//                 $timeout(function () {
-//                     $location.path('/');
-//                     $window.location.reload();
-//                 },2000);
-//             User.toast('error', 'You are being logged out, redirecting...');
-//             };
-
-//                 $scope.login = function(user) {
-//                     $auth.login(user)
-//                         .then(function(data) {
-
-//                             $location.path('/');
-//                             User.toast('success', data.data.message);
-//                         })
-//                         .catch(function(error) {
-//                             User.toast('error', error.data.error);
-//                         });
-//                 };
-
-
-
-//                 $scope.authenticate = function(provider) {
-//                     $auth.authenticate(provider).then(function(response) {
-//                         $timeout(function () {
-//                             $location.path('/');
-//                             $window.location.reload();
-//                         },2000);
-//                         User.toast('success',response.data.message);
-//                     }).catch(function(response) {
-//                         User.toast('error', 'Something went wrong');
-//                     });
-//                 };
-// });

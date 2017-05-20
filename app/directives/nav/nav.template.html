@@ -1,4 +1,4 @@
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="UserCtrl" >
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" ng-controller="ModalCtrl" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -32,9 +32,10 @@
                     <a href="/register">Register</a>
                 </li>
                 <li ng-if="currentUser" class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ currentUser.username }} <b class="caret"></b></a>
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span ng-if="admin">Admin </span>{{ currentUser.username }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" ng-click="showAdvanced($event)">Edit profile</a></li>
+                        <li><a href="#" ng-click="showEditProfile()">Edit profile</a></li>
                         <li><a href="#">Another action</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Separated link</a></li>

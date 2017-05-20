@@ -13,7 +13,7 @@ module myApp{
             'ngMaterial',
             'ngFileUpload',
             //Internal
-            'myApp.ranking',
+            'myApp.ranking'
 
         ]);
 }

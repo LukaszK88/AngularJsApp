@@ -7,13 +7,13 @@ module myApp{
                 '$scope',
                 '$location',
                 '$auth',
-                'User'
+                'toastService'
         ];
 
         constructor(public $scope:ng.IScope,
                     public $location:any,
                     public $auth:any,
-                    public User:any
+                    public Toast:any
                     ){
 
 
@@ -26,11 +26,11 @@ module myApp{
                   this.$auth.setToken(response.data.token)
 
                     this.$location.path('/');
-                    this.User.toast('success', response.data.message);
+                    this.Toast.makeToast('success', response.data.message);
                 })
                 .catch((response) => {
 
-                   this.User.toast('error', response.data.error.email[0]);
+                    this.Toast.makeToast('error', response.data.error.email[0]);
                     
                 });
              } 

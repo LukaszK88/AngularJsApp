@@ -47,13 +47,13 @@ angular.module('myApp').config(['$routeProvider', '$locationProvider', '$authPro
             templateUrl: 'app/templates/home.template.html'
         }).
             when("/ranking", {
-            templateUrl: 'app/components/ranking/tableAll.template.html',
+            templateUrl: 'app/components/ranking/ranking.html',
             controller: 'myApp.ranking.TableAllController',
             controllerAs: 'ranking'
         }).
             when("/ranking/bohurt", {
-            templateUrl: 'app/components/ranking/tableBohurt.template.html',
-            controller: 'myApp.ranking.TableBohurtController'
+            templateUrl: 'app/components/ranking/tableAll.template.html',
+            controller: 'myApp.ranking.TableAllController'
         }).
             when("/register", {
             templateUrl: 'app/templates/register.template.html',

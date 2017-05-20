@@ -1,10 +1,10 @@
 angular.module('myApp')
-    .controller('UserCtrl', function($scope, Auth, $location, $auth, $mdDialog, $mdToast, User) {
+    .controller('ModalCtrl', function($scope, auth, $location, $auth, $mdDialog, toastService) {
 
 
 
         if($auth.isAuthenticated()){
-            Auth.currentUser().then(function (data) {
+            auth.currentUser().then(function (data) {
                 $scope.user = data.data;
             });
         }
@@ -19,7 +19,7 @@ angular.module('myApp')
         $scope.ageArray = range;
 
 
-        $scope.showAdvanced = function (ev) {
+        $scope.showEditProfile = function (ev) {
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'app/templates/modals/editprofile.template.html',
@@ -29,13 +29,32 @@ angular.module('myApp')
                 fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
             })
                 .then(function (data) {
-                    Auth.updateUser(data).then(function (response){
-                        User.toast('success', response.data.message);
+                    auth.updateUser(data).then(function (response){
+                        toastService.makeToast('success', response.data.message);
                     });
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                     console.log($s)
                 });
+        };
+
+        $scope.showUpdateRecord = function (ev) {
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'app/templates/modals/updateRecord.template.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function(data) {
+                auth.updateUser(data).then(function(response) {
+                    toastService.makeToast('success', response.data.message);
+        });
+        }, function(){
+                $scope.status = 'You cancelled the dialog.';
+
+            });
         };
 
         function DialogController($scope, $mdDialog) {

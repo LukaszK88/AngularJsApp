@@ -1,22 +1,20 @@
-var myApp;
-(function (myApp) {
+module myApp {
     'use strict';
-    function navBar() {
+    export function navBar() {
         var directive = {
             restrict: 'EA',
             link: linkFunc,
             replace: true,
-            templateUrl: 'app/directives/nav/nav.template.html'
+            templateUrl: 'app/directives/nav/nav.template.html',
         };
+
         function linkFunc(scope, element, attrs) {
-        }
-        ;
+        };
         return directive;
-    }
-    myApp.navBar = navBar;
-    ;
+    };
     angular.module('myApp').directive('navBar', navBar);
-})(myApp || (myApp = {}));
+}
+
 // angular.module('myApp').
 //     directive('navBar', function(){
 //         return{
@@ -27,4 +25,4 @@ var myApp;
 //
 //             }
 //         }
-// }); 
+// });

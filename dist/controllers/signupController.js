@@ -1,11 +1,11 @@
 var myApp;
 (function (myApp) {
     var SignupCtrl = (function () {
-        function SignupCtrl($scope, $location, $auth, User) {
+        function SignupCtrl($scope, $location, $auth, Toast) {
             this.$scope = $scope;
             this.$location = $location;
             this.$auth = $auth;
-            this.User = User;
+            this.Toast = Toast;
         }
         SignupCtrl.prototype.signup = function (user) {
             var _this = this;
@@ -13,9 +13,9 @@ var myApp;
                 .then(function (response) {
                 _this.$auth.setToken(response.data.token);
                 _this.$location.path('/');
-                _this.User.toast('success', response.data.message);
+                _this.Toast.makeToast('success', response.data.message);
             })["catch"](function (response) {
-                _this.User.toast('error', response.data.error.email[0]);
+                _this.Toast.makeToast('error', response.data.error.email[0]);
             });
         };
         return SignupCtrl;
@@ -24,7 +24,7 @@ var myApp;
         '$scope',
         '$location',
         '$auth',
-        'User'
+        'toastService'
     ];
     myApp.SignupCtrl = SignupCtrl;
     angular.module('myApp').controller('myApp.SignupCtrl', SignupCtrl);
