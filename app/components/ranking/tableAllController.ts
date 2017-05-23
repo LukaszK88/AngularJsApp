@@ -7,7 +7,8 @@ module myApp.ranking{
             static $inject =[
                 '$http',
                 '$scope',
-                '$location'
+                '$location',
+                'FighterResource'
             ];
 
             public $path:number;
@@ -15,7 +16,8 @@ module myApp.ranking{
 
             constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
-                        public $location:any
+                        public $location:any,
+                        protected FighterResource:any
             ){
 
 
@@ -24,19 +26,21 @@ module myApp.ranking{
                    this.$path = newVal
                 });
 
-
-                if(this.$path = '0'){
-                    this.$http.get("http://127.0.0.1:8000/api/fighters/")
-                        .then(function(response: ng.IHttpPromiseCallbackArg<any>) {
-                            $scope.fighters = response.data.fighters;
-
-                        });
-                }
+                // if(this.$path = '0'){
+                //
+                //      //  .then(function(response: ng.IHttpPromiseCallbackArg<any>) {
+                //             //$scope.fighters = this.FighterResource.query();
+                //     console.log(this.FighterResource.get());
+                //
+                //         // });
+                // }
                 if(this.$path = '1'){
-                    this.$http.get("http://127.0.0.1:8000/api/fighters/bohurt/")
+                    this.$http.get("http://127.0.0.1:8000/api/fighters")
                         .then(function(response:ng.IHttpPromiseCallbackArg<any>) {
                             $scope.fighters = response.data.fighters;
                         });
+
+
                 }
 
 

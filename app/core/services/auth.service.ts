@@ -29,7 +29,6 @@ module myApp {
 
         public updateUser =  (data) => {
         if(this.$auth.getToken()){
-
             return this.$http.put('http://127.0.0.1:8000/api/fighters/update', data);
         }else {
             this.$q.reject({ message: 'User has no Token'});
