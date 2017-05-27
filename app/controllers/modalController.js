@@ -48,10 +48,10 @@ angular.module('myApp')
         };
 
         $scope.showUpdateRecord = function (ev, id, type) {
-            console.log(type);
+
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: 'app/templates/modals/update'+ type +'Record.template.html',
+                templateUrl: 'app/templates/modals/ranking/update'+ type +'Record.template.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,

@@ -1,8 +1,8 @@
 
 /// <reference path="_all.ts" />
 /// <reference path="components/ranking/tableAllController.ts" />
-angular.module('myApp').config(['$routeProvider', '$locationProvider', '$authProvider',
-    function routes($routeProvider: ng.route.IRouteProvider,
+angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authProvider',
+    function routes($stateProvider: any,
                     $locationProvider: ng.ILocationProvider,
                     $authProvider: any
 
@@ -54,22 +54,39 @@ angular.module('myApp').config(['$routeProvider', '$locationProvider', '$authPro
             });
         $locationProvider.html5Mode(true);
 
-        $routeProvider.
-            when("/", {
-                templateUrl:'app/templates/home.template.html'}).
-            when("/ranking", {
+        $stateProvider
+            .state('index', <any>{
+            url: "/",
+           templateUrl:'app/templates/home.template.html'
+        })
+
+            .state("ranking", <any>{
+                url: "/ranking",
                 templateUrl:'app/components/ranking/ranking.html',
                 controller: 'myApp.ranking.TableAllController',
                 controllerAs: 'ranking'
-            }).
-            when("/ranking/bohurt", {
-                templateUrl:'app/components/ranking/tableAll.template.html',
-                controller: 'myApp.ranking.TableAllController',}).
-            when("/register", {
+            })
+            .state("fighterDetail", <any>{
+                url: "/fighters/:fighterId",
+                templateUrl:'app/components/fighter/fighterDetail.template.html',
+                controller: 'myApp.FighterCtrl',
+                controllerAs: 'fighterCtrl'
+            })
+            // .state("bohurt", <any>{
+            //     url: "/ranking/bohurt",
+            //     templateUrl:'app/components/ranking/ranking.html',
+            //     controller: 'myApp.ranking.TableAllController',
+            //     controllerAs: 'ranking'
+            // })
+            .state("register", {
+                url: "/register",
                 templateUrl:'app/templates/register.template.html',
                 controller: 'myApp.SignupCtrl'
             }).
-            when("/login", {templateUrl:'app/templates/login.template.html'}).
-            otherwise({template: "not found"})
+            state("login", <any>{
+                url: "/login",
+                    templateUrl:'app/templates/login.template.html'
+                })
+
     }
 ]);

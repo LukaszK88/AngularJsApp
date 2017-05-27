@@ -1,15 +1,15 @@
 /**
  * Created by lukas on 20/05/17.
  */
-module myApp.ranking {
+module myApp {
 
     'use strict';
 
-    FighterResource.$inject = [
+    AchievementResource.$inject = [
         '$resource'
     ];
 
-    function FighterResource($resource:any){
+    function AchievementResource($resource:any){
 
         return $resource(
             'http://127.0.0.1:8000/api/fighters/:fighterId', { fighterId: '@fighterId' },
@@ -53,7 +53,7 @@ module myApp.ranking {
             });
     }
 
-    angular.module('myApp.ranking')
-        .factory('FighterResource', FighterResource);
+    angular.module('myApp')
+        .factory('AchievementResource', AchievementResource);
 
 }

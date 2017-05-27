@@ -6,6 +6,7 @@ module myApp{
     angular
         .module("myApp", [
             "ngRoute",
+            "ui.router",
             'ngResource',
             'ngMessages',
             // 'ngAnimate',

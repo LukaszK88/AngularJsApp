@@ -1,0 +1,103 @@
+<section style="margin-top: 100px;" class="bg-primary">
+    <div class="container">
+        <div class="col-md-3">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline text-center">{{ fighter.name }}</span>
+                    <span class="md-subhead"></span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout="row" layout-align="space-between">
+                <div ng-show="!fighter.image && fighterCtrl.fighterLoggedIn(currentUser)">
+                    upload
+                </div>
+                <img ng-show="fighter.image" class="img-responsive" src="{{fighter.image}}">
+            </md-card-content>
+        </md-card>
+        </div>
+
+        <div class="col-md-5">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline text-center">Fighter Stats</span>
+                        <span class="md-subhead"></span>
+                    </md-card-title-text>
+                </md-card-title>
+                <!--<md-card-content layout="row" layout-align="space-between">-->
+
+                <!--</md-card-content>-->
+                <!--<md-card-actions layout="column" layout-align="start">-->
+                    <!--<span class="md-subhead">Reversed</span>-->
+                    <!--<span class="md-subhead">Reversed2</span>-->
+                <!--</md-card-actions>-->
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <md-card-title-text>
+                                <span style="font-size: large" class="md-subhead text-center">Fighter info</span><br>
+                                <span class="md-subhead">Age: {{ fighter.age }}</span><br>
+                                <span class="md-subhead">Weight: {{ fighter.weight }}</span><br>
+                                <span class="md-subhead">Points: {{ fighter.total_points }}</span><br>
+                                <span class="md-subhead text-center">Quote:<br>
+                                    <span style="font-size: small">"{{ fighter.quote }}"</span>
+                                </span><br>
+                            </md-card-title-text>
+                        </div>
+                        <div class="col-md-6">
+                            <md-card-title-text>
+                                <span style="font-size: large" class="md-subhead text-center">Fighter record</span>
+                                <span class="md-subhead"></span><br>
+                                <span class="md-subhead">Fights: {{
+                                      (fighter.bohurt | arrayHelper:'fights')
+                                    + (fighter.profight | arrayHelper:'fights')
+                                    + (fighter.sword_shield | arrayHelper:'fights')
+                                    + (fighter.sword_buckler | arrayHelper:'fights')
+                                    + (fighter.polearm | arrayHelper:'fights')
+                                    + (fighter.triathlon | arrayHelper:'fights')
+                                    + (fighter.longsword | arrayHelper:'fights')
+                                    }}</span><br>
+                                <span class="md-subhead">Bohurt: {{ fighter.bohurt | arrayHelper:'fights' }}</span><br>
+                                <span class="md-subhead">S&S: {{ fighter.sword_shield | arrayHelper:'fights' }}</span><br>
+                                <span class="md-subhead">S&B: {{ fighter.sword_buckler | arrayHelper:'fights' }}</span><br>
+                                <span class="md-subhead">Longsword: {{ fighter.longsword | arrayHelper:'fights' }}</span><br>
+                                <span class="md-subhead">Profight: {{ fighter.profight | arrayHelper:'fights' }}</span><br>
+                                <span class="md-subhead">Polearm: {{ fighter.polearm | arrayHelper:'fights' }}</span><br>
+                                <span class="md-subhead">Triathlon: {{ fighter.triathlon | arrayHelper:'fights' }}</span><br>
+                            </md-card-title-text>
+                        </div>
+                    </div>
+                    <hr>
+                    <span class="md-subhead">About:<br>
+                        <span style="font-size: small">"{{ fighter.about }}"</span>
+                    </span><br>
+                </div>
+            </md-card>
+        </div>
+
+
+
+        <div class="col-md-4">
+            <md-card>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline text-center">Achievements</span>
+                        <span class="md-subhead"></span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content layout="row" layout-align="space-between">
+                    <span ng-show="!fighter.image && fighterCtrl.fighterLoggedIn(currentUser)">
+                        <md-button class="md-raised btn-sm md-primary"> Add Achievement</md-button>
+                    </span>
+                </md-card-content>
+                <md-card-content ng-repeat="achievement in achievements">
+                    <span>
+                        {{achievement}}
+                    </span>
+                </md-card-content>
+
+            </md-card>
+        </div>
+    </div>
+</section>

@@ -1,7 +1,7 @@
 /// <reference path="_all.ts" />
 /// <reference path="components/ranking/tableAllController.ts" />
-angular.module('myApp').config(['$routeProvider', '$locationProvider', '$authProvider',
-    function routes($routeProvider, $locationProvider, $authProvider) {
+angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authProvider',
+    function routes($stateProvider, $locationProvider, $authProvider) {
         $authProvider.facebook({
             clientId: '1884018281856728'
         });
@@ -42,24 +42,31 @@ angular.module('myApp').config(['$routeProvider', '$locationProvider', '$authPro
             popupOptions: { width: 452, height: 633 }
         });
         $locationProvider.html5Mode(true);
-        $routeProvider.
-            when("/", {
+        $stateProvider
+            .state('index', {
+            url: "/",
             templateUrl: 'app/templates/home.template.html'
-        }).
-            when("/ranking", {
+        })
+            .state("ranking", {
+            url: "/ranking",
             templateUrl: 'app/components/ranking/ranking.html',
             controller: 'myApp.ranking.TableAllController',
             controllerAs: 'ranking'
-        }).
-            when("/ranking/bohurt", {
-            templateUrl: 'app/components/ranking/tableAll.template.html',
-            controller: 'myApp.ranking.TableAllController'
-        }).
-            when("/register", {
+        })
+            .state("fighterDetail", {
+            url: "/fighters/:fighterId",
+            templateUrl: 'app/components/fighter/fighterDetail.template.html',
+            controller: 'myApp.FighterCtrl',
+            controllerAs: 'fighterCtrl'
+        })
+            .state("register", {
+            url: "/register",
             templateUrl: 'app/templates/register.template.html',
             controller: 'myApp.SignupCtrl'
         }).
-            when("/login", { templateUrl: 'app/templates/login.template.html' }).
-            otherwise({ template: "not found" });
+            state("login", {
+            url: "/login",
+            templateUrl: 'app/templates/login.template.html'
+        });
     }
 ]);
