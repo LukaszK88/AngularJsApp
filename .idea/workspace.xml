@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f6d7b40-b73a-400f-aa45-5d9beeb475ee" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/components/ranking/profight.template.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/components/ranking/tableBohurt.template.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/modals/updateBohurtRecord.template.html" afterPath="$PROJECT_DIR$/app/templates/modals/ranking/updateBohurtRecord.template.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/modals/updateProfightRecord.template.html" afterPath="$PROJECT_DIR$/app/templates/modals/ranking/updateProfightRecord.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.config.ts" afterPath="$PROJECT_DIR$/app/app.config.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" afterPath="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/ranking.html" afterPath="$PROJECT_DIR$/app/components/ranking/ranking.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/ranking.module.ts" afterPath="$PROJECT_DIR$/app/components/ranking/ranking.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/tableAllController.ts" afterPath="$PROJECT_DIR$/app/components/ranking/tableAllController.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" afterPath="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/fighter/fighterController.ts" afterPath="$PROJECT_DIR$/app/components/fighter/fighterController.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" afterPath="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/modalController.js" afterPath="$PROJECT_DIR$/app/controllers/modalController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.config.js" afterPath="$PROJECT_DIR$/dist/app.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/nav/nav.template.html" afterPath="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.module.js" afterPath="$PROJECT_DIR$/dist/app.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/ranking/fighterResource.js" afterPath="$PROJECT_DIR$/dist/components/ranking/fighterResource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/ranking/ranking.module.js" afterPath="$PROJECT_DIR$/dist/components/ranking/ranking.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/ranking/tableAllController.js" afterPath="$PROJECT_DIR$/dist/components/ranking/tableAllController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/fighter/achievementResource.js" afterPath="$PROJECT_DIR$/dist/components/fighter/achievementResource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/fighter/fighterController.js" afterPath="$PROJECT_DIR$/dist/components/fighter/fighterController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,9 +30,12 @@
       <file leaf-file-name="fighterDetail.template.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+            <state relative-caret-position="373">
+              <caret line="122" column="22" lean-forward="true" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
               <folding>
+                <element signature="n#style#0;n#button#0;n#font#0;n#span#0;n#span#1;n#md-card-title-text#0;n#md-card-title#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#font#0;n#span#1;n#span#1;n#md-card-title-text#0;n#md-card-title#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#font#0;n#span#2;n#span#1;n#md-card-title-text#0;n#md-card-title#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#md-card-title-text#0;n#div#0;n#div#0;n#div#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#span#4;n#md-card-title-text#0;n#div#0;n#div#0;n#div#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#md-card-title-text#0;n#div#1;n#div#0;n#div#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -49,64 +45,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="87" column="45" lean-forward="true" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="achievementResource.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/fighter/achievementResource.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signupController.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/signupController.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="25" column="58" lean-forward="false" selection-start-line="25" selection-start-column="58" selection-end-line="25" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nav.template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/directives/nav/nav.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-324">
-              <caret line="0" column="89" lean-forward="false" selection-start-line="0" selection-start-column="89" selection-end-line="0" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="fighterController.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+            <state relative-caret-position="720">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="auth.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/core/services/auth.service.ts">
+      <file leaf-file-name="mainController.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/mainController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc;n#myApp#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -116,9 +70,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -145,8 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/components/ranking/tableAll.component.js" />
-        <option value="$PROJECT_DIR$/app/components/ranking/tableBohurt.component.js" />
         <option value="$PROJECT_DIR$/app/interfaces/ITable.ts" />
         <option value="$PROJECT_DIR$/app/filters/abs.js" />
         <option value="$PROJECT_DIR$/app/filters/abs.ts" />
@@ -167,7 +119,6 @@
         <option value="$PROJECT_DIR$/app/controllers/modalController.ts" />
         <option value="$PROJECT_DIR$/app/controllers/userController.js" />
         <option value="$PROJECT_DIR$/app/templates/modals/editprofile.template.html" />
-        <option value="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
         <option value="$PROJECT_DIR$/app/directives/nav/nav.directive.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/tableAll.template.html" />
         <option value="$PROJECT_DIR$/app/core/services/auth.service.ts" />
@@ -179,23 +130,26 @@
         <option value="$PROJECT_DIR$/app/templates/modals/updateSwordShieldRecord.template.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/ranking.module.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/config.ts" />
-        <option value="$PROJECT_DIR$/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/profight.template.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/tableBohurt.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/updateLongswordRecord.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/ranking/updateSwordBucklerRecord.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/ranking/updatePolearmRecord.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/ranking/updateTriathlonRecord.template.html" />
-        <option value="$PROJECT_DIR$/app/controllers/modalController.js" />
         <option value="$PROJECT_DIR$/app/components/ranking/ranking.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/master.template.html" />
         <option value="$PROJECT_DIR$/app/app.config.ts" />
-        <option value="$PROJECT_DIR$/app/components/fighter/fighterController.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/tableAllController.ts" />
-        <option value="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
+        <option value="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
         <option value="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" />
+        <option value="$PROJECT_DIR$/app/directives/flag.js" />
+        <option value="$PROJECT_DIR$/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/app/components/fighter/fighterController.ts" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
+        <option value="$PROJECT_DIR$/app/templates/modals/addAchievement.template.html" />
+        <option value="$PROJECT_DIR$/app/controllers/modalController.js" />
       </list>
     </option>
   </component>
@@ -269,10 +223,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="46" />
-    <option name="y" value="75" />
-    <option name="width" value="1391" />
-    <option name="height" value="693" />
+    <option name="x" value="58" />
+    <option name="y" value="126" />
+    <option name="width" value="1457" />
+    <option name="height" value="690" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -344,11 +298,29 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="directives" />
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="nav" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="modals" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,9 +444,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/templates/modals" />
       <recent name="$PROJECT_DIR$/app/components/fighter" />
       <recent name="$PROJECT_DIR$/app/templates/modals/ranking" />
-      <recent name="$PROJECT_DIR$/app/templates/modals" />
       <recent name="$PROJECT_DIR$/app/components/ranking" />
       <recent name="$PROJECT_DIR$/app/directives/nav" />
     </key>
@@ -576,20 +548,20 @@
       <workItem from="1492635852545" duration="50594000" />
       <workItem from="1494272115543" duration="7256000" />
       <workItem from="1494484352388" duration="3517000" />
-      <workItem from="1494914428953" duration="82319000" />
+      <workItem from="1494914428953" duration="115622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315815000" />
+    <option name="totallyTimeSpent" value="349118000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="46" y="75" width="1391" height="693" extended-state="0" />
+    <frame x="58" y="126" width="1457" height="690" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24662966" sideWeight="0.5123839" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23048328" sideWeight="0.4876161" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1814316" sideWeight="0.4876161" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -627,15 +599,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/mainController.js" />
-    <entry file="file://$PROJECT_DIR$/dist/core/services/modal.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-369">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/core/services/modal.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -656,14 +619,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/profilephoto.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -704,14 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
           <caret line="80" column="6" lean-forward="true" selection-start-line="63" selection-start-column="4" selection-end-line="80" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/editprofile.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="62" lean-forward="false" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
           <folding />
         </state>
       </provider>
@@ -788,16 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/services/toast.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc;n#myApp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/ranking/profight.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -862,14 +799,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/login.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/register.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -902,34 +831,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/home.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/ranking.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/modalController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="15" lean-forward="false" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -960,17 +865,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/ranking/ranking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/modals/profilephoto.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/directives/nav/nav.template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="0" column="89" lean-forward="false" selection-start-line="0" selection-start-column="89" selection-end-line="0" selection-end-column="89" />
+        <state relative-caret-position="234">
+          <caret line="37" column="84" lean-forward="false" selection-start-line="37" selection-start-column="84" selection-end-line="37" selection-end-column="84" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/login.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="39" column="130" lean-forward="false" selection-start-line="39" selection-start-column="97" selection-end-line="39" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/services/toast.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc;n#myApp#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/modals/editprofile.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="62" lean-forward="false" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="31" column="125" lean-forward="false" selection-start-line="31" selection-start-column="125" selection-end-line="31" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/flag.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="26" column="3" lean-forward="false" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/ranking/fighterResource.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state relative-caret-position="522">
           <caret line="34" column="35" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
           <folding>
             <element signature="n#!!doc;n#myApp#0" expanded="false" />
@@ -978,54 +959,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/mainController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1069">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="41" column="85" lean-forward="false" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#font#0;n#strong#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#1;n#strong#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#2;n#strong#0;n#span#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#0;n#strong#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#1;n#strong#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#2;n#strong#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#3;n#strong#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#4;n#strong#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#5;n#strong#0;n#span#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#font#0;n#strong#0;n#span#2;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.config.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="1296">
           <caret line="72" column="42" lean-forward="false" selection-start-line="72" selection-start-column="42" selection-end-line="72" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterController.ts">
+    <entry file="file://$PROJECT_DIR$/app/templates/modals/addAchievement.template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        <state relative-caret-position="198">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+        <state relative-caret-position="373">
+          <caret line="122" column="22" lean-forward="true" selection-start-line="122" selection-start-column="22" selection-end-line="122" selection-end-column="22" />
           <folding>
+            <element signature="n#style#0;n#button#0;n#font#0;n#span#0;n#span#1;n#md-card-title-text#0;n#md-card-title#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#font#0;n#span#1;n#span#1;n#md-card-title-text#0;n#md-card-title#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#font#0;n#span#2;n#span#1;n#md-card-title-text#0;n#md-card-title#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#md-card-title-text#0;n#div#0;n#div#0;n#div#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#span#4;n#md-card-title-text#0;n#div#0;n#div#0;n#div#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#md-card-title-text#0;n#div#1;n#div#0;n#div#0;n#md-card#0;n#div#1;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -1034,18 +991,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/fighter/achievementResource.ts">
+    <entry file="file://$PROJECT_DIR$/app/controllers/modalController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="126">
+          <caret line="80" column="12" lean-forward="false" selection-start-line="80" selection-start-column="12" selection-end-line="80" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app/components/fighter/achievementResource.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="87" column="45" lean-forward="true" selection-start-line="87" selection-start-column="45" selection-end-line="87" selection-end-column="45" />
+        <state relative-caret-position="364">
+          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/mainController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="37" />
           <folding />
         </state>
       </provider>

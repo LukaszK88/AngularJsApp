@@ -1,4 +1,4 @@
-<section style="margin-top: 100px;" class="bg-primary">
+<section class="bg-primary">
     <div class="container">
         <div class="col-md-3">
         <md-card>
@@ -9,7 +9,7 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-content layout="row" layout-align="space-between">
-                <div ng-show="!fighter.image && fighterCtrl.fighterLoggedIn(currentUser)">
+                <div ng-show="!fighter.image && fighterCtrl.fighterLoggedIn()">
                     upload
                 </div>
                 <img ng-show="fighter.image" class="img-responsive" src="{{fighter.image}}">
@@ -21,7 +21,22 @@
             <md-card>
                 <md-card-title>
                     <md-card-title-text>
-                        <span class="md-headline text-center">Fighter Stats</span>
+                        <span class="md-headline"><span ng-repeat="flag in stats.countries"><flag country="{{flag.location}}" size="32"></flag></span></span><br>
+                        <span class="md-headline text-center">
+                            <span class="pull-left">
+                                <font color='#a52a2a'><i class='fa fa-trophy fa-2x' aria-hidden='true'></i><br>
+                                <button style="background-color: #a52a2a; color: #0b0b0b " class="btn btn-xs">{{ stats.bronze }}</button></font>
+                            </span>
+                             <span class="pull-left">
+                                <font color='silver'><i class='fa fa-trophy fa-2x' aria-hidden='true'></i><br>
+                                <button style="background-color: silver; color: #0b0b0b " class="btn btn-xs">{{ stats.silver }}</button></font>
+                            </span>
+                             <span class="pull-left">
+                                <font color='#ffd700'><i class='fa fa-trophy fa-2x' aria-hidden='true'></i><br>
+                                <button style="background-color: #ffd700; color: #0b0b0b " class="btn btn-xs">{{ stats.gold }}</button></font>
+                            </span>
+
+                            Fighter Stats</span>
                         <span class="md-subhead"></span>
                     </md-card-title-text>
                 </md-card-title>
@@ -37,6 +52,7 @@
                         <div class="col-md-6">
                             <md-card-title-text>
                                 <span style="font-size: large" class="md-subhead text-center">Fighter info</span><br>
+                                <hr>
                                 <span class="md-subhead">Age: {{ fighter.age }}</span><br>
                                 <span class="md-subhead">Weight: {{ fighter.weight }}</span><br>
                                 <span class="md-subhead">Points: {{ fighter.total_points }}</span><br>
@@ -48,6 +64,7 @@
                         <div class="col-md-6">
                             <md-card-title-text>
                                 <span style="font-size: large" class="md-subhead text-center">Fighter record</span>
+                                <hr>
                                 <span class="md-subhead"></span><br>
                                 <span class="md-subhead">Fights: {{
                                       (fighter.bohurt | arrayHelper:'fights')
@@ -87,14 +104,20 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content layout="row" layout-align="space-between">
-                    <span ng-show="!fighter.image && fighterCtrl.fighterLoggedIn(currentUser)">
-                        <md-button class="md-raised btn-sm md-primary"> Add Achievement</md-button>
+                    <span ng-show="!fighter.image && fighterCtrl.fighterLoggedIn()">
+                        <md-button ng-click="addAchievement($event)" class="md-raised btn-sm md-primary">Add Achievement</md-button>
                     </span>
                 </md-card-content>
                 <md-card-content ng-repeat="achievement in achievements">
-                    <span>
-                        {{achievement}}
+                    <span >
+                        {{ achievement.competition_name }}
+                        |<flag country="{{ achievement.location }}" size="16"></flag>
+                        |{{achievement.category}}
+                        |<span ng-bind-html="achievement.cup">{{ achievement.cup }}</span>
+                        |{{achievement.date}}
                     </span>
+                    <button ng-show="fighterCtrl.fighterLoggedIn()" ng-click="addAchievement($event, achievement)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></button>
+                    <button ng-show="fighterCtrl.fighterLoggedIn()" ng-click="fighterCtrl.deleteAchievement(achievement.id)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
                 </md-card-content>
 
             </md-card>

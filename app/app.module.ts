@@ -9,6 +9,8 @@ module myApp{
             "ui.router",
             'ngResource',
             'ngMessages',
+            'ngSanitize',
+            'ngFlag',
             // 'ngAnimate',
             'satellizer',
             'ngMaterial',

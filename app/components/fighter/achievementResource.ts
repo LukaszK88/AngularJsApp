@@ -12,32 +12,27 @@ module myApp {
     function AchievementResource($resource:any){
 
         return $resource(
-            'http://127.0.0.1:8000/api/fighters/:fighterId', { fighterId: '@fighterId' },
+            'http://127.0.0.1:8000/api/achievement/:userId/:achievementId',
+            {   userId: '@userId',
+                achievementId: '@achievementId' },
             {
-                //confirmDelete: {
-                //    method: 'GET',
-                //    isArray: false,
-                //    url: AppConfig.apiPath + AppConfig.API.event + 'confirm-delete/:id',
-                //    params: {
-                //        id: '@id'
-                //    }
-                //},
+                deleteThis: {
+                   method: 'POST',
+                   url: 'http://127.0.0.1:8000/api/achievement/:userId/:achievementId/delete',
+                   params: {
+                       userId: '@userId',
+                       achievementId: '@achievementId'
+                   }
+                },
                 //getBySlug: {
                 //    method: 'GET',
                 //    isArray: false,
                 //    url: AppConfig.apiPath + AppConfig.API.event + ':slug'
                 //},
-                getFighterData: {
-                    method: 'GET',
-                    url:  'http://127.0.0.1:8000/api/fighters/tableData'
-                },
-                saveUpdate: {
-                    method: 'POST',
-                    url: 'http://127.0.0.1:8000/api/fighters/:type',
-                    params: {
-                        type: '@type'
-                    }
-                },
+                // getFighterData: {
+                //     method: 'GET',
+                //     url:  'http://127.0.0.1:8000/api/fighters/tableData'
+                // },
                 // templateFields: {
                 //     method: 'GET',
                 //     isArray:true,
@@ -46,9 +41,9 @@ module myApp {
                 //         eventId: '@eventId'
                 //     }
                 // },
-                update: {
-                    method: 'PUT'
-                },
+                // update: {
+                //     method: 'PUT'
+                // },
 
             });
     }
