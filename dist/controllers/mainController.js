@@ -30,7 +30,6 @@ var myApp;
                 this.Auth.currentUser().then(function (data) {
                     _this.$scope.currentUser = data.data;
                     if (data.data.role === 2) {
-                        console.log(data.data.role);
                         _this.$scope.admin = true;
                     }
                     var fb = data.data.facebook_picture;
@@ -54,6 +53,17 @@ var myApp;
             else {
                 this.$scope.currentUser = '';
             }
+        };
+        MainCtrl.prototype.passwordUpdate = function (user) {
+            var _this = this;
+            this.Auth.updateUserPassword(user).then(function (data) {
+                _this.$timeout(function () {
+                    _this.$window.location.reload();
+                }, 2000);
+                _this.Toast.makeToast('success', data.data.message);
+            })["catch"](function (response) {
+                _this.Toast.makeToast('error', response.data.error);
+            });
         };
         MainCtrl.prototype.logout = function () {
             var _this = this;

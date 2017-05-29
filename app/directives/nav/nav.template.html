@@ -26,20 +26,20 @@
                 </li>
 
                 <li ng-if="!currentUser">
-                    <a href="/login">Log in</a>
+                    <a ng-click="showLogin($event)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Log in</a>
                 </li>
                 <li ng-if="!currentUser">
-                    <a href="/register">Register</a>
+                    <a ng-click="showRegister($event)" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Register</a>
                 </li>
                 <li ng-if="currentUser" class="dropdown">
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span ng-if="admin">Admin </span>{{ currentUser.username }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a ui-sref="fighterDetail({fighterId: currentUser.id})">Your page</a></li>
-                        <li><a href="#" ng-click="showEditProfile()">Edit profile</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a ng-click="showEditProfile($event)">Edit profile</a></li>
+                        <li><a ng-click="showSettings($event)">Settings</a></li>
+                        <li ng-if="admin" class="divider"></li>
+                        <li ng-if="admin" ><a ui-sref="adminPage">Admin Panel</a></li>
                         <li class="divider"></li>
                         <li><a href="#" ng-click="main.logout()">Logout</a></li>
                     </ul>

@@ -16,7 +16,7 @@ module myApp {
             this.$mdToast.simple()
                 .content(string)
                 .theme(type + "-toast")
-                .parent($("#bs-example-navbar-collapse-1"))
+                //.parent($("#toast"))
                 .position('top center')
                 .hideDelay(4000)
                 .action('OK')

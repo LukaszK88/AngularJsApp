@@ -26,6 +26,15 @@ var myApp;
                     _this.$q.reject({ message: 'User has no Token' });
                 }
             };
+            this.updateUserPassword = function (data) {
+                if (_this.$auth.getToken()) {
+                    console.log(data);
+                    return _this.$http.put('http://127.0.0.1:8000/api/fighters/updatePassword', data);
+                }
+                else {
+                    _this.$q.reject({ message: 'User has no Token' });
+                }
+            };
         }
         return Auth;
     }());

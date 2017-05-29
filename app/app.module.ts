@@ -11,6 +11,7 @@ module myApp{
             'ngMessages',
             'ngSanitize',
             'ngFlag',
+            'validation.match',
             // 'ngAnimate',
             'satellizer',
             'ngMaterial',

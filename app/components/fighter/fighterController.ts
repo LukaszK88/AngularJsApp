@@ -26,6 +26,21 @@ module myApp{
                     protected Toast:any
         ){
 
+            $scope.$watch('file',  (newVal,oldVal) => {
+                if(newVal) {
+                    this.Upload.upload({
+                        url: 'http://127.0.0.1:8000/api/storePhoto/' + this.$scope.currentUser.id,
+                        data: {
+                            file: this.$scope.file
+                        }
+                    }).then((response: any) => {
+                        console.log(response);
+                        this.$scope.fighter.image = response.data.imageUrl;
+                        this.Toast.makeToast('success',response.data.message);
+
+                    });
+                }
+            });
 
 
             this.FighterResource.get({fighterId:this.$stateParams['fighterId']}).$promise

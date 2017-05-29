@@ -10,9 +10,34 @@
             </md-card-title>
             <md-card-content layout="row" layout-align="space-between">
                 <div ng-show="!fighter.image && fighterCtrl.fighterLoggedIn()">
-                    upload
+                    <div ngf-drop
+                         ngf-select
+                         ng-model="file"
+                         ngf-resize="{width:200,height: 250, quality: .8, ratio: '2:3,
+               centerCrop: true}"
+                         class="drop-box"
+                         ngf-drag-over-class="'dragover'"
+                         ngf-multiple="false"
+                         ngf-allow-dir="true"
+                         accept="image/*"
+                         ngf-pattern="'image/*'">Drop image here or click to upload</div>
+                    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
                 </div>
-                <img ng-show="fighter.image" class="img-responsive" src="{{fighter.image}}">
+                <div ng-show="fighter.image && fighterCtrl.fighterLoggedIn()">
+                    <div ngf-drop
+                         ngf-select
+                         ng-model="file"
+                         ngf-resize="{width:200,height: 250, quality: .8, ratio: '2:3,
+               centerCrop: true}"
+                         ngf-drag-over-class="'dragover'"
+                         ngf-multiple="false"
+                         ngf-allow-dir="true"
+                         accept="image/*"
+                         ngf-pattern="'image/*'">
+                        <img ng-show="fighter.image" class="img-responsive" src="{{fighter.image}}">
+                    </div>
+                </div>
+
             </md-card-content>
         </md-card>
         </div>
@@ -104,8 +129,8 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-content layout="row" layout-align="space-between">
-                    <span ng-show="!fighter.image && fighterCtrl.fighterLoggedIn()">
-                        <md-button ng-click="addAchievement($event)" class="md-raised btn-sm md-primary">Add Achievement</md-button>
+                    <span ng-show="fighterCtrl.fighterLoggedIn()">
+                        <md-button ng-click="addAchievement($event)" class="md-raised btn-sm wc-theme">Add Achievement</md-button>
                     </span>
                 </md-card-content>
                 <md-card-content ng-repeat="achievement in achievements">

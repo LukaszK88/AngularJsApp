@@ -59,6 +59,12 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
             controller: 'myApp.FighterCtrl',
             controllerAs: 'fighterCtrl'
         })
+            .state("adminPage", {
+            url: "/admin",
+            templateUrl: 'app/components/admin/adminPage.template.html',
+            controller: 'myApp.AdminCtrl',
+            controllerAs: 'adminCtrl'
+        })
             .state("register", {
             url: "/register",
             templateUrl: 'app/templates/register.template.html',

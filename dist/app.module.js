@@ -12,6 +12,7 @@ var myApp;
         'ngMessages',
         'ngSanitize',
         'ngFlag',
+        'validation.match',
         // 'ngAnimate',
         'satellizer',
         'ngMaterial',

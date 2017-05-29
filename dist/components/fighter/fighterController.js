@@ -3,6 +3,7 @@ var myApp;
     'use-strict';
     var FighterCtrl = (function () {
         function FighterCtrl($http, $scope, $location, FighterResource, $stateParams, Upload, Achievement, Toast) {
+            var _this = this;
             this.$http = $http;
             this.$scope = $scope;
             this.$location = $location;
@@ -11,6 +12,20 @@ var myApp;
             this.Upload = Upload;
             this.Achievement = Achievement;
             this.Toast = Toast;
+            $scope.$watch('file', function (newVal, oldVal) {
+                if (newVal) {
+                    _this.Upload.upload({
+                        url: 'http://127.0.0.1:8000/api/storePhoto/' + _this.$scope.currentUser.id,
+                        data: {
+                            file: _this.$scope.file
+                        }
+                    }).then(function (response) {
+                        console.log(response);
+                        _this.$scope.fighter.image = response.data.imageUrl;
+                        _this.Toast.makeToast('success', response.data.message);
+                    });
+                }
+            });
             this.FighterResource.get({ fighterId: this.$stateParams['fighterId'] }).$promise
                 .then(function (response) {
                 $scope.fighter = response.fighters;

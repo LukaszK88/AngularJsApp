@@ -11,7 +11,6 @@ var myApp;
                 this.$mdToast.show(this.$mdToast.simple()
                     .content(string)
                     .theme(type + "-toast")
-                    .parent($("#bs-example-navbar-collapse-1"))
                     .position('top center')
                     .hideDelay(4000)
                     .action('OK'));

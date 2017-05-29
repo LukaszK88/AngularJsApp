@@ -419,7 +419,7 @@ md-toast.md-success-toast-theme .md-toast-content {
   background-color: green;
 }
 md-toast {
-  z-index: 10000;
+  margin-top: 50px;
 }
 .md-fixed-top {
   position: fixed;
@@ -440,4 +440,19 @@ md-toast.md-center {
   bottom: 0px;
   left: 0px;
   position: fixed;
+}
+.drop-box {
+  background: #f8f8f8;
+  border: 5px dashed #ddd;
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  padding-top: 55px;
+}
+.dragover {
+  border: 5px dashed blue;
+}
+.wc-theme {
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.87);
 }

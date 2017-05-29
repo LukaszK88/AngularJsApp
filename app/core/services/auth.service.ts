@@ -25,7 +25,7 @@ module myApp {
         }else {
             this.$q.reject({ message: 'User has no Token'});
         }
-    };
+        };
 
         public updateUser =  (data) => {
         if(this.$auth.getToken()){
@@ -33,7 +33,16 @@ module myApp {
         }else {
             this.$q.reject({ message: 'User has no Token'});
         }
-    };
+        };
+
+        public updateUserPassword =  (data) => {
+            if(this.$auth.getToken()){
+                console.log(data);
+                return this.$http.put('http://127.0.0.1:8000/api/fighters/updatePassword', data);
+            }else {
+                this.$q.reject({ message: 'User has no Token'});
+            }
+        };
 
 
     }

@@ -31,8 +31,62 @@ angular.module('myApp')
         }
         $scope.ageArray = range;
 
+        $scope.showLogin = function (ev) {
+
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'app/templates/modals/login.template.html',
+                //parent: angular.element(document.body),
+                targetEvent: ev,
+                focusOnOpen: true,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function (data) {
+
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+
+        $scope.showRegister = function (ev) {
+
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'app/templates/modals/register.template.html',
+                //parent: angular.element(document.body),
+                targetEvent: ev,
+                focusOnOpen: true,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function (data) {
+
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+
+        $scope.showSettings = function (ev) {
+
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'app/templates/modals/settings.template.html',
+                //parent: angular.element(document.body),
+                targetEvent: ev,
+                focusOnOpen: true,
+                clickOutsideToClose: true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function (data) {
+                    console.log(data);
+                }, function () {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
 
         $scope.showEditProfile = function (ev) {
+
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'app/templates/modals/editprofile.template.html',
@@ -79,7 +133,7 @@ angular.module('myApp')
         $scope.addAchievement = function (ev, achievement ) {
 
             $mdDialog.show({
-                controller: DialogController,
+                controller: AchievementController,
                 templateUrl: 'app/templates/modals/addAchievement.template.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
@@ -105,9 +159,23 @@ angular.module('myApp')
         };
 
 
-
-        function DialogController($scope, $mdDialog, achievement) {
+        function AchievementController($scope, $mdDialog, achievement) {
             $scope.achievement = achievement;
+
+            $scope.hide = function () {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function () {
+                $mdDialog.cancel();
+            };
+
+            $scope.submit = function (data) {
+                $mdDialog.hide(data);
+            };
+        }
+
+        function DialogController($scope, $mdDialog) {
 
             $scope.hide = function () {
                 $mdDialog.hide();
@@ -307,9 +375,6 @@ angular.module('myApp')
             {"name": "Saudi Arabia", "code": "SA"},
             {"name": "Senegal", "code": "SN"},
             {"name": "Serbia", "code": "RS"},
-            {"name": "Seychelles", "code": "SC"},
-            {"name": "Sierra Leone", "code": "SL"},
-            {"name": "Singapore", "code": "SG"},
             {"name": "Slovakia", "code": "SK"},
             {"name": "Slovenia", "code": "SI"},
             {"name": "Solomon Islands", "code": "SB"},
@@ -326,14 +391,6 @@ angular.module('myApp')
             {"name": "Switzerland", "code": "CH"},
             {"name": "Syrian Arab Republic", "code": "SY"},
             {"name": "Taiwan, Province of China", "code": "TW"},
-            {"name": "Tajikistan", "code": "TJ"},
-            {"name": "Tanzania, United Republic of", "code": "TZ"},
-            {"name": "Thailand", "code": "TH"},
-            {"name": "Timor-Leste", "code": "TL"},
-            {"name": "Togo", "code": "TG"},
-            {"name": "Tokelau", "code": "TK"},
-            {"name": "Tonga", "code": "TO"},
-            {"name": "Trinidad and Tobago", "code": "TT"},
             {"name": "Tunisia", "code": "TN"},
             {"name": "Turkey", "code": "TR"},
             {"name": "Turkmenistan", "code": "TM"},
@@ -343,19 +400,7 @@ angular.module('myApp')
             {"name": "Ukraine", "code": "UA"},
             {"name": "United Arab Emirates", "code": "AE"},
             {"name": "United Kingdom", "code": "GB"},
-            {"name": "United States", "code": "US"},
-            {"name": "United States Minor Outlying Islands", "code": "UM"},
-            {"name": "Uruguay", "code": "UY"},
-            {"name": "Uzbekistan", "code": "UZ"},
-            {"name": "Vanuatu", "code": "VU"},
-            {"name": "Venezuela", "code": "VE"},
-            {"name": "Viet Nam", "code": "VN"},
-            {"name": "Virgin Islands, British", "code": "VG"},
-            {"name": "Virgin Islands, U.S.", "code": "VI"},
-            {"name": "Wallis and Futuna", "code": "WF"},
-            {"name": "Western Sahara", "code": "EH"},
-            {"name": "Yemen", "code": "YE"},
-            {"name": "Zambia", "code": "ZM"},
-            {"name": "Zimbabwe", "code": "ZW"}
+            {"name": "United States", "code": "US"}
+
         ];
     });

@@ -26,6 +26,7 @@ module myApp{
                     public Upload:any
                     ){
             this.checkIfLoggedIn();
+
         }
 
 
@@ -44,10 +45,10 @@ module myApp{
         public checkIfLoggedIn(){
             if(this.$auth.isAuthenticated()){
                     this.Auth.currentUser().then((data) => {
+
                         this.$scope.currentUser = data.data;
 
                         if(data.data.role === 2){
-                            console.log(data.data.role);
                             this.$scope.admin = true;
                         }
 
@@ -69,6 +70,18 @@ module myApp{
                 }else{
                         this.$scope.currentUser = '';
                 }
+        }
+
+        public passwordUpdate(user){
+            this.Auth.updateUserPassword(user).then((data) => {
+                this.$timeout(() => {
+                    this.$window.location.reload();
+                },2000);
+                this.Toast.makeToast('success', data.data.message);
+            }).catch((response) => {
+
+                this.Toast.makeToast('error', response.data.error);
+            });
         }
 
         public logout(){
