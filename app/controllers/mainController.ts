@@ -11,7 +11,8 @@ module myApp{
                 '$rootScope',
                 '$timeout',
                 '$window',
-                'Upload'
+                'Upload',
+                'UserResource'
         ];
 
         constructor(public $scope:any,
@@ -23,7 +24,8 @@ module myApp{
                     public $rootScope:any,
                     public $timeout:any,
                     public $window:any,
-                    public Upload:any
+                    public Upload:any,
+                    protected User:any
                     ){
             this.checkIfLoggedIn();
 
@@ -119,7 +121,19 @@ module myApp{
                     });
         }
 
-
+        public recover(user){
+            this.User.recover(user).$promise
+                .then((data) => {
+                    this.$timeout(() => {
+                        this.$location.path('/');
+                        this.$window.location.reload();
+                    },2000);
+                    this.Toast.makeToast('success', data.message);
+                })
+                .catch((data) => {
+                    this.Toast.makeToast('error', data.error);
+                });
+        }
 
 
 

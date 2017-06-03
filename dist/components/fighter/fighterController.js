@@ -12,6 +12,8 @@ var myApp;
             this.Upload = Upload;
             this.Achievement = Achievement;
             this.Toast = Toast;
+            this.achievements = [];
+            this.fetchAchievements();
             $scope.$watch('file', function (newVal, oldVal) {
                 if (newVal) {
                     _this.Upload.upload({
@@ -20,7 +22,7 @@ var myApp;
                             file: _this.$scope.file
                         }
                     }).then(function (response) {
-                        console.log(response);
+                        //console.log(response);
                         _this.$scope.fighter.image = response.data.imageUrl;
                         _this.Toast.makeToast('success', response.data.message);
                     });
@@ -30,12 +32,33 @@ var myApp;
                 .then(function (response) {
                 $scope.fighter = response.fighters;
             });
+        }
+        FighterCtrl.prototype.hideForm = function () {
+            this.$scope.showform = false;
+        };
+        FighterCtrl.prototype.fetchAchievements = function () {
+            var _this = this;
             this.Achievement.get({ userId: this.$stateParams['fighterId'] }).$promise
                 .then(function (response) {
-                $scope.achievements = response.data.data;
-                $scope.stats = response.data.achievement;
+                _this.achievements = response.data;
             });
-        }
+        };
+        FighterCtrl.prototype.updateAchievement = function (achievement) {
+            var _this = this;
+            this.Achievement.save({ userId: this.$stateParams['fighterId'] }, achievement).$promise.then(function (response) {
+                _this.fetchAchievements();
+                _this.Toast.makeToast('success', 'Achievement updated');
+            });
+        };
+        FighterCtrl.prototype.addAchievement = function (data) {
+            var _this = this;
+            this.Achievement.save({ userId: this.$stateParams['fighterId'] }, data).$promise.then(function (response) {
+                console.log(response.data);
+                _this.achievements.data.push(response.data);
+                _this.fetchAchievements();
+                _this.Toast.makeToast('success', response.message);
+            });
+        };
         FighterCtrl.prototype.fighterLoggedIn = function () {
             if (this.$scope.currentUser) {
                 if (this.$stateParams['fighterId'] == this.$scope.currentUser.id) {
@@ -43,11 +66,15 @@ var myApp;
                 }
             }
         };
-        FighterCtrl.prototype.deleteAchievement = function (id) {
+        FighterCtrl.prototype.deleteAchievement = function (achievement) {
             var _this = this;
-            this.Achievement.deleteThis({ userId: this.$stateParams['fighterId'], achievementId: id }).$promise
+            this.Achievement.deleteThis({ userId: this.$stateParams['fighterId'], achievementId: achievement.id }).$promise
                 .then(function (response) {
+                var index = _this.achievements.data.indexOf(achievement);
+                _this.achievements.data.splice(index, 1);
+                _this.fetchAchievements();
                 _this.Toast.makeToast('error', response.message);
+                //console.log(this.achievements);
             });
         };
         return FighterCtrl;

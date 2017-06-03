@@ -1,5 +1,4 @@
 <md-dialog aria-label="Mango (Fruit)" ng-controller="ModalCtrl">
-    <form ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools wc-theme">
                 <h2>Add Achievement</h2>
@@ -55,7 +54,7 @@
             </div>
         </md-dialog-content>
 
-        <md-dialog-actions  layout="row">
+        <md-dialog-actions ng-controller="myApp.FighterCtrl as fighterCtrl"  layout="row">
 
             <md-button  ng-disabled="!(achievement.competition_name &&
                                        achievement.location &&
@@ -63,10 +62,10 @@
                                        achievement.category &&
                                        achievement.date
                                         ) "
-                        ng-click="submit(achievement)">
+                        ng-click="fighterCtrl.addAchievement(achievement)">
                Submit
 
             </md-button>
+
         </md-dialog-actions>
-    </form>
 </md-dialog>

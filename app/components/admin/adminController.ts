@@ -12,7 +12,8 @@ module myApp{
                 '$stateParams',
                 'Upload',
                 'AchievementResource',
-                'toastService'
+                'toastService',
+                'UserResource'
             ];
 
 
@@ -23,11 +24,14 @@ module myApp{
                         protected $stateParams:any,
                         public Upload:any,
                     protected Achievement:any,
-                    protected Toast:any
+                    protected Toast:any,
+                    protected User:any,
         ){
+            this.$scope.placeholder = this.$location.$$protocol + '://' + this.$location.$$host + '/img/profile_placeholder.png';
 
-
-
+            this.User.getUnauthorized().$promise.then((response) => {
+                this.$scope.unUsers = response;
+            });
         }
 
 

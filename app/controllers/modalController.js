@@ -144,15 +144,16 @@ angular.module('myApp')
                 fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
             })
                 .then(function (data) {
-                    if(id){
-                        AchievementResource.save({userId: $stateParams['fighterId'], achievementId: achievement.id}, data).$promise.then(function (response) {
-                            toastService.makeToast('success', response.message);
-                        });
-                    }else {
-                        AchievementResource.save({userId: $stateParams['fighterId']}, data).$promise.then(function (response) {
-                            toastService.makeToast('success', response.message);
-                        });
-                    }
+
+                    // if(achievement){
+                    //     AchievementResource.save({userId: $stateParams['fighterId'], achievementId: achievement.id}, data).$promise.then(function (response) {
+                    //         toastService.makeToast('success', response.message);
+                    //     });
+                    // }else {
+                    //     AchievementResource.save({userId: $stateParams['fighterId']}, data).$promise.then(function (response) {
+                    //         toastService.makeToast('success', response.message);
+                    //     });
+                    // }
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });

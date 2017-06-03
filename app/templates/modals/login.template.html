@@ -10,21 +10,21 @@
         </md-toolbar>
 
         <md-dialog-content>
-            <div class="md-dialog-content">
-                <form name="loginForm">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Username</label>
-                        <input  type="email" name="username" ng-model='user.username'
-                               required
-                               minlength="10"
-                               maxlength="64"
-                               ng-pattern="/^.+@.+\..+$/">
-                        <div ng-messages="loginForm.username.$error" ng-show="loginForm.username.$touched">
-                            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
-                                Your email must be between 10 and 64 characters long and look like an e-mail address.
-                            </div>
+            <div class="md-dialog-content"><form name="loginForm">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Username</label>
+                    <input  type="email" name="username" ng-model='user.username'
+                            required
+                            minlength="10"
+                            maxlength="64"
+                            ng-pattern="/^.+@.+\..+$/">
+                    <div ng-messages="loginForm.username.$error" ng-show="loginForm.username.$touched">
+                        <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+                            Your email must be between 10 and 64 characters long and look like an e-mail address.
                         </div>
-                    </md-input-container>
+                    </div>
+                </md-input-container>
+
 
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Password</label>
@@ -43,7 +43,10 @@
 
             <button ng-click="main.login(user)" ng-disabled="loginForm.$invalid" class="btn btn-success pull-left" >Log in</button>
 
-            <md-button class="md-raised md-primary" ng-click="main.authenticate('facebook')">Facebook</md-button>
-            <md-button class="md-raised md-warn" ng-click="main.authenticate('google')">Google</md-button>
+            <md-button class="md-raised md-primary" ng-click="main.authenticate('facebook')"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</md-button>
+            <md-button class="md-raised md-warn" ng-click="main.authenticate('google')"><i class="fa fa-google" aria-hidden="true"></i> Google</md-button>
         </md-dialog-actions>
+    <md-dialog-actions layout="row">
+        <a ui-sref="recovery" ng-click="cancel()" style="font-size: small">Forgot your password?</a>
+    </md-dialog-actions>
 </md-dialog>

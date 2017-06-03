@@ -1,7 +1,7 @@
 var myApp;
 (function (myApp) {
     var MainCtrl = (function () {
-        function MainCtrl($scope, $location, $auth, Toast, Auth, $mdDialog, $rootScope, $timeout, $window, Upload) {
+        function MainCtrl($scope, $location, $auth, Toast, Auth, $mdDialog, $rootScope, $timeout, $window, Upload, User) {
             this.$scope = $scope;
             this.$location = $location;
             this.$auth = $auth;
@@ -12,6 +12,7 @@ var myApp;
             this.$timeout = $timeout;
             this.$window = $window;
             this.Upload = Upload;
+            this.User = User;
             this.checkIfLoggedIn();
         }
         MainCtrl.prototype.upload = function (file) {
@@ -99,6 +100,19 @@ var myApp;
                 _this.Toast.makeToast('error', 'Something went wrong');
             });
         };
+        MainCtrl.prototype.recover = function (user) {
+            var _this = this;
+            this.User.recover(user).$promise
+                .then(function (data) {
+                _this.$timeout(function () {
+                    _this.$location.path('/');
+                    _this.$window.location.reload();
+                }, 2000);
+                _this.Toast.makeToast('success', data.message);
+            })["catch"](function (data) {
+                _this.Toast.makeToast('error', data.error);
+            });
+        };
         return MainCtrl;
     }());
     MainCtrl.$inject = [
@@ -111,7 +125,8 @@ var myApp;
         '$rootScope',
         '$timeout',
         '$window',
-        'Upload'
+        'Upload',
+        'UserResource'
     ];
     myApp.MainCtrl = MainCtrl;
     angular.module('myApp').controller('myApp.MainCtrl', MainCtrl);

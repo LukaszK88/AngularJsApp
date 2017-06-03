@@ -16,6 +16,8 @@ module myApp{
             ];
 
 
+        public achievements:any = [];
+
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
                         public $location:any,
@@ -25,6 +27,8 @@ module myApp{
                     protected Achievement:any,
                     protected Toast:any
         ){
+            this.fetchAchievements();
+
 
             $scope.$watch('file',  (newVal,oldVal) => {
                 if(newVal) {
@@ -34,7 +38,7 @@ module myApp{
                             file: this.$scope.file
                         }
                     }).then((response: any) => {
-                        console.log(response);
+                       
                         this.$scope.fighter.image = response.data.imageUrl;
                         this.Toast.makeToast('success',response.data.message);
 
@@ -48,13 +52,35 @@ module myApp{
                     $scope.fighter = response.fighters;
                 });
 
+
+        }
+
+        public hideForm(){
+            this.$scope.showform = false;
+        }
+
+        public fetchAchievements(){
             this.Achievement.get({userId:this.$stateParams['fighterId']}).$promise
                 .then((response:any) => {
-                    $scope.achievements = response.data.data;
-                    $scope.stats = response.data.achievement;
-
-
+                    this.achievements = response.data;
                 });
+        }
+
+        public updateAchievement(achievement){
+            this.Achievement.save({userId: this.$stateParams['fighterId']}, achievement).$promise.then((response) => {
+                this.fetchAchievements();
+                this.Toast.makeToast('success', 'Achievement updated');
+            });
+        }
+
+
+        public addAchievement(data){
+            this.Achievement.save({userId: this.$stateParams['fighterId']}, data).$promise.then((response) => {
+                console.log(response.data);
+                this.achievements.data.push(response.data);
+                this.fetchAchievements();
+                this.Toast.makeToast('success', response.message);
+            });
         }
 
         public fighterLoggedIn(){
@@ -65,9 +91,12 @@ module myApp{
             }
         }
 
-        public deleteAchievement(id:number){
-            this.Achievement.deleteThis({userId:this.$stateParams['fighterId'], achievementId:id}).$promise
+        public deleteAchievement(achievement:any){
+            this.Achievement.deleteThis({userId:this.$stateParams['fighterId'], achievementId:achievement.id}).$promise
                 .then((response:any) => {
+                   let index=this.achievements.data.indexOf(achievement);
+                    this.achievements.data.splice(index,1);
+                    this.fetchAchievements();
                     this.Toast.makeToast('error',response.message);
                 });
         }

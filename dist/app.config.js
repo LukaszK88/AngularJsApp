@@ -55,9 +55,7 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
         })
             .state("fighterDetail", {
             url: "/fighters/:fighterId",
-            templateUrl: 'app/components/fighter/fighterDetail.template.html',
-            controller: 'myApp.FighterCtrl',
-            controllerAs: 'fighterCtrl'
+            templateUrl: 'app/components/fighter/fighterDetail.template.html'
         })
             .state("adminPage", {
             url: "/admin",
@@ -70,9 +68,9 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
             templateUrl: 'app/templates/register.template.html',
             controller: 'myApp.SignupCtrl'
         }).
-            state("login", {
-            url: "/login",
-            templateUrl: 'app/templates/login.template.html'
+            state("recovery", {
+            url: "/recovery",
+            templateUrl: 'app/templates/recovery.template.html'
         });
     }
 ]);

@@ -10,8 +10,24 @@
             </md-card-title>
             <md-card-content layout="row" layout-align="space-between">
                 <div class="col-md-5">
-                    <span class="md-subhead">Awaiting approval</span>
-
+                    <span class="md-subhead text-center">Awaiting approval</span>
+                    <md-card ng-repeat="user in unUsers" md-theme="default" md-theme-watch>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-subhead">{{user.username}}</span>
+                            </md-card-title-text>
+                            <md-card-title-media>
+                                <div class="md-media-sm card-media">
+                                    <img class="md-media-sm card-media" ng-if="user.image" src="{{ user.image}}">
+                                    <img class="md-media-sm card-media" ng-if="!user.image" src="{{ placeholder }}">
+                                </div>
+                            </md-card-title-media>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button>Approve</md-button>
+                            <md-button>Remove</md-button>
+                        </md-card-actions>
+                    </md-card>
 
                 </div>
 
