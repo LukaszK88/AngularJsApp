@@ -2,29 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f6d7b40-b73a-400f-aa45-5d9beeb475ee" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/templates/about.html" afterPath="$PROJECT_DIR$/app/templates/recovery.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.config.ts" afterPath="$PROJECT_DIR$/app/app.config.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/admin/adminController.ts" afterPath="$PROJECT_DIR$/app/components/admin/adminController.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/admin/adminPage.template.html" afterPath="$PROJECT_DIR$/app/components/admin/adminPage.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/fighter/fighterController.ts" afterPath="$PROJECT_DIR$/app/components/fighter/fighterController.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" afterPath="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/master.template.html" afterPath="$PROJECT_DIR$/app/components/ranking/master.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/ranking.html" afterPath="$PROJECT_DIR$/app/components/ranking/ranking.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/mainController.ts" afterPath="$PROJECT_DIR$/app/controllers/mainController.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/modalController.js" afterPath="$PROJECT_DIR$/app/controllers/modalController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/addAchievement.template.html" afterPath="$PROJECT_DIR$/app/templates/modals/addAchievement.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/login.template.html" afterPath="$PROJECT_DIR$/app/templates/modals/login.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/register.template.html" afterPath="$PROJECT_DIR$/app/templates/modals/register.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/modals/settings.template.html" afterPath="$PROJECT_DIR$/app/templates/modals/settings.template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/resources/userResource.ts" afterPath="$PROJECT_DIR$/app/core/resources/userResource.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/services/auth.service.ts" afterPath="$PROJECT_DIR$/app/core/services/auth.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/services/toast.service.ts" afterPath="$PROJECT_DIR$/app/core/services/toast.service.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/creative.css" afterPath="$PROJECT_DIR$/css/creative.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/creative.min.css" afterPath="$PROJECT_DIR$/css/creative.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.config.js" afterPath="$PROJECT_DIR$/dist/app.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.module.js" afterPath="$PROJECT_DIR$/dist/app.module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/admin/adminController.js" afterPath="$PROJECT_DIR$/dist/components/admin/adminController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/fighter/fighterController.js" afterPath="$PROJECT_DIR$/dist/components/fighter/fighterController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/mainController.js" afterPath="$PROJECT_DIR$/dist/controllers/mainController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/core/resources/userResource.js" afterPath="$PROJECT_DIR$/dist/core/resources/userResource.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/core/services/auth.service.js" afterPath="$PROJECT_DIR$/dist/core/services/auth.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/core/services/toast.service.js" afterPath="$PROJECT_DIR$/dist/core/services/toast.service.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/creative.less" afterPath="$PROJECT_DIR$/less/creative.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,21 +40,91 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fighterController.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterController.ts">
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-104">
-              <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+            <state relative-caret-position="324">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fighterDetail.template.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="adminController.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/admin/adminController.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ranking.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/ranking/ranking.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="master.template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userResource.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/core/resources/userResource.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="472">
+              <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="achievementResource.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/fighter/achievementResource.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="24" column="20" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="24" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminPage.template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/admin/adminPage.template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="25" column="140" lean-forward="false" selection-start-line="25" selection-start-column="140" selection-end-line="25" selection-end-column="140" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fighterDetail.template.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="231" column="44" lean-forward="true" selection-start-line="231" selection-start-column="44" selection-end-line="231" selection-end-column="44" />
+            <state relative-caret-position="414">
+              <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
               </folding>
@@ -61,31 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.config.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/app.config.ts">
+      <file leaf-file-name="mainController.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/mainController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="70" column="80" lean-forward="false" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addAchievement.template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/modals/addAchievement.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modalController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/modalController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
-              <caret line="150" column="30" lean-forward="false" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
+            <state relative-caret-position="598">
+              <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -140,7 +191,6 @@
         <option value="$PROJECT_DIR$/app/components/ranking/profight.template.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/tableBohurt.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/updateLongswordRecord.template.html" />
-        <option value="$PROJECT_DIR$/app/components/ranking/master.template.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/tableAllController.ts" />
         <option value="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" />
@@ -153,30 +203,31 @@
         <option value="$PROJECT_DIR$/app/templates/modals/ranking/updateSwordBucklerRecord.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/ranking/updateSwordShieldRecord.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/ranking/updateTriathlonRecord.template.html" />
-        <option value="$PROJECT_DIR$/app/core/services/toast.service.ts" />
-        <option value="$PROJECT_DIR$/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/app/core/services/auth.service.ts" />
         <option value="$PROJECT_DIR$/app/controllers/signupController.ts" />
-        <option value="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
-        <option value="$PROJECT_DIR$/app/components/admin/adminController.ts" />
-        <option value="$PROJECT_DIR$/app/components/admin/adminPage.template.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/settings.template.html" />
         <option value="$PROJECT_DIR$/app/templates/about.html" />
         <option value="$PROJECT_DIR$/app/templates/recovery.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/login.template.html" />
         <option value="$PROJECT_DIR$/app/templates/modals/register.template.html" />
-        <option value="$PROJECT_DIR$/app/components/ranking/ranking.html" />
         <option value="$PROJECT_DIR$/css/creative.css" />
         <option value="$PROJECT_DIR$/less/mixins.less" />
-        <option value="$PROJECT_DIR$/less/creative.less" />
-        <option value="$PROJECT_DIR$/app/core/resources/userResource.ts" />
-        <option value="$PROJECT_DIR$/app/controllers/mainController.ts" />
         <option value="$PROJECT_DIR$/app/app.config.ts" />
-        <option value="$PROJECT_DIR$/app/controllers/modalController.js" />
         <option value="$PROJECT_DIR$/app/templates/modals/addAchievement.template.html" />
-        <option value="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
         <option value="$PROJECT_DIR$/app/components/fighter/fighterController.ts" />
+        <option value="$PROJECT_DIR$/app/controllers/modalController.js" />
+        <option value="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
+        <option value="$PROJECT_DIR$/app/core/services/auth.service.ts" />
+        <option value="$PROJECT_DIR$/app/controllers/mainController.ts" />
+        <option value="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
+        <option value="$PROJECT_DIR$/less/creative.less" />
+        <option value="$PROJECT_DIR$/app/core/services/toast.service.ts" />
+        <option value="$PROJECT_DIR$/app/core/resources/userResource.ts" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/app/components/ranking/ranking.html" />
+        <option value="$PROJECT_DIR$/app/components/ranking/master.template.html" />
+        <option value="$PROJECT_DIR$/app/components/admin/adminController.ts" />
+        <option value="$PROJECT_DIR$/app/components/admin/adminPage.template.html" />
       </list>
     </option>
   </component>
@@ -250,7 +301,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-16" />
+    <option name="x" value="-77" />
     <option name="y" value="52" />
     <option name="width" value="1556" />
     <option name="height" value="690" />
@@ -398,6 +449,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="directives" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nav" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -651,20 +724,20 @@
       <workItem from="1492635852545" duration="50594000" />
       <workItem from="1494272115543" duration="7256000" />
       <workItem from="1494484352388" duration="3517000" />
-      <workItem from="1494914428953" duration="173678000" />
+      <workItem from="1494914428953" duration="190294000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="407174000" />
+    <option name="totallyTimeSpent" value="423790000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="52" width="1556" height="690" extended-state="0" />
+    <frame x="-77" y="52" width="1556" height="690" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24662966" sideWeight="0.5123839" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16953643" sideWeight="0.4876161" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.4876161" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -702,14 +775,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/profight.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/ranking/tableBohurt.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -858,16 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/services/toast.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc;n#myApp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/register.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -880,56 +935,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/services/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc;n#myApp#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/signupController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/fighter/achievementResource.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/admin/adminController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="29" column="129" lean-forward="false" selection-start-line="29" selection-start-column="129" selection-end-line="29" selection-end-column="129" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="49" selection-start-column="32" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -954,22 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="70" column="36" lean-forward="false" selection-start-line="70" selection-start-column="36" selection-end-line="70" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/admin/adminPage.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/nav/nav.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="37" column="53" lean-forward="false" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -1008,92 +997,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/ranking.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/creative.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
-            <marker date="1496209222891" expanded="true" signature="250:401" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="407:478" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="482:550" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="560:586" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="589:696" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="714:735" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="759:827" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="830:895" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="905:953" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="966:1004" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1013:1036" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1043:1065" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1078:1095" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1112:1335" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1381:1516" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1688:1777" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="1845:1934" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="2176:3255" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="2196:2245" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="2532:2568" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="2702:2778" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="3263:3558" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="3582:3673" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="3722:3830" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="3951:4051" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4078:4662" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4089:4116" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4142:4317" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4365:4440" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4567:4660" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4680:4700" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4714:4760" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4787:4836" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4804:4834" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4852:4875" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="4891:4972" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="5011:5280" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="5350:5455" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="5627:5714" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="6110:6341" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="6361:6387" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="6402:6423" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="6453:6495" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="6509:6668" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="6808:6883" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="7568:7621" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="7642:7690" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="7704:7865" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="8005:8078" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="8763:8820" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="8841:8889" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="8895:9052" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9061:9086" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9104:9167" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9180:9243" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9259:9278" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9324:9366" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9376:9412" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9580:9603" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9618:9653" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9673:9727" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9747:9781" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9804:9912" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="9923:10051" ph="{...}" />
-            <marker date="1496209222891" expanded="true" signature="10062:10092" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="250:415" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="421:492" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="496:564" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="574:600" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="603:710" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="728:749" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="773:841" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="844:909" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="919:967" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="980:1018" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1027:1050" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1057:1079" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1092:1109" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1126:1349" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1395:1530" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1702:1791" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="1859:1948" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="2190:3269" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="2210:2259" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="2546:2582" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="2716:2792" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="3277:3572" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="3596:3687" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="3736:3844" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="3965:4065" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4092:4676" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4103:4130" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4156:4331" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4379:4454" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4581:4674" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4694:4714" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4728:4774" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4801:4850" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4818:4848" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4866:4889" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="4905:4986" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="5025:5294" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="5364:5469" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="5641:5728" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="6124:6355" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="6375:6401" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="6416:6437" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="6467:6509" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="6523:6682" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="6822:6897" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="7582:7635" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="7656:7704" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="7718:7879" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="8019:8092" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="8777:8834" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="8855:8903" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="8909:9066" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9075:9100" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9118:9181" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9194:9257" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9273:9292" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9338:9380" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9390:9426" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9594:9598" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9654:9692" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9699:9739" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9759:9793" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9816:9924" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="9935:10063" ph="{...}" />
+            <marker date="1496487021159" expanded="true" signature="10074:10104" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1109,46 +1082,6 @@
     <entry file="file://$PROJECT_DIR$/img/bg2.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/creative.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/core/resources/userResource.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/mainController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1966">
-          <caret line="136" column="0" lean-forward="false" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.config.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="70" column="80" lean-forward="false" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/modalController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="150" column="30" lean-forward="false" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
@@ -1167,21 +1100,161 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html">
+    <entry file="file://$PROJECT_DIR$/app/controllers/modalController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="231" column="44" lean-forward="true" selection-start-line="231" selection-start-column="44" selection-end-line="231" selection-end-column="44" />
+        <state relative-caret-position="234">
+          <caret line="98" column="5" lean-forward="false" selection-start-line="98" selection-start-column="5" selection-end-line="98" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="70" column="80" lean-forward="false" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/mainController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="122" column="0" lean-forward="false" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/services/auth.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="20" column="9" lean-forward="false" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding>
-            <element signature="n#style#0;n#img#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#!!doc;n#myApp#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/signupController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="28" column="20" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/creative.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="392" column="20" lean-forward="false" selection-start-line="392" selection-start-column="20" selection-end-line="392" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/services/toast.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc;n#myApp#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/nav/nav.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-104">
-          <caret line="40" column="23" lean-forward="false" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+        <state relative-caret-position="220">
+          <caret line="97" column="59" lean-forward="false" selection-start-line="96" selection-start-column="19" selection-end-line="97" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/fighter/achievementResource.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="24" column="20" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="24" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/core/resources/userResource.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/ranking/ranking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/components/ranking/tableAllController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="26" column="53" lean-forward="false" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/admin/adminController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/admin/adminPage.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="25" column="140" lean-forward="false" selection-start-line="25" selection-start-column="140" selection-end-line="25" selection-end-column="140" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="38" column="18" lean-forward="true" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

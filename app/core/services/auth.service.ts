@@ -21,7 +21,7 @@ module myApp {
         }
         public currentUser =  () => {
         if(this.$auth.getToken()){
-            return this.$http.get('http://127.0.0.1:8000/api/user');
+            return this.$http.get('http://127.0.0.1:8000/api/fighter');
         }else {
             this.$q.reject({ message: 'User has no Token'});
         }

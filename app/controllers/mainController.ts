@@ -117,7 +117,7 @@ module myApp{
                         },2000);
                  this.Toast.makeToast('success',response.data.message);
                     }).catch((response) => {
-                 this.Toast.makeToast('error', 'Something went wrong');
+                 this.Toast.makeToast('error', response.data.error);
                     });
         }
 

@@ -14,17 +14,17 @@
                         <th ng-if="!profight && !total" width="8%">Fights</th>
                         <th ng-if="!total" width="8%">Won</th>
                         <!--bohurt-->
-                        <th ng-if="bohurt" width="8%">Last man</th>
-                        <th ng-if="bohurt" width="8%">Down</th>
-                        <th ng-if="bohurt" width="8%">Suicides</th>
-                        <th ng-if="bohurt" width="8%">Ratio</th>
+                        <th ng-if="bohurt && !total" width="8%">Last man</th>
+                        <th ng-if="bohurt && !total" width="8%">Down</th>
+                        <th ng-if="bohurt && !total" width="8%">Suicides</th>
+                        <th ng-if="bohurt && !total" width="8%">Ratio</th>
 
                         <th ng-if="!bohurt && !total" width="8%">Lost</th>
                         <!--profight-->
-                        <th ng-if="profight" width="8%">KO</th>
-                        <th ng-if="profight" width="8%">First Class I</th>
-                        <th ng-if="profight" width="8%">First Class II</th>
-                        <th ng-if="profight" width="8%">First Class III</th>
+                        <th ng-if="profight && !total" width="8%">KO</th>
+                        <th ng-if="profight && !total" width="8%">First Class I</th>
+                        <th ng-if="profight && !total" width="8%">First Class II</th>
+                        <th ng-if="profight && !total" width="8%">First Class III</th>
                         <th ng-if="!total" width="5%">Points</th>
                         <th ng-if="!total" width="5%">Last Update</th>
                         <th ng-if="admin && !total">edit</th>
@@ -39,60 +39,60 @@
                         <td ng-if="total"> img </td>
                         <td ng-if="total" width="7%">{{ fighter.total_points}}</td>
                         <!--bohurt-->
-                        <td ng-if="bohurt">{{ fighter.bohurt | arrayHelper:'fights'}}</td>
-                        <td ng-if="bohurt">{{ fighter.bohurt | arrayHelper:'won'}}</td>
-                        <td ng-if="bohurt">{{ fighter.bohurt | arrayHelper:'last'}}</td>
-                        <td ng-if="bohurt">{{ fighter.bohurt | arrayHelper:'down'}}</td>
-                        <td ng-if="bohurt">{{ fighter.bohurt | arrayHelper:'suicide'}}</td>
-                        <td ng-if="bohurt">{{ (((((fighter.bohurt | arrayHelper:'suicide') + (fighter.bohurt | arrayHelper:'down'))/ (fighter.bohurt | arrayHelper:'fights'))*100)-100) | abs | limitTo:2 }} %</td>
-                        <td ng-if="bohurt">{{ fighter.bohurt | arrayHelper:'points'}}</td>
-                        <td ng-if="bohurt">{{ fighter.bohurt[0].updated_at | limitTo: 10 }}</td>
-                        <td ng-if="bohurt && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Bohurt')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt | arrayHelper:'fights'}}</td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt | arrayHelper:'won'}}</td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt | arrayHelper:'last'}}</td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt | arrayHelper:'down'}}</td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt | arrayHelper:'suicide'}}</td>
+                        <td ng-if="bohurt && !total">{{ (((((fighter.bohurt | arrayHelper:'suicide') + (fighter.bohurt | arrayHelper:'down'))/ (fighter.bohurt | arrayHelper:'fights'))*100)-100) | abs | limitTo:2 }} %</td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt | arrayHelper:'points'}}</td>
+                        <td ng-if="bohurt && !total">{{ fighter.bohurt[0].updated_at | limitTo: 10 }}</td>
+                        <td ng-if="bohurt && admin  && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Bohurt')"><button class="btn btn-success btn-sm">x</button></td>
                         <!--profight-->
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'win'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'loss'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'ko'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'fc_1'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'fc_2'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'fc_3'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight | arrayHelper:'points'}}</td>
-                        <td ng-if="profight" >{{ fighter.profight[0].updated_at | limitTo: 10}}</td>
-                        <td ng-if="profight && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Profight')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'win'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'loss'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'ko'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'fc_1'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'fc_2'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'fc_3'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight | arrayHelper:'points'}}</td>
+                        <td ng-if="profight && !total" >{{ fighter.profight[0].updated_at | limitTo: 10}}</td>
+                        <td ng-if="profight && admin  && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Profight')"><button class="btn btn-success btn-sm">x</button></td>
                         <!--swordShield-->
-                        <td ng-if="swordShield">{{ fighter.sword_shield | arrayHelper:'fights'}}</td>
-                        <td ng-if="swordShield">{{ fighter.sword_shield | arrayHelper:'win'}}</td>
-                        <td ng-if="swordShield">{{ fighter.sword_shield | arrayHelper:'loss'}}</td>
-                        <td ng-if="swordShield">{{ fighter.sword_shield | arrayHelper:'points'}}</td>
-                        <td ng-if="swordShield">{{ fighter.sword_shield[0].updated_at | limitTo: 10}}</td>
-                        <td ng-if="swordShield && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'SwordShield')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="swordShield && !total">{{ fighter.sword_shield | arrayHelper:'fights'}}</td>
+                        <td ng-if="swordShield && !total">{{ fighter.sword_shield | arrayHelper:'win'}}</td>
+                        <td ng-if="swordShield && !total">{{ fighter.sword_shield | arrayHelper:'loss'}}</td>
+                        <td ng-if="swordShield && !total">{{ fighter.sword_shield | arrayHelper:'points'}}</td>
+                        <td ng-if="swordShield && !total">{{ fighter.sword_shield[0].updated_at | limitTo: 10}}</td>
+                        <td ng-if="swordShield && admin  && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'SwordShield')"><button class="btn btn-success btn-sm">x</button></td>
                         <!--longsword-->
-                        <td ng-if="longsword">{{ fighter.longsword | arrayHelper:'fights'}}</td>
-                        <td ng-if="longsword">{{ fighter.longsword | arrayHelper:'win'}}</td>
-                        <td ng-if="longsword">{{ fighter.longsword | arrayHelper:'loss'}}</td>
-                        <td ng-if="longsword">{{ fighter.longsword | arrayHelper:'points'}}</td>
-                        <td ng-if="longsword">{{ fighter.longsword[0].updated_at | limitTo: 10}}</td>
-                        <td ng-if="longsword && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Longsword')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="longsword && !total">{{ fighter.longsword | arrayHelper:'fights'}}</td>
+                        <td ng-if="longsword && !total">{{ fighter.longsword | arrayHelper:'win'}}</td>
+                        <td ng-if="longsword && !total">{{ fighter.longsword | arrayHelper:'loss'}}</td>
+                        <td ng-if="longsword && !total">{{ fighter.longsword | arrayHelper:'points'}}</td>
+                        <td ng-if="longsword && !total">{{ fighter.longsword[0].updated_at | limitTo: 10}}</td>
+                        <td ng-if="longsword && admin  && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Longsword')"><button class="btn btn-success btn-sm">x</button></td>
                         <!--swordBuckler-->
-                        <td ng-if="swordBuckler">{{ fighter.sword_buckler | arrayHelper:'fights'}}</td>
-                        <td ng-if="swordBuckler">{{ fighter.sword_buckler | arrayHelper:'win'}}</td>
-                        <td ng-if="swordBuckler">{{ fighter.sword_buckler | arrayHelper:'loss'}}</td>
-                        <td ng-if="swordBuckler">{{ fighter.sword_buckler | arrayHelper:'points'}}</td>
-                        <td ng-if="swordBuckler">{{ fighter.sword_buckler[0].updated_at | limitTo: 10}}</td>
-                        <td ng-if="swordBuckler && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'SwordBuckler')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="swordBuckler && !total">{{ fighter.sword_buckler | arrayHelper:'fights'}}</td>
+                        <td ng-if="swordBuckler && !total">{{ fighter.sword_buckler | arrayHelper:'win'}}</td>
+                        <td ng-if="swordBuckler && !total">{{ fighter.sword_buckler | arrayHelper:'loss'}}</td>
+                        <td ng-if="swordBuckler && !total">{{ fighter.sword_buckler | arrayHelper:'points'}}</td>
+                        <td ng-if="swordBuckler && !total">{{ fighter.sword_buckler[0].updated_at | limitTo: 10}}</td>
+                        <td ng-if="swordBuckler && admin  && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'SwordBuckler')"><button class="btn btn-success btn-sm">x</button></td>
                         <!--polearm-->
-                        <td ng-if="polearm">{{ fighter.polearm | arrayHelper:'fights'}}</td>
-                        <td ng-if="polearm">{{ fighter.polearm | arrayHelper:'win'}}</td>
-                        <td ng-if="polearm">{{ fighter.polearm | arrayHelper:'loss'}}</td>
-                        <td ng-if="polearm">{{ fighter.polearm | arrayHelper:'points'}}</td>
-                        <td ng-if="polearm">{{ fighter.polearm[0].updated_at | limitTo: 10}}</td>
-                        <td ng-if="polearm && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Polearm')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="polearm && !total">{{ fighter.polearm | arrayHelper:'fights'}}</td>
+                        <td ng-if="polearm && !total">{{ fighter.polearm | arrayHelper:'win'}}</td>
+                        <td ng-if="polearm && !total">{{ fighter.polearm | arrayHelper:'loss'}}</td>
+                        <td ng-if="polearm && !total">{{ fighter.polearm | arrayHelper:'points'}}</td>
+                        <td ng-if="polearm && !total">{{ fighter.polearm[0].updated_at | limitTo: 10}}</td>
+                        <td ng-if="polearm && admin  && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Polearm')"><button class="btn btn-success btn-sm">x</button></td>
                         <!--triathlon-->
-                        <td ng-if="triathlon">{{ fighter.triathlon | arrayHelper:'fights'}}</td>
-                        <td ng-if="triathlon">{{ fighter.triathlon | arrayHelper:'win'}}</td>
-                        <td ng-if="triathlon">{{ fighter.triathlon | arrayHelper:'loss'}}</td>
-                        <td ng-if="triathlon">{{ fighter.triathlon | arrayHelper:'points'}}</td>
-                        <td ng-if="triathlon">{{ fighter.triathlon[0].updated_at | limitTo: 10}}</td>
-                        <td ng-if="triathlon && admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Triathlon')"><button class="btn btn-success btn-sm">x</button></td>
+                        <td ng-if="triathlon && !total">{{ fighter.triathlon | arrayHelper:'fights'}}</td>
+                        <td ng-if="triathlon && !total">{{ fighter.triathlon | arrayHelper:'win'}}</td>
+                        <td ng-if="triathlon && !total">{{ fighter.triathlon | arrayHelper:'loss'}}</td>
+                        <td ng-if="triathlon && !total">{{ fighter.triathlon | arrayHelper:'points'}}</td>
+                        <td ng-if="triathlon && !total">{{ fighter.triathlon[0].updated_at | limitTo: 10}}</td>
+                        <td ng-if="triathlon && admin && !total" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Triathlon')"><button class="btn btn-success btn-sm">x</button></td>
 
                     </tr>
 

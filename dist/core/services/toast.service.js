@@ -11,7 +11,7 @@ var myApp;
                 this.$mdToast.show(this.$mdToast.simple()
                     .content(string)
                     .theme(type + "-toast")
-                    .position('top center')
+                    .position('right')
                     .hideDelay(4000)
                     .action('OK'));
             };

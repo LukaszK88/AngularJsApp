@@ -19,5 +19,6 @@ var myApp;
         'ngFileUpload',
         //Internal
         'myApp.ranking'
-    ]);
+    ])
+        .constant('_', window._);
 })(myApp || (myApp = {}));

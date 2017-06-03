@@ -97,7 +97,7 @@ var myApp;
                 }, 2000);
                 _this.Toast.makeToast('success', response.data.message);
             })["catch"](function (response) {
-                _this.Toast.makeToast('error', 'Something went wrong');
+                _this.Toast.makeToast('error', response.data.error);
             });
         };
         MainCtrl.prototype.recover = function (user) {

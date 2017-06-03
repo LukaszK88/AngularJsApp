@@ -5,12 +5,14 @@
  */
 html,
 body {
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+}
+.bg-pages {
   background: url(../img/bg2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-  margin-top: 60px;
 }
 body {
   font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
@@ -418,14 +420,13 @@ md-toast.md-success-toast-theme .md-toast-content {
   background-color: green;
 }
 md-toast {
+  position: fixed !important;
   margin-top: 50px;
 }
 .md-fixed-top {
-  position: fixed;
   top: 66px;
 }
 md-toast.md-center {
-  left: 50%;
   transform: translate3d(-50%, 0, 0);
 }
 .nav-profile-photo {

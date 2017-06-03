@@ -130,52 +130,6 @@ angular.module('myApp')
             });
         };
 
-        $scope.addAchievement = function (ev, achievement ) {
-
-            $mdDialog.show({
-                controller: AchievementController,
-                templateUrl: 'app/templates/modals/addAchievement.template.html',
-                parent: angular.element(document.body),
-                targetEvent: ev,
-                locals:{
-                    achievement: achievement
-                },
-                clickOutsideToClose: true,
-                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-            })
-                .then(function (data) {
-
-                    // if(achievement){
-                    //     AchievementResource.save({userId: $stateParams['fighterId'], achievementId: achievement.id}, data).$promise.then(function (response) {
-                    //         toastService.makeToast('success', response.message);
-                    //     });
-                    // }else {
-                    //     AchievementResource.save({userId: $stateParams['fighterId']}, data).$promise.then(function (response) {
-                    //         toastService.makeToast('success', response.message);
-                    //     });
-                    // }
-                }, function () {
-                    $scope.status = 'You cancelled the dialog.';
-                });
-        };
-
-
-        function AchievementController($scope, $mdDialog, achievement) {
-            $scope.achievement = achievement;
-
-            $scope.hide = function () {
-                $mdDialog.hide();
-            };
-
-            $scope.cancel = function () {
-                $mdDialog.cancel();
-            };
-
-            $scope.submit = function (data) {
-                $mdDialog.hide(data);
-            };
-        }
-
         function DialogController($scope, $mdDialog) {
 
             $scope.hide = function () {

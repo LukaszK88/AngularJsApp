@@ -19,5 +19,6 @@ module myApp{
             //Internal
             'myApp.ranking'
 
-        ]);
+        ])
+        .constant('_', window._);
 }

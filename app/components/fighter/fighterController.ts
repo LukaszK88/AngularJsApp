@@ -38,7 +38,7 @@ module myApp{
                             file: this.$scope.file
                         }
                     }).then((response: any) => {
-                       
+
                         this.$scope.fighter.image = response.data.imageUrl;
                         this.Toast.makeToast('success',response.data.message);
 

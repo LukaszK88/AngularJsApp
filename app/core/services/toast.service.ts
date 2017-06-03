@@ -16,8 +16,8 @@ module myApp {
             this.$mdToast.simple()
                 .content(string)
                 .theme(type + "-toast")
-                //.parent($("#toast"))
-                .position('top center')
+                //.parent($(".p"))
+                .position('right')
                 .hideDelay(4000)
                 .action('OK')
         );

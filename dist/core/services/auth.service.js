@@ -12,7 +12,7 @@ var myApp;
             this.$q = $q;
             this.currentUser = function () {
                 if (_this.$auth.getToken()) {
-                    return _this.$http.get('http://127.0.0.1:8000/api/user');
+                    return _this.$http.get('http://127.0.0.1:8000/api/fighter');
                 }
                 else {
                     _this.$q.reject({ message: 'User has no Token' });

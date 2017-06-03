@@ -22,7 +22,6 @@ var myApp;
                             file: _this.$scope.file
                         }
                     }).then(function (response) {
-                        //console.log(response);
                         _this.$scope.fighter.image = response.data.imageUrl;
                         _this.Toast.makeToast('success', response.data.message);
                     });
@@ -74,7 +73,6 @@ var myApp;
                 _this.achievements.data.splice(index, 1);
                 _this.fetchAchievements();
                 _this.Toast.makeToast('error', response.message);
-                //console.log(this.achievements);
             });
         };
         return FighterCtrl;
