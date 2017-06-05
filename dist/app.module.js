@@ -20,5 +20,8 @@ var myApp;
         //Internal
         'myApp.ranking'
     ])
-        .constant('_', window._);
+        .constant('_', window._)
+        .constant('config', {
+        API: 'http://127.0.0.1:8000/api/'
+    });
 })(myApp || (myApp = {}));

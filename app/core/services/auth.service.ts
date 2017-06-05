@@ -9,19 +9,21 @@ module myApp {
         public static $inject = [
             '$auth',
             '$http',
-            '$q'
+            '$q',
+            'config'
         ];
 
         constructor(
             private $auth:any,
             protected $http:any,
-            protected $q:any
+            protected $q:any,
+            protected config:any
         ) {
 
         }
         public currentUser =  () => {
         if(this.$auth.getToken()){
-            return this.$http.get('http://127.0.0.1:8000/api/fighter');
+            return this.$http.get(this.config.API + 'fighter');
         }else {
             this.$q.reject({ message: 'User has no Token'});
         }
@@ -29,7 +31,7 @@ module myApp {
 
         public updateUser =  (data) => {
         if(this.$auth.getToken()){
-            return this.$http.put('http://127.0.0.1:8000/api/fighters/update', data);
+            return this.$http.put(this.config.API + 'fighters/update', data);
         }else {
             this.$q.reject({ message: 'User has no Token'});
         }
@@ -38,7 +40,7 @@ module myApp {
         public updateUserPassword =  (data) => {
             if(this.$auth.getToken()){
                 console.log(data);
-                return this.$http.put('http://127.0.0.1:8000/api/fighters/updatePassword', data);
+                return this.$http.put(this.config.API + 'fighters/updatePassword', data);
             }else {
                 this.$q.reject({ message: 'User has no Token'});
             }

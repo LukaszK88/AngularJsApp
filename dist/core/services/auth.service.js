@@ -5,14 +5,15 @@ var myApp;
 (function (myApp) {
     'use strict';
     var Auth = (function () {
-        function Auth($auth, $http, $q) {
+        function Auth($auth, $http, $q, config) {
             var _this = this;
             this.$auth = $auth;
             this.$http = $http;
             this.$q = $q;
+            this.config = config;
             this.currentUser = function () {
                 if (_this.$auth.getToken()) {
-                    return _this.$http.get('http://127.0.0.1:8000/api/fighter');
+                    return _this.$http.get(_this.config.API + 'fighter');
                 }
                 else {
                     _this.$q.reject({ message: 'User has no Token' });
@@ -20,7 +21,7 @@ var myApp;
             };
             this.updateUser = function (data) {
                 if (_this.$auth.getToken()) {
-                    return _this.$http.put('http://127.0.0.1:8000/api/fighters/update', data);
+                    return _this.$http.put(_this.config.API + 'fighters/update', data);
                 }
                 else {
                     _this.$q.reject({ message: 'User has no Token' });
@@ -29,7 +30,7 @@ var myApp;
             this.updateUserPassword = function (data) {
                 if (_this.$auth.getToken()) {
                     console.log(data);
-                    return _this.$http.put('http://127.0.0.1:8000/api/fighters/updatePassword', data);
+                    return _this.$http.put(_this.config.API + 'fighters/updatePassword', data);
                 }
                 else {
                     _this.$q.reject({ message: 'User has no Token' });
@@ -41,7 +42,8 @@ var myApp;
     Auth.$inject = [
         '$auth',
         '$http',
-        '$q'
+        '$q',
+        'config'
     ];
     myApp.Auth = Auth;
     angular.module('myApp').service('auth', Auth);

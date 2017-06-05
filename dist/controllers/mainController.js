@@ -102,7 +102,7 @@ var myApp;
         };
         MainCtrl.prototype.recover = function (user) {
             var _this = this;
-            this.User.recover(user).$promise
+            this.User.user.recover(user).$promise
                 .then(function (data) {
                 _this.$timeout(function () {
                     _this.$location.path('/');

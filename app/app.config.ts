@@ -70,6 +70,14 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                 url: "/fighters/:fighterId",
                 templateUrl:'app/components/fighter/fighterDetail.template.html'
             })
+            .state("blog", <any>{
+                url: "/blog",
+                templateUrl:'app/components/blog/blogPage.template.html'
+            })
+            .state("blogDetail", <any>{
+                url: "/blog/:postId",
+                templateUrl:'app/components/blog/blogDetailPage.template.html'
+            })
             .state("adminPage", <any>{
                 url: "/admin",
                 templateUrl:'app/components/admin/adminPage.template.html',

@@ -5,35 +5,31 @@ var myApp;
 (function (myApp) {
     'use strict';
     UserResource.$inject = [
-        '$resource'
+        '$resource',
+        'config'
     ];
-    function UserResource($resource) {
+    function UserResource($resource, config) {
         return {
-            user: $resource('http://127.0.0.1:8000/api/user/:userId', {
+            user: $resource(config.API + 'user/:userId', {
                 userId: '@userId'
             }, {
-                getUnauthorized: {
-                    method: 'GET',
-                    isArray: true,
-                    url: 'http://127.0.0.1:8000/api/user/unauthorized'
-                },
                 recover: {
                     method: 'POST',
                     //isArray: true,
-                    url: 'http://127.0.0.1:8000/api/user/recover'
+                    url: config.API + 'user/recover'
                 },
                 update: {
                     method: 'PUT'
                 }
             }),
-            admin: $resource('http://127.0.0.1:8000/api/admin/:userId/:action', {
+            admin: $resource(config.API + 'admin/:userId/:action', {
                 userId: '@userId',
                 action: '@action'
             }, {
                 getBlocked: {
                     method: 'GET',
                     isArray: true,
-                    url: 'http://127.0.0.1:8000/api/admin/:action',
+                    url: config.API + 'admin/:action',
                     params: {
                         action: '@action'
                     }
@@ -41,14 +37,14 @@ var myApp;
                 getUnauthorized: {
                     method: 'GET',
                     isArray: true,
-                    url: 'http://127.0.0.1:8000/api/admin/:action',
+                    url: config.API + 'admin/:action',
                     params: {
                         action: '@action'
                     }
                 },
                 block: {
                     method: 'POST',
-                    url: 'http://127.0.0.1:8000/api/admin/:userId/:action',
+                    url: config.API + 'admin/:userId/:action',
                     params: {
                         userId: '@userId',
                         action: '@action'
@@ -56,7 +52,7 @@ var myApp;
                 },
                 approve: {
                     method: 'POST',
-                    url: 'http://127.0.0.1:8000/api/admin/:userId/:action',
+                    url: config.API + 'admin/:userId/:action',
                     params: {
                         userId: '@userId',
                         action: '@action'
@@ -64,7 +60,7 @@ var myApp;
                 },
                 remove: {
                     method: 'POST',
-                    url: 'http://127.0.0.1:8000/api/admin/:userId/:action',
+                    url: config.API + 'admin/:userId/:action',
                     params: {
                         userId: '@userId',
                         action: '@action'

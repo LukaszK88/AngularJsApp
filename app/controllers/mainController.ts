@@ -122,7 +122,7 @@ module myApp{
         }
 
         public recover(user){
-            this.User.recover(user).$promise
+            this.User.user.recover(user).$promise
                 .then((data) => {
                     this.$timeout(() => {
                         this.$location.path('/');

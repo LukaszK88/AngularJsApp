@@ -15,7 +15,7 @@ var myApp;
             this._ = _;
             this.unUsers = [];
             this.blockedUsers = [];
-            this.$scope.placeholder = this.$location.$$protocol + '://' + this.$location.$$host + '/img/profile_placeholder.png';
+            this.placeholder = this.$location.$$protocol + '://' + this.$location.$$host + '/img/profile_placeholder.png';
             this.fetchBlockedUsers();
             this.fetchUnautorizedUsers();
         }

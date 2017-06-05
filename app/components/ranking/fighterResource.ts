@@ -6,13 +6,17 @@ module myApp.ranking {
     'use strict';
 
     FighterResource.$inject = [
-        '$resource'
+        '$resource',
+        'config'
     ];
 
-    function FighterResource($resource:any){
+    function FighterResource(
+        $resource:any,
+        config:any
+    ){
 
         return $resource(
-            'http://127.0.0.1:8000/api/fighters/:fighterId', { fighterId: '@fighterId' },
+            config.API + 'fighters/:fighterId', { fighterId: '@fighterId' },
             {
                 //confirmDelete: {
                 //    method: 'GET',
@@ -29,11 +33,11 @@ module myApp.ranking {
                 //},
                 getFighterData: {
                     method: 'GET',
-                    url:  'http://127.0.0.1:8000/api/fighters/tableData'
+                    url:  config.API + 'fighters/tableData'
                 },
                 saveUpdate: {
                     method: 'POST',
-                    url: 'http://127.0.0.1:8000/api/fighters/:type',
+                    url: config.API + 'fighters/:type',
                     params: {
                         type: '@type'
                     }

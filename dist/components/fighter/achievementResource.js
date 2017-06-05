@@ -5,14 +5,15 @@ var myApp;
 (function (myApp) {
     'use strict';
     AchievementResource.$inject = [
-        '$resource'
+        '$resource',
+        'config'
     ];
-    function AchievementResource($resource) {
-        return $resource('http://127.0.0.1:8000/api/achievement/:userId/:achievementId', { userId: '@userId',
+    function AchievementResource($resource, config) {
+        return $resource(config.API + 'achievement/:userId/:achievementId', { userId: '@userId',
             achievementId: '@achievementId' }, {
             deleteThis: {
                 method: 'POST',
-                url: 'http://127.0.0.1:8000/api/achievement/:userId/:achievementId/delete',
+                url: config.API + 'achievement/:userId/:achievementId/delete',
                 params: {
                     userId: '@userId',
                     achievementId: '@achievementId'
