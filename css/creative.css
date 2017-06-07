@@ -457,6 +457,9 @@ md-toast.md-center {
   border: 5px dashed blue;
 }
 .wc-theme {
-  background-color: #000000;
-  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000 !important;
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+.collapse-text-toggle {
+  text-decoration: underline;
 }

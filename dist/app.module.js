@@ -11,6 +11,7 @@ var myApp;
         'ngResource',
         'ngMessages',
         'ngSanitize',
+        'ngTouch',
         'ngFlag',
         'validation.match',
         // 'ngAnimate',
@@ -18,7 +19,11 @@ var myApp;
         'ngMaterial',
         'ngFileUpload',
         //Internal
-        'myApp.ranking'
+        'myApp.ranking',
+        'textCollapse',
+        'thatisuday.ng-image-gallery',
+        'FBAngular',
+        'angularSuperGallery'
     ])
         .constant('_', window._)
         .constant('config', {

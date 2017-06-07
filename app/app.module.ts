@@ -10,6 +10,7 @@ module myApp{
             'ngResource',
             'ngMessages',
             'ngSanitize',
+            'ngTouch',
             'ngFlag',
             'validation.match',
             // 'ngAnimate',
@@ -17,7 +18,11 @@ module myApp{
             'ngMaterial',
             'ngFileUpload',
             //Internal
-            'myApp.ranking'
+            'myApp.ranking',
+            'textCollapse',
+            'thatisuday.ng-image-gallery',
+            'FBAngular',
+            'angularSuperGallery'
 
         ])
         .constant('_', window._)

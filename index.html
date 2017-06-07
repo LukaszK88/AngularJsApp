@@ -31,10 +31,13 @@
     <link rel="stylesheet" type="text/css" href="http://cloud.github.com/downloads/lafeber/world-flags-sprite/flags16.css" />
     <link rel="stylesheet" type="text/css" href="http://cloud.github.com/downloads/lafeber/world-flags-sprite/flags32.css" />
 
+    <link href='bower_components/ng-image-gallery/dist/ng-image-gallery.css' rel='stylesheet' type='text/css'>
+    <link href='bower_components/angular-super-gallery/dist/angular-super-gallery.css' rel='stylesheet' type='text/css'>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]> -->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -52,20 +55,22 @@
 <footer></footer>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-
-
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 <!-- Satellizer CDN -->
 <script src="node_modules/satellizer/dist/satellizer.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-resource.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
-
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
 <script src="bower_components/angular-validation-match/dist/angular-validation-match.js"></script>
+<script src="bower_components/angular-text-collapse/text-collapse.js"></script>
+<script src="bower_components/ng-image-gallery/dist/ng-image-gallery.js"></script>
+<script src="bower_components/angular-super-gallery/dist/angular-super-gallery.js"></script>
 
 <!-- Angular Material Library -->
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
@@ -92,6 +97,8 @@
 
 <script src="dist/components/blog/blogController.js"></script>
 <script src="dist/components/blog/blogResource.js"></script>
+
+<script src="dist/components/gallery/galleryController.js"></script>
 
 <script src="dist/filters/array.js"></script>
 <script src="dist/filters/abs.js"></script>

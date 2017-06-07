@@ -3,7 +3,7 @@ module myApp{
 
     'use-strict';
 
-    export class BlogCtrl {
+    export class GalleryCtrl {
             static $inject =[
                 '$http',
                 '$scope',
@@ -39,27 +39,10 @@ module myApp{
             $scope.methods = {};
 
 
-            this.BlogResource.post.query().$promise.then((response)=>{
-                this.posts = response;
-            });
-
             this.BlogResource.post.get({ postId:$stateParams['postId']}).$promise.then((response)=>{
                 this.post = response;
             });
 
-            this.images = [
-                {
-                    id : 3,
-                    //thumbUrl : 'http://ranking.com/img/portfolio/fullsize/1.jpg',
-                    url : 'http://ranking.com/img/portfolio/fullsize/1.jpg'
-                },
-                {
-                    id : 4,
-                    //thumbUrl : 'http://ranking.com/img/portfolio/fullsize/2.jpg',
-                    url : 'http://ranking.com/img/portfolio/fullsize/2.jpg'
-                }
-
-            ];
 
             this.showModal = false;
             this.nature1Options = {
@@ -73,14 +56,17 @@ module myApp{
                 },
                 modal: {
                     wide: true,
-                    transition: 'zoomInOut'
+                    transition: 'zoomInOut',
+                    caption: false
                 },
                 panel: {
                     thumbnail: {
-                        class: "col-md-4"
+                        class: "col-md-3"
                     },
                 },
                 image: {
+                    height: 210,
+                    wide: true,
                     transition: 'fadeInOut'
                 }
             };
@@ -88,34 +74,42 @@ module myApp{
 
             this.nature1 = [
                 {
-                    "link": "portfolio/fullsize/2.jpg",
-                    "thumbnail": "portfolio/fullsize/2.jpg",
-                    "medium": "portfolio/fullsize/2.jpg",
+                    link: "portfolio/fullsize/2.jpg",
+                    thumbnail: "portfolio/fullsize/2.jpg",
+                    medium: "portfolio/fullsize/2.jpg",
                 }, {
-                    "link": "portfolio/fullsize/1.jpg",
-                    "thumbnail": "portfolio/fullsize/1.jpg",
-                    "medium": "portfolio/fullsize/1.jpg",
+                    link : "portfolio/fullsize/1.jpg",
+                    thumbnail: "portfolio/fullsize/1.jpg",
+                    medium: "portfolio/fullsize/1.jpg",
+                }, {
+                    link: "portfolio/fullsize/3.jpg",
+                    thumbnail: "portfolio/fullsize/3.jpg",
+                    medium: "portfolio/fullsize/3.jpg",
+                }, {
+                    link: "portfolio/fullsize/4.jpg",
+                    thumbnail: "portfolio/fullsize/4.jpg",
+                    medium: "portfolio/fullsize/4.jpg",
+                }, {
+                    link: "portfolio/fullsize/5.jpg",
+                    thumbnail: "portfolio/fullsize/5.jpg",
+                    medium: "portfolio/fullsize/5.jpg",
                 }
             ];
         }
 
         public goBack(){
 
-            this.$state.go("blog");
+            this.$state.go("^");
 
         }
 
-        public readMore(postId){
-
-            this.textLimit = 10000;
-        }
 
 
 
 
       }
 
-      angular.module('myApp').controller('myApp.BlogCtrl', BlogCtrl);
+      angular.module('myApp').controller('myApp.GalleryCtrl', GalleryCtrl);
 }
 
 

@@ -5,25 +5,47 @@
 
                 <md-card-title >
                     <md-card-title-text>
-                        <span class="md-headline text-left">Detail</span>
+                        <span class="md-headline text-left">{{ blog.post.title }}</span>
                         <span class="md-subhead">
+                            Author: {{ blog.post.user.username }} | Posted: {{ blog.post.created_at | limitTo: 10}}
                         </span>
                     </md-card-title-text>
                 </md-card-title>
 
                     <md-card-content >
-                        <div class="col-md-9">
+                        <div class="row">
+                        <div class="col-md-12">
                         <p>
-
+                            {{ blog.post.body }}
                         </p>
 
-                    </div>
-                    <div class="col-md-3">
+                        </div>
+                        </div>
+                        <div class="row">
+                            <ng-image-gallery
+                                    images="blog.images"
+                                    methods="methods"
+                                    thumbnails="true "
+                                    thumb-size="80"
+                                    inline="true"
+                                    bubbles="true "
+                                    bubble-size="50"
+                                    img-bubbles="true"
+                                    bg-close="true"
+                                    piracy="false"
+                                    img-anim="fadeup"
+                                    conf="conf"
+                                    on-open="opened();"
+                                    on-close="closed();"
+                                    on-delete="delete(img, cb)"
+                            ></ng-image-gallery>
+                        </div>
+                        <div class="row">
+                            <md-button class="wc-theme" ng-click="blog.goBack()">Back</md-button>
+                            <md-button class="wc-theme pull-right" ui-sref="galleryDetail({postId: blog.post.id})">Full Gallery</md-button>
+                        </div>
 
-                    </div>
                     </md-card-content>
-
-
 
             </md-card>
 

@@ -5,27 +5,19 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.config.ts" afterPath="$PROJECT_DIR$/app/app.config.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" afterPath="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" afterPath="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/mainController.ts" afterPath="$PROJECT_DIR$/app/controllers/mainController.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/resources/userResource.ts" afterPath="$PROJECT_DIR$/app/core/resources/userResource.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/core/services/auth.service.ts" afterPath="$PROJECT_DIR$/app/core/services/auth.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/footer/footer.template.html" afterPath="$PROJECT_DIR$/app/directives/footer/footer.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/home.template.html" afterPath="$PROJECT_DIR$/app/templates/home.template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/recovery.template.html" afterPath="$PROJECT_DIR$/app/templates/recovery.template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/blog/blogController.ts" afterPath="$PROJECT_DIR$/app/components/blog/blogController.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/blog/blogDetailPage.template.html" afterPath="$PROJECT_DIR$/app/components/blog/blogDetailPage.template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/blog/blogPage.template.html" afterPath="$PROJECT_DIR$/app/components/blog/blogPage.template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/blog/blogResource.ts" afterPath="$PROJECT_DIR$/app/components/blog/blogResource.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/directives/nav/nav.template.html" afterPath="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/creative.css" afterPath="$PROJECT_DIR$/css/creative.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/creative.min.css" afterPath="$PROJECT_DIR$/css/creative.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.config.js" afterPath="$PROJECT_DIR$/dist/app.config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/app.module.js" afterPath="$PROJECT_DIR$/dist/app.module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/admin/adminController.js" afterPath="$PROJECT_DIR$/dist/components/admin/adminController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/fighter/achievementResource.js" afterPath="$PROJECT_DIR$/dist/components/fighter/achievementResource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/ranking/fighterResource.js" afterPath="$PROJECT_DIR$/dist/components/ranking/fighterResource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/controllers/mainController.js" afterPath="$PROJECT_DIR$/dist/controllers/mainController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/core/resources/userResource.js" afterPath="$PROJECT_DIR$/dist/core/resources/userResource.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/core/services/auth.service.js" afterPath="$PROJECT_DIR$/dist/core/services/auth.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/blog/blogController.js" afterPath="$PROJECT_DIR$/dist/components/blog/blogController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/components/blog/blogResource.js" afterPath="$PROJECT_DIR$/dist/components/blog/blogResource.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/creative.less" afterPath="$PROJECT_DIR$/less/creative.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/less/variables.less" afterPath="$PROJECT_DIR$/less/variables.less" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,11 +32,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="blogResource.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/blog/blogResource.ts">
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="25" column="38" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+            <state relative-caret-position="378">
+              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -53,8 +45,38 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="95" column="45" lean-forward="false" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
+            <state relative-caret-position="-613">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="galleryDetailPage.template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/gallery/galleryDetailPage.template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="91" lean-forward="false" selection-start-line="7" selection-start-column="91" selection-end-line="7" selection-end-column="91" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="galleryController.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/gallery/galleryController.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1138">
+              <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blogController.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/components/blog/blogController.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="74" />
               <folding />
             </state>
           </provider>
@@ -63,63 +85,24 @@
       <file leaf-file-name="app.config.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.config.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="78" column="59" lean-forward="false" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
+            <state relative-caret-position="256">
+              <caret line="82" column="51" lean-forward="false" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="adminPage.template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/admin/adminPage.template.html">
+      <file leaf-file-name="blogResource.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/blog/blogResource.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blogPage.template.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/components/blog/blogPage.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="162">
+              <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
               <folding>
-                <element signature="n#style#0;n#md-card#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <marker date="1496693686941" expanded="true" signature="226:3182" ph="{...}" />
+                <marker date="1496693686941" expanded="true" signature="243:3176" ph="{...}" />
+                <marker date="1496693686941" expanded="true" signature="378:812" ph="{...}" />
+                <marker date="1496693686941" expanded="true" signature="405:573" ph="{&quot;method&quot;: 'get'...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="blogDetailPage.template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/blog/blogDetailPage.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fighterDetail.template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3533">
-              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#md-card-content#0;n#md-card#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="master.template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="79" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -159,8 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/components/ranking/longsword.template.html" />
-        <option value="$PROJECT_DIR$/app/templates/modals/updateSwordShieldRecord.template.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/ranking.module.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/config.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/profight.template.html" />
@@ -187,29 +168,31 @@
         <option value="$PROJECT_DIR$/app/components/fighter/fighterController.ts" />
         <option value="$PROJECT_DIR$/app/controllers/modalController.js" />
         <option value="$PROJECT_DIR$/app/components/fighter/fighterDetail.template.html" />
-        <option value="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
         <option value="$PROJECT_DIR$/app/core/services/toast.service.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/ranking.html" />
         <option value="$PROJECT_DIR$/app/components/ranking/master.template.html" />
         <option value="$PROJECT_DIR$/app/components/admin/adminController.ts" />
         <option value="$PROJECT_DIR$/app/components/admin/adminPage.template.html" />
         <option value="$PROJECT_DIR$/less/variables.less" />
-        <option value="$PROJECT_DIR$/less/creative.less" />
         <option value="$PROJECT_DIR$/app/directives/footer/footer.template.html" />
         <option value="$PROJECT_DIR$/app/templates/home.template.html" />
         <option value="$PROJECT_DIR$/app/controllers/mainController.ts" />
-        <option value="$PROJECT_DIR$/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/core/resources/userResource.ts" />
         <option value="$PROJECT_DIR$/app/components/ranking/fighterResource.ts" />
         <option value="$PROJECT_DIR$/app/components/fighter/achievementResource.ts" />
         <option value="$PROJECT_DIR$/app/core/services/auth.service.ts" />
         <option value="$PROJECT_DIR$/app/templates/recovery.template.html" />
-        <option value="$PROJECT_DIR$/app/components/blog/blogController.ts" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/components/blog/blogPage.template.html" />
         <option value="$PROJECT_DIR$/app/components/blog/blogResource.ts" />
+        <option value="$PROJECT_DIR$/app/directives/nav/nav.template.html" />
+        <option value="$PROJECT_DIR$/less/creative.less" />
+        <option value="$PROJECT_DIR$/app/components/blog/blogController.ts" />
+        <option value="$PROJECT_DIR$/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/components/blog/blogDetailPage.template.html" />
         <option value="$PROJECT_DIR$/app/app.config.ts" />
-        <option value="$PROJECT_DIR$/app/components/blog/blogPage.template.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/components/gallery/galleryController.ts" />
+        <option value="$PROJECT_DIR$/app/components/gallery/galleryDetailPage.template.html" />
       </list>
     </option>
   </component>
@@ -327,6 +310,74 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="less" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portfolio" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portfolio" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fullsize" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ranking.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bower_components" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,10 +514,6 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ranking" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -486,7 +533,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fighter" />
+              <option name="myItemId" value="gallery" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -512,28 +559,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ranking.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ranking.com" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -552,11 +577,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/components/gallery" />
       <recent name="$PROJECT_DIR$/app/components/blog" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/app/core/resources" />
       <recent name="$PROJECT_DIR$/app/components/admin" />
-      <recent name="$PROJECT_DIR$/app/templates/modals" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/templates/modals/ranking" />
@@ -656,12 +681,12 @@
       <workItem from="1492635852545" duration="50594000" />
       <workItem from="1494272115543" duration="7256000" />
       <workItem from="1494484352388" duration="3517000" />
-      <workItem from="1494914428953" duration="201550000" />
+      <workItem from="1494914428953" duration="216456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="435046000" />
+    <option name="totallyTimeSpent" value="449952000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="88" y="82" width="1287" height="690" extended-state="0" />
@@ -673,6 +698,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -683,7 +709,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.008183306" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
@@ -707,80 +732,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/ranking.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/ranking/tableAllController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="65" column="51" lean-forward="false" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/flag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="26" column="3" lean-forward="false" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/ranking/updateBohurtRecord.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/ranking/updateLongswordRecord.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/ranking/updatePolearmRecord.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/ranking/updateProfightRecord.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/ranking/updateSwordBucklerRecord.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/modals/ranking/updateTriathlonRecord.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/login.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -860,71 +811,71 @@
         <state relative-caret-position="342">
           <caret line="21" column="1" lean-forward="false" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
           <folding>
-            <marker date="1496607641989" expanded="true" signature="250:476" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="482:553" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="557:576" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="574:600" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="603:710" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="728:749" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="773:841" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="844:909" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="919:967" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="980:1018" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1027:1050" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1057:1079" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1092:1109" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1126:1349" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1395:1530" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1702:1791" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="1859:1948" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="2190:3269" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="2210:2259" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="2546:2582" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="2716:2792" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="3277:3572" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="3596:3687" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="3736:3844" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="3965:4065" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4092:4676" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4103:4130" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4156:4331" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4379:4454" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4581:4674" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4694:4714" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4728:4774" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4801:4850" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4818:4848" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4866:4889" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="4905:4986" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="5025:5294" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="5364:5469" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="5641:5728" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="6124:6355" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="6375:6401" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="6416:6437" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="6467:6509" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="6523:6682" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="6822:6897" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="7582:7635" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="7656:7704" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="7718:7879" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="8019:8092" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="8777:8834" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="8928:8958" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="8964:9121" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9130:9155" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9173:9236" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9249:9312" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9328:9347" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9393:9435" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9445:9481" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9649:9653" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9654:9692" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9754:9794" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9814:9848" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9871:9979" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="9990:10118" ph="{...}" />
-            <marker date="1496607641989" expanded="true" signature="10129:10159" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="250:476" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="482:553" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="557:576" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="574:600" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="603:710" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="728:749" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="773:841" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="844:909" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="919:967" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="980:1018" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1027:1050" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1057:1079" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1092:1109" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1126:1349" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1395:1530" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1702:1791" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="1859:1948" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="2190:3269" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="2210:2259" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="2546:2582" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="2716:2792" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="3277:3572" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="3596:3687" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="3736:3844" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="3965:4065" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4092:4676" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4103:4130" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4156:4331" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4379:4454" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4581:4674" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4694:4714" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4728:4774" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4801:4850" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4818:4848" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4866:4889" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="4905:4986" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="5025:5294" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="5364:5469" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="5641:5728" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="6124:6355" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="6375:6401" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="6416:6437" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="6467:6509" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="6523:6682" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="6822:6897" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="7582:7635" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="7656:7704" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="7718:7879" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="8019:8092" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="8777:8834" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="8928:8958" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="8964:9121" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9130:9155" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9173:9236" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9249:9312" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9328:9347" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9393:9435" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9445:9481" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9649:9653" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9654:9692" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9754:9794" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9814:9848" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9871:9979" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="9990:10118" ph="{...}" />
+            <marker date="1496779338157" expanded="true" signature="10129:10159" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -984,14 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/directives/nav/nav.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/fighter/fighterController.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -1016,26 +959,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/admin/adminController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/less/variables.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/less/creative.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="13" column="17" lean-forward="false" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1063,14 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="24" column="45" lean-forward="false" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -1119,14 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/blog/blogController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/admin/adminPage.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1135,34 +1046,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.config.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="78" column="59" lean-forward="false" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="95" column="45" lean-forward="false" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/blog/blogResource.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="25" column="38" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/ranking/master.template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="36" column="31" lean-forward="false" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/admin/adminController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1177,21 +1072,151 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/blog/blogDetailPage.template.html">
+    <entry file="file://$PROJECT_DIR$/bower_components/ng-image-gallery/res/icons/next.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/ng-image-gallery/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/portfolio/fullsize/1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/directives/nav/nav.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/less/creative.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="436" column="33" lean-forward="false" selection-start-line="436" selection-start-column="33" selection-end-line="436" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/blog/blogResource.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="24" column="23" lean-forward="false" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+          <folding>
+            <marker date="1496693686941" expanded="true" signature="226:3182" ph="{...}" />
+            <marker date="1496693686941" expanded="true" signature="243:3176" ph="{...}" />
+            <marker date="1496693686941" expanded="true" signature="378:812" ph="{...}" />
+            <marker date="1496693686941" expanded="true" signature="405:573" ph="{&quot;method&quot;: 'get'...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/angular-super-gallery/dist/angular-super-gallery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/angular-fullscreen/src/angular-fullscreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/blog/blogPage.template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="144">
+          <caret line="8" column="101" lean-forward="false" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="101" />
           <folding>
             <element signature="n#style#0;n#md-card#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/blog/blogDetailPage.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="44" column="104" lean-forward="false" selection-start-line="44" selection-start-column="104" selection-end-line="44" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.config.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="82" column="51" lean-forward="false" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-613">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/gallery/galleryDetailPage.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="91" lean-forward="false" selection-start-line="7" selection-start-column="91" selection-end-line="7" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/gallery/galleryController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1138">
+          <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/blog/blogController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="74" />
+          <folding />
         </state>
       </provider>
     </entry>

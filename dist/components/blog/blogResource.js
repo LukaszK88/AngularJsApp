@@ -11,9 +11,15 @@ var myApp;
     function BlogResource($resource, config) {
         return {
             post: $resource(config.API + 'post/:postId', {
-                userId: '@postId'
+                postId: '@postId'
             }, {
                 get: {
+                    method: 'get',
+                    params: {
+                        postId: '@postId'
+                    }
+                },
+                query: {
                     method: 'get',
                     isArray: true
                 },
