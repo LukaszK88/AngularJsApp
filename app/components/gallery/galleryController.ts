@@ -7,11 +7,12 @@ module myApp{
             static $inject =[
                 '$http',
                 '$scope',
+                '$rootScope',
                 '$location',
                 'BlogResource',
                 '$stateParams',
                 'Upload',
-                'AchievementResource',
+                'ImageResource',
                 'toastService',
                 '$state',
                 '_'
@@ -20,18 +21,16 @@ module myApp{
             protected posts:any = [];
             post:any = [];
             images:any = [];
-            nature1:any = [];
-            showModal:boolean = false;
-            nature1Options:any = [];
-            //protected textLimit:number = 150;
+            headerImage:any;
 
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
+                        protected $rootScope:any,
                         public $location:any,
                         protected BlogResource:any,
                         protected $stateParams:any,
                         public Upload:any,
-                    protected Achievement:any,
+                    protected Image:any,
                     protected Toast:any,
                     protected $state:any,
                     protected _:any
@@ -39,75 +38,36 @@ module myApp{
             $scope.methods = {};
 
 
-            this.BlogResource.post.get({ postId:$stateParams['postId']}).$promise.then((response)=>{
+            this.BlogResource.post.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
                 this.post = response;
             });
 
+            this.Image.query({postId: $stateParams['postId']}).$promise.then((response)=>{
 
-            this.showModal = false;
-            this.nature1Options = {
-                baseUrl: "http://ranking.com/img/",
-                fields: {
-                    source: {
-                        modal: "link",
-                        image: "medium",
-                        panel: "thumbnail"
-                    }
-                },
-                modal: {
-                    wide: true,
-                    transition: 'zoomInOut',
-                    caption: false
-                },
-                panel: {
-                    thumbnail: {
-                        class: "col-md-3"
-                    },
-                },
-                image: {
-                    height: 210,
-                    wide: true,
-                    transition: 'fadeInOut'
-                }
+                this.images = response.galleryImages;
+            });
+
+            $scope.conf = {
+                thumbnails 	: 	true,
+                thumbSize		: 	150,
+                inline		: 	false,
+                bubbles		: 	true,
+                bubbleSize		: 	50,
+                imgBubbles 	: 	true,
+                bgClose		: 	false,
+                imgAnim 		: 	'fadeup'
             };
 
 
-            this.nature1 = [
-                {
-                    link: "portfolio/fullsize/2.jpg",
-                    thumbnail: "portfolio/fullsize/2.jpg",
-                    medium: "portfolio/fullsize/2.jpg",
-                }, {
-                    link : "portfolio/fullsize/1.jpg",
-                    thumbnail: "portfolio/fullsize/1.jpg",
-                    medium: "portfolio/fullsize/1.jpg",
-                }, {
-                    link: "portfolio/fullsize/3.jpg",
-                    thumbnail: "portfolio/fullsize/3.jpg",
-                    medium: "portfolio/fullsize/3.jpg",
-                }, {
-                    link: "portfolio/fullsize/4.jpg",
-                    thumbnail: "portfolio/fullsize/4.jpg",
-                    medium: "portfolio/fullsize/4.jpg",
-                }, {
-                    link: "portfolio/fullsize/5.jpg",
-                    thumbnail: "portfolio/fullsize/5.jpg",
-                    medium: "portfolio/fullsize/5.jpg",
-                }
-            ];
         }
 
         public goBack(){
 
-            this.$state.go("^");
+            this.$state.go("blogDetail",{postId: this.$stateParams['postId']});
 
         }
 
-
-
-
-
-      }
+    }
 
       angular.module('myApp').controller('myApp.GalleryCtrl', GalleryCtrl);
 }

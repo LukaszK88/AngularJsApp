@@ -11,7 +11,7 @@ module myApp{
                 'BlogResource',
                 '$stateParams',
                 'Upload',
-                'AchievementResource',
+                'ImageResource',
                 'toastService',
                 '$state',
                 '_'
@@ -31,7 +31,7 @@ module myApp{
                         protected BlogResource:any,
                         protected $stateParams:any,
                         public Upload:any,
-                    protected Achievement:any,
+                    protected Image:any,
                     protected Toast:any,
                     protected $state:any,
                     protected _:any
@@ -40,63 +40,45 @@ module myApp{
 
 
             this.BlogResource.post.query().$promise.then((response)=>{
+
                 this.posts = response;
             });
 
             this.BlogResource.post.get({ postId:$stateParams['postId']}).$promise.then((response)=>{
+                console.log(response);
                 this.post = response;
             });
 
-            this.images = [
-                {
-                    id : 3,
-                    //thumbUrl : 'http://ranking.com/img/portfolio/fullsize/1.jpg',
-                    url : 'http://ranking.com/img/portfolio/fullsize/1.jpg'
-                },
-                {
-                    id : 4,
-                    //thumbUrl : 'http://ranking.com/img/portfolio/fullsize/2.jpg',
-                    url : 'http://ranking.com/img/portfolio/fullsize/2.jpg'
-                }
+            $scope.conf = {
+                thumbnails 	: 	true,
+                thumbSize		: 	150,
+                inline		: 	false,
+                bubbles		: 	true,
+                bubbleSize		: 	50,
+                imgBubbles 	: 	true,
+                bgClose		: 	false,
+                imgAnim 		: 	'fadeup'
+            };
 
-            ];
+            $scope.openGallery = () =>{
+                $scope.methods.open();
 
-            this.showModal = false;
-            this.nature1Options = {
-                baseUrl: "http://ranking.com/img/",
-                fields: {
-                    source: {
-                        modal: "link",
-                        image: "medium",
-                        panel: "thumbnail"
-                    }
-                },
-                modal: {
-                    wide: true,
-                    transition: 'zoomInOut'
-                },
-                panel: {
-                    thumbnail: {
-                        class: "col-md-4"
-                    },
-                },
-                image: {
-                    transition: 'fadeInOut'
-                }
+            };
+            // Similar to above function
+            $scope.closeGallery = () =>{
+                $scope.methods.close();
+
+            };
+
+            $scope.nextImg = () =>{
+                $scope.methods.next();
+            };
+
+            $scope.prevImg = () =>{
+                $scope.methods.prev();
             };
 
 
-            this.nature1 = [
-                {
-                    "link": "portfolio/fullsize/2.jpg",
-                    "thumbnail": "portfolio/fullsize/2.jpg",
-                    "medium": "portfolio/fullsize/2.jpg",
-                }, {
-                    "link": "portfolio/fullsize/1.jpg",
-                    "thumbnail": "portfolio/fullsize/1.jpg",
-                    "medium": "portfolio/fullsize/1.jpg",
-                }
-            ];
         }
 
         public goBack(){
@@ -104,13 +86,6 @@ module myApp{
             this.$state.go("blog");
 
         }
-
-        public readMore(postId){
-
-            this.textLimit = 10000;
-        }
-
-
 
 
       }

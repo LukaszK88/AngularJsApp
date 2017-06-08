@@ -9,7 +9,7 @@
                         <span class="md-headline text-left"><a ui-sref="blogDetail({postId: post.id})">{{ post.title }}</a></span>
                         <span class="md-subhead">{{ post.created_at | limitTo: 10}}|
                                                 By: {{ post.user.username}}|
-                                                Category: {{ post.post_type[0].type}}
+                                                Category: {{ post.type}}
                         </span>
                     </md-card-title-text>
                 </md-card-title>
@@ -25,7 +25,7 @@
 
                     </div>
                     <div class="col-md-3">
-                        img
+                        <img class="img-responsive" src="{{ post.url }}" >
                     </div>
                     </md-card-content>
                 </md-card>

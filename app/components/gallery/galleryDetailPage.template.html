@@ -12,16 +12,13 @@
                 </md-card-title>
 
                     <md-card-content >
-                        <div class="row">
-                        <div class="col-md-12">
-                            <div>
-                                <asg-image data-id="nature"></asg-image>
-                                <asg-panel ng-click="gallery.showModal=!gallery.showModal" data-id="nature" data-options="gallery.nature1Options" data-items="gallery.nature1"></asg-panel>
-                                <asg-modal data-id="nature" data-visible="gallery.showModal"></asg-modal>
-                            </div>
-
-                        </div>
-                        </div>
+                        <ng-image-gallery
+                                images="gallery.images"
+                                methods="methods"
+                                conf="conf"
+                                on-open="opened();"
+                                on-close="closed();"
+                        ></ng-image-gallery>
 
                         <div class="row">
                             <md-button class="wc-theme" ng-click="gallery.goBack()">Back</md-button>

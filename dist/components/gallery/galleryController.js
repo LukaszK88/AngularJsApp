@@ -2,92 +2,54 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var GalleryCtrl = (function () {
-        //protected textLimit:number = 150;
-        function GalleryCtrl($http, $scope, $location, BlogResource, $stateParams, Upload, Achievement, Toast, $state, _) {
+        function GalleryCtrl($http, $scope, $rootScope, $location, BlogResource, $stateParams, Upload, Image, Toast, $state, _) {
             var _this = this;
             this.$http = $http;
             this.$scope = $scope;
+            this.$rootScope = $rootScope;
             this.$location = $location;
             this.BlogResource = BlogResource;
             this.$stateParams = $stateParams;
             this.Upload = Upload;
-            this.Achievement = Achievement;
+            this.Image = Image;
             this.Toast = Toast;
             this.$state = $state;
             this._ = _;
             this.posts = [];
             this.post = [];
             this.images = [];
-            this.nature1 = [];
-            this.showModal = false;
-            this.nature1Options = [];
             $scope.methods = {};
-            this.BlogResource.post.get({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+            this.BlogResource.post.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                 _this.post = response;
             });
-            this.showModal = false;
-            this.nature1Options = {
-                baseUrl: "http://ranking.com/img/",
-                fields: {
-                    source: {
-                        modal: "link",
-                        image: "medium",
-                        panel: "thumbnail"
-                    }
-                },
-                modal: {
-                    wide: true,
-                    transition: 'zoomInOut',
-                    caption: false
-                },
-                panel: {
-                    thumbnail: {
-                        "class": "col-md-3"
-                    }
-                },
-                image: {
-                    height: 210,
-                    wide: true,
-                    transition: 'fadeInOut'
-                }
+            this.Image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+                _this.images = response.galleryImages;
+            });
+            $scope.conf = {
+                thumbnails: true,
+                thumbSize: 150,
+                inline: false,
+                bubbles: true,
+                bubbleSize: 50,
+                imgBubbles: true,
+                bgClose: false,
+                imgAnim: 'fadeup'
             };
-            this.nature1 = [
-                {
-                    link: "portfolio/fullsize/2.jpg",
-                    thumbnail: "portfolio/fullsize/2.jpg",
-                    medium: "portfolio/fullsize/2.jpg"
-                }, {
-                    link: "portfolio/fullsize/1.jpg",
-                    thumbnail: "portfolio/fullsize/1.jpg",
-                    medium: "portfolio/fullsize/1.jpg"
-                }, {
-                    link: "portfolio/fullsize/3.jpg",
-                    thumbnail: "portfolio/fullsize/3.jpg",
-                    medium: "portfolio/fullsize/3.jpg"
-                }, {
-                    link: "portfolio/fullsize/4.jpg",
-                    thumbnail: "portfolio/fullsize/4.jpg",
-                    medium: "portfolio/fullsize/4.jpg"
-                }, {
-                    link: "portfolio/fullsize/5.jpg",
-                    thumbnail: "portfolio/fullsize/5.jpg",
-                    medium: "portfolio/fullsize/5.jpg"
-                }
-            ];
         }
         GalleryCtrl.prototype.goBack = function () {
-            this.$state.go("^");
+            this.$state.go("blogDetail", { postId: this.$stateParams['postId'] });
         };
         return GalleryCtrl;
     }());
     GalleryCtrl.$inject = [
         '$http',
         '$scope',
+        '$rootScope',
         '$location',
         'BlogResource',
         '$stateParams',
         'Upload',
-        'AchievementResource',
+        'ImageResource',
         'toastService',
         '$state',
         '_'
