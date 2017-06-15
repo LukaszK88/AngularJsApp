@@ -20,10 +20,9 @@ module myApp{
             protected posts:any = [];
             post:any = [];
             images:any = [];
-            nature1:any = [];
-            showModal:boolean = false;
-            nature1Options:any = [];
-            //protected textLimit:number = 150;
+            news:any = [];
+        headers:any = [];
+
 
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
@@ -38,14 +37,26 @@ module myApp{
         ){
             $scope.methods = {};
 
+            this.Image.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
+                this.images = response;
+            });
+
 
             this.BlogResource.post.query().$promise.then((response)=>{
-
                 this.posts = response;
+
+            });
+
+            this.BlogResource.post.getByType({type:3}).$promise.then((response)=>{
+                this.news = response;
+                console.log(this.news);
+            });
+
+            this.BlogResource.post.getByType({type:1}).$promise.then((response)=>{
+                this.headers = response;
             });
 
             this.BlogResource.post.get({ postId:$stateParams['postId']}).$promise.then((response)=>{
-                console.log(response);
                 this.post = response;
             });
 

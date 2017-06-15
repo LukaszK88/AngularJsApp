@@ -2,7 +2,6 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var BlogCtrl = (function () {
-        //protected textLimit:number = 150;
         function BlogCtrl($http, $scope, $location, BlogResource, $stateParams, Upload, Image, Toast, $state, _) {
             var _this = this;
             this.$http = $http;
@@ -18,15 +17,23 @@ var myApp;
             this.posts = [];
             this.post = [];
             this.images = [];
-            this.nature1 = [];
-            this.showModal = false;
-            this.nature1Options = [];
+            this.news = [];
+            this.headers = [];
             $scope.methods = {};
+            this.Image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+                _this.images = response;
+            });
             this.BlogResource.post.query().$promise.then(function (response) {
                 _this.posts = response;
             });
+            this.BlogResource.post.getByType({ type: 3 }).$promise.then(function (response) {
+                _this.news = response;
+                console.log(_this.news);
+            });
+            this.BlogResource.post.getByType({ type: 1 }).$promise.then(function (response) {
+                _this.headers = response;
+            });
             this.BlogResource.post.get({ postId: $stateParams['postId'] }).$promise.then(function (response) {
-                console.log(response);
                 _this.post = response;
             });
             $scope.conf = {

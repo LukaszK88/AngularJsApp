@@ -1,0 +1,34 @@
+<section class="bg-pages" ng-controller="myApp.GalleryCtrl as gallery">
+    <div class="container">
+        <div class="col-md-12">
+            <md-card >
+
+                <div ng-repeat="galleryImage in gallery.galleryImages">
+                <md-card-title >
+                    <md-card-title-text>
+                        <span class="md-headline text-left">Gallery for {{ galleryImage.title }}</span>
+                        <span class="md-subhead">
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                    <md-card-content >
+                        <ng-image-gallery
+                                images="galleryImage.image"
+                                methods="methods"
+                                conf="conf"
+                                on-open="opened();"
+                                on-close="closed();"
+                        ></ng-image-gallery>
+
+                        <!--<div class="row">-->
+                            <!--<md-button class="wc-theme" ng-click="gallery.goBack()">Back</md-button>-->
+                        <!--</div>-->
+
+                    <!--</md-card-content>-->
+                </div>
+            </md-card>
+
+        </div>
+    </div>
+</section>

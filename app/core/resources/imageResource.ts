@@ -20,14 +20,12 @@ module myApp {
             {   postId: '@postId',
                 userId: '@userId' },
             {
-                // deleteThis: {
-                //    method: 'POST',
-                //    url: config.API + 'achievement/:userId/:achievementId/delete',
-                //    params: {
-                //        userId: '@userId',
-                //        achievementId: '@achievementId'
-                //    }
-                // },
+                getGalleryById: {
+                   method: 'GET',
+                    isArray: true,
+                   url: config.API + 'images/gallery/:postId',
+
+                }
                 //getBySlug: {
                 //    method: 'GET',
                 //    isArray: false,

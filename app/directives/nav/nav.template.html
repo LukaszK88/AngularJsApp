@@ -17,6 +17,9 @@
                     <a ng-href="/ranking">Ranking</a>
                 </li>
                 <li>
+                    <a ui-sref="gallery">Gallery</a>
+                </li>
+                <li>
                     <a ui-sref="blog">Blog</a>
                 </li>
                 <li ng-if="currentUser">
@@ -38,8 +41,9 @@
                         <li><a ui-sref="fighterDetail({fighterId: currentUser.id})">Your page</a></li>
                         <li><a ng-click="showEditProfile($event)">Edit profile</a></li>
                         <li><a ng-click="showSettings($event)">Settings</a></li>
-                        <li ng-if="admin" class="divider"></li>
+                        <li ng-if="admin || editor" class="divider"></li>
                         <li ng-if="admin" ><a ui-sref="adminPage">Admin Panel</a></li>
+                        <li ng-if="admin || editor" ><a ui-sref="editorPage">Editor Panel</a></li>
                         <li class="divider"></li>
                         <li><a href="#" ng-click="main.logout()">Logout</a></li>
                     </ul>

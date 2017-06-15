@@ -21,6 +21,7 @@ module myApp{
             protected posts:any = [];
             post:any = [];
             images:any = [];
+            galleryImages:any = [];
             headerImage:any;
 
         constructor(public $http:ng.IHttpService,
@@ -42,9 +43,13 @@ module myApp{
                 this.post = response;
             });
 
-            this.Image.query({postId: $stateParams['postId']}).$promise.then((response)=>{
+            //Main gallery
+            this.Image.query().$promise.then((response)=>{
+                this.galleryImages = response;
+            });
 
-                this.images = response.galleryImages;
+            this.Image.getGalleryById({postId:$stateParams['postId']}).$promise.then((response)=>{
+                this.images = response;
             });
 
             $scope.conf = {

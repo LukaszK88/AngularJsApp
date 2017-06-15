@@ -57,7 +57,7 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
         $stateProvider
             .state('index', <any>{
             url: "/",
-           templateUrl:'app/templates/home.template.html'
+           templateUrl:'app/templates/home/home.template.html'
         })
 
             .state("ranking", <any>{
@@ -82,11 +82,21 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                 url: "/gallery/:postId",
                 templateUrl:'app/components/gallery/galleryDetailPage.template.html'
             })
+            .state("gallery", <any>{
+                url: "/gallery",
+                templateUrl:'app/components/gallery/galleryPage.template.html'
+            })
             .state("adminPage", <any>{
                 url: "/admin",
                 templateUrl:'app/components/admin/adminPage.template.html',
                 controller: 'myApp.AdminCtrl',
                 controllerAs: 'adminCtrl'
+            })
+            .state("editorPage", <any>{
+                url: "/editor",
+                templateUrl:'app/components/editor/editorPage.template.html',
+                controller: 'myApp.EditorCtrl',
+                controllerAs: 'editorCtrl'
             })
             // .state("bohurt", <any>{
             //     url: "/ranking/bohurt",

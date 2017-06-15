@@ -45,7 +45,7 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
         $stateProvider
             .state('index', {
             url: "/",
-            templateUrl: 'app/templates/home.template.html'
+            templateUrl: 'app/templates/home/home.template.html'
         })
             .state("ranking", {
             url: "/ranking",
@@ -69,11 +69,21 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
             url: "/gallery/:postId",
             templateUrl: 'app/components/gallery/galleryDetailPage.template.html'
         })
+            .state("gallery", {
+            url: "/gallery",
+            templateUrl: 'app/components/gallery/galleryPage.template.html'
+        })
             .state("adminPage", {
             url: "/admin",
             templateUrl: 'app/components/admin/adminPage.template.html',
             controller: 'myApp.AdminCtrl',
             controllerAs: 'adminCtrl'
+        })
+            .state("editorPage", {
+            url: "/editor",
+            templateUrl: 'app/components/editor/editorPage.template.html',
+            controller: 'myApp.EditorCtrl',
+            controllerAs: 'editorCtrl'
         })
             .state("register", {
             url: "/register",

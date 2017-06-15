@@ -18,12 +18,17 @@ var myApp;
             this.posts = [];
             this.post = [];
             this.images = [];
+            this.galleryImages = [];
             $scope.methods = {};
             this.BlogResource.post.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                 _this.post = response;
             });
-            this.Image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
-                _this.images = response.galleryImages;
+            //Main gallery
+            this.Image.query().$promise.then(function (response) {
+                _this.galleryImages = response;
+            });
+            this.Image.getGalleryById({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+                _this.images = response;
             });
             $scope.conf = {
                 thumbnails: true,

@@ -22,21 +22,24 @@ module myApp {
                 {
                     postId: '@postId',
                 },{
-                    get: {
-                        method: 'get',
-                        params: {
-                            postId: '@postId'
-                        }
-                    },
                     query: {
                         method: 'get',
                         isArray: true
+                    },
+                    getByType: {
+                        method: 'get',
+                        isArray: true,
+                        params: {
+                            type: '@type'
+                        },
+                        url:config.API + 'posts/:type',
                     },
 
                     update: {
                         method: 'PUT'
                     }
                 }),
+
             // admin:$resource(config.API + 'admin/:userId/:action',
             //     {
             //         userId: '@userId',

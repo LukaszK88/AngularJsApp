@@ -13,15 +13,17 @@ var myApp;
             post: $resource(config.API + 'post/:postId', {
                 postId: '@postId'
             }, {
-                get: {
-                    method: 'get',
-                    params: {
-                        postId: '@postId'
-                    }
-                },
                 query: {
                     method: 'get',
                     isArray: true
+                },
+                getByType: {
+                    method: 'get',
+                    isArray: true,
+                    params: {
+                        type: '@type'
+                    },
+                    url: config.API + 'posts/:type'
                 },
                 update: {
                     method: 'PUT'
