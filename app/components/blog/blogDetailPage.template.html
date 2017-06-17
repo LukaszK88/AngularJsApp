@@ -15,7 +15,7 @@
                     <md-card-content >
                         <div class="row">
                         <div class="col-md-12">
-                        <p>
+                        <p ng-bind-html="blog.post.body">
                             {{ blog.post.body }}
                         </p>
 
@@ -33,7 +33,7 @@
                         </div>
                         <div class="row">
                             <md-button class="wc-theme" ng-click="blog.goBack()">Back</md-button>
-                            <md-button class="wc-theme pull-right"  ui-sref="galleryDetail({postId: blog.post.id})" >View full gallery</md-button>
+                            <md-button ng-show="blog.post.gallery" class="wc-theme pull-right"  ui-sref="galleryDetail({postId: blog.post.id})" >View full gallery</md-button>
                         </div>
 
                     </md-card-content>

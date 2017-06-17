@@ -10,81 +10,20 @@
             </md-card-title>
 
             <md-card-content >
-                <div class="row">
-                    <div class="col-md-6">
-                        <button ng-click="addPost=!addPost" class="btn wc-theme"> Add Post</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div ng-if="addPost" class="col-md-9">
-                       <form name="addPost">
-                           <md-input-container class="md-block" flex-gt-sm>
-                               <label>Title</label>
-                               <input type="text" name="Name" ng-model='editorCtrl.post.title'
-                                      required >
-                           </md-input-container>
-
-                            Select category:<br>
-                           <md-checkbox ng-repeat="type in editorCtrl.postTypes" ng-model="category[type.type]" aria-label="Checkbox 1">
-                               <label>{{ type.type }}</label>
-                           </md-checkbox>
-        {{ category }}
-                           <md-input-container class="md-block">
-                               <label>Body</label>
-                               <textarea ng-model="editorCtrl.post.body"  rows="5"></textarea>
-                           </md-input-container>
-                           <div class="row">
-                           <div class="col-md-6">
-                               <div ngf-drop
-                                    ngf-select
-                                    ng-model="photo.header"
-                                    ngf-resize="{width:400,height: 250, quality: .8, ratio: '2:3,centerCrop: true}"
-                                    class="drop-box"
-                                    ngf-drag-over-class="'dragover'"
-                                    ngf-allow-dir="true"
-                                    accept="image/*"
-                                    ngf-pattern="'image/*'">Upload Header photo
-                               </div>
-
-                               <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
-                           </div>
-                               <div class="col-md-4">
-                                   <img style="height: 150px;width: 100%" ng-show="addPost.photo.header.$valid" ngf-thumbnail="photo.header">
-                               </div>
-                           </div>
-                           <div class="row">
-                               <md-checkbox  ng-click="addGallery=!addGallery" aria-label="Checkbox 1">
-                                   <label>Add Gallery</label>
-                               </md-checkbox>
-                           </div>
-                           <div ng-if="addGallery" class="row">
-
-                               <div class="col-md-9">
-                                   <div ngf-drop
-                                        ngf-select
-                                        ng-model="files.photos"
-                                        class="drop-box"
-                                        ngf-drag-over-class="'dragover'"
-                                        ngf-multiple='true'
-                                        accept="image/*"
-                                        ngf-pattern="'image/*'">Upload Gallery Photos
-                                   </div>
-
-                                   <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
-                               </div>
-                           </div>
-
-
-                           <div class="row">
-                               <button ng-click="editorCtrl.submit(editorCtrl.post)" class="btn wc-theme">submit</button>
-                           </div>
-                       </form>
-                    </div>
-                </div>
-
+                <uib-tabset active="active">
+                    <uib-tab index="0" heading="Add Post">
+                        <ng-include src="'app/components/editor/sections/addPost.template.html'"></ng-include>
+                    </uib-tab>
+                    <uib-tab index="1" heading="Add Gallery">
+                        <ng-include src="'app/components/editor/sections/addGallery.template.html'"></ng-include>
+                    </uib-tab>
+                    <uib-tab index="2" heading="Manage Posts">
+                        <ng-include src="'app/components/editor/sections/updatePost.template.html'"></ng-include>
+                    </uib-tab>
+                    <uib-tab index="3" heading="Manage Galleries">
+                        <ng-include src="'app/components/editor/sections/updateGallery.template.html'"></ng-include>
+                    </uib-tab>
+                </uib-tabset>
             </md-card-content>
 
         </md-card>

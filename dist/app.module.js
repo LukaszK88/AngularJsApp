@@ -14,7 +14,7 @@ var myApp;
         'ngTouch',
         'ngFlag',
         'validation.match',
-        // 'ngAnimate',
+        'ngAnimate',
         'satellizer',
         'ngMaterial',
         'ngFileUpload',
@@ -23,10 +23,19 @@ var myApp;
         'textCollapse',
         'thatisuday.ng-image-gallery',
         'FBAngular',
-        'angularSuperGallery'
+        'angularSuperGallery',
+        'angularTrix',
+        'ui.bootstrap'
     ])
         .constant('_', window._)
         .constant('config', {
         API: 'http://127.0.0.1:8000/api/'
+        // editorsDefault : {
+        //     categories: {
+        //         1 : false,
+        //         2 : false,
+        //         3 : false
+        //     }
+        // }
     });
 })(myApp || (myApp = {}));

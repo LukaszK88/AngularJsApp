@@ -13,6 +13,10 @@ var myApp;
             post: $resource(config.API + 'post/:postId', {
                 postId: '@postId'
             }, {
+                get: {
+                    method: 'get',
+                    isArray: false
+                },
                 query: {
                     method: 'get',
                     isArray: true

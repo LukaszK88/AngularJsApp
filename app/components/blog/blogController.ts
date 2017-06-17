@@ -42,24 +42,24 @@ module myApp{
             });
 
 
-            this.BlogResource.post.query().$promise.then((response)=>{
-                this.posts = response;
-
-            });
+            // this.BlogResource.post.query().$promise.then((response)=>{
+            //     this.posts = response;
+            //
+            // });
 
             this.BlogResource.post.getByType({type:3}).$promise.then((response)=>{
                 this.news = response;
-                console.log(this.news);
             });
 
             this.BlogResource.post.getByType({type:1}).$promise.then((response)=>{
                 this.headers = response;
             });
 
-            this.BlogResource.post.get({ postId:$stateParams['postId']}).$promise.then((response)=>{
-                this.post = response;
-            });
-
+            if($stateParams['postId']) {
+                this.BlogResource.post.get({postId: $stateParams['postId']}).$promise.then((response) => {
+                    this.post = response;
+                });
+            }
             $scope.conf = {
                 thumbnails 	: 	true,
                 thumbSize		: 	150,

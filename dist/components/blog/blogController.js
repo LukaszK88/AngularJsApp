@@ -23,19 +23,21 @@ var myApp;
             this.Image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                 _this.images = response;
             });
-            this.BlogResource.post.query().$promise.then(function (response) {
-                _this.posts = response;
-            });
+            // this.BlogResource.post.query().$promise.then((response)=>{
+            //     this.posts = response;
+            //
+            // });
             this.BlogResource.post.getByType({ type: 3 }).$promise.then(function (response) {
                 _this.news = response;
-                console.log(_this.news);
             });
             this.BlogResource.post.getByType({ type: 1 }).$promise.then(function (response) {
                 _this.headers = response;
             });
-            this.BlogResource.post.get({ postId: $stateParams['postId'] }).$promise.then(function (response) {
-                _this.post = response;
-            });
+            if ($stateParams['postId']) {
+                this.BlogResource.post.get({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+                    _this.post = response;
+                });
+            }
             $scope.conf = {
                 thumbnails: true,
                 thumbSize: 150,

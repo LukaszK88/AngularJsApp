@@ -22,6 +22,10 @@ module myApp {
                 {
                     postId: '@postId',
                 },{
+                    get: {
+                        method: 'get',
+                        isArray: false
+                    },
                     query: {
                         method: 'get',
                         isArray: true

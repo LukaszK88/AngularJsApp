@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-12">
+        <form name="addPost">
+            <br>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Title </label>
+                <input required="" type="text" name="Name" ng-model='editorCtrl.post.title'
+                >
+            </md-input-container>
+            <div class="row text-center">
+                <h4>Select category:</h4>
+            </div>
+            <br>
+            <div class="row">
+                <font color="red" ><span ng-show="!editorCtrl.post.post_type">Select Category required</span> </font>
+            </div>
+            <md-radio-group layout="row" ng-model="editorCtrl.post.post_type">
+
+                <md-radio-button ng-repeat="type in editorCtrl.postTypes"
+                                 value="{{ type.id }}" class="md-primary">{{ type.type }}</md-radio-button>
+
+            </md-radio-group>
+            <br>
+            <div class="row text-center">
+                <h4>Body:</h4>
+            </div>
+            <br>
+            <trix-editor required style="height: 300px" angular-trix ng-model="editorCtrl.post.body"></trix-editor>
+            <br>
+            <div class="row text-center">
+                <h4>Upload Photos:</h4>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+
+                    <div ng-required="editorCtrl.post.post_type == 1 || editorCtrl.post.post_type == 3 "
+                         ngf-drop
+                         ngf-select
+                         ng-model="photo.header"
+                         name="photo"
+                         class="drop-box"
+                         ngf-drag-over-class="'dragover'"
+                         ngf-allow-dir="true"
+                         accept="image/*"
+                         ngf-pattern="'image/*'">Upload Header photo
+                        <font color="red" ><i ng-show="addPost.photo.$error.required">*required</i></font>
+
+                    </div>
+                    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+                </div>
+                <div class="col-md-4 col-md-offset-4">
+                    <img style="height: 150px;width: 100%" ng-show="addPost.photo.header.$valid" ngf-thumbnail="photo.header">
+                </div>
+            </div>
+            <div class="row">
+                <md-checkbox ng-model="editorCtrl.post.gallery"  ng-click="addGallery=!addGallery" aria-label="Checkbox 1">
+                    <label>Add Gallery</label>
+                </md-checkbox>
+            </div>
+            <div ng-if="addGallery" class="row">
+
+                <div class="col-md-8 col-md-offset-2">
+                    <div ngf-drop
+                         ngf-select
+                         ng-model="files.photos"
+                         class="drop-box"
+                         ngf-drag-over-class="'dragover'"
+                         ngf-multiple='true'
+                         accept="image/*"
+                         ngf-pattern="'image/*'">Upload Gallery Photos
+                    </div>
+
+                    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+                </div>
+            </div>
+            <div ng-if="addGallery" class="row">
+                <div class="col-md-2" ng-repeat="photo in files.photos">
+                    <img style="height:100%;width:100%" ngf-thumbnail="photo">
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <button ng-disabled="!editorCtrl.post.post_type || addPost.$invalid" ng-click="editorCtrl.submit(editorCtrl.post)" class="btn wc-theme">submit</button>
+            </div>
+        </form>
+    </div>
+</div>
