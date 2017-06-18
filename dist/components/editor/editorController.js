@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var EditorCtrl = (function () {
-        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state) {
+        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, image, $q, $timeout) {
             //$scope.category = config.editorsDefault.categories;
             var _this = this;
             this.$http = $http;
@@ -16,10 +16,17 @@ var myApp;
             this.blog = blog;
             this.config = config;
             this.$state = $state;
+            this.image = image;
+            this.$q = $q;
+            this.$timeout = $timeout;
             this.postTypes = [];
             this.posts = [];
             this.postToEdit = [];
             this.postEdit = false;
+            this.galleries = [];
+            this.galleryEdit = false;
+            this.galleryToEdit = [];
+            this.uploadMore = false;
             $scope.files = [];
             $scope.photo = [];
             this.types.query().$promise.then(function (response) {
@@ -32,11 +39,55 @@ var myApp;
                 else if (newVal === 2) {
                     _this.activeTab = 2;
                 }
+                else if (newVal === 3) {
+                    _this.activeTab = 3;
+                    _this.fetchGalleries();
+                }
                 else {
                     _this.activeTab = 0;
                 }
             });
         }
+        EditorCtrl.prototype.uploadMoreImages = function (gallery) {
+            var _this = this;
+            this.postId = gallery.id;
+            this.uploadGalleryPhotos();
+            this.uploadMore = false;
+            //fetch single gallery and clear selected photos
+            this.$scope.files = [];
+            //need to ait for upload
+            this.$timeout(function () {
+                _this.blog.post.get({ postId: _this.postId }).$promise.then(function (response) {
+                    _this.galleryToEdit = response;
+                });
+            }, 1500);
+        };
+        EditorCtrl.prototype.deleteGallery = function (gallery) {
+            var _this = this;
+            this.image.deleteGallery({ postId: gallery.id }).$promise.then(function (response) {
+                _this.Toast.makeToast('error', 'Gallery deleted');
+                var index = _this.galleries.indexOf(gallery);
+                _this.galleries.splice(index, 1);
+            });
+        };
+        EditorCtrl.prototype.deleteImg = function (img) {
+            var _this = this;
+            this.image["delete"]({ postId: img.id }).$promise.then(function (response) {
+                _this.Toast.makeToast('error', 'Photo deleted');
+                var index = _this.galleryToEdit.image.indexOf(img);
+                _this.galleryToEdit.image.splice(index, 1);
+            });
+        };
+        EditorCtrl.prototype.editGallery = function (gallery) {
+            this.galleryEdit = true;
+            this.galleryToEdit = gallery;
+        };
+        EditorCtrl.prototype.fetchGalleries = function () {
+            var _this = this;
+            this.image.query().$promise.then(function (response) {
+                _this.galleries = response;
+            });
+        };
         EditorCtrl.prototype.update = function (post) {
             var _this = this;
             if (post) {
@@ -129,7 +180,10 @@ var myApp;
         'PostTypeResource',
         'BlogResource',
         'config',
-        '$state'
+        '$state',
+        'ImageResource',
+        '$q',
+        '$timeout'
     ];
     myApp.EditorCtrl = EditorCtrl;
     angular.module('myApp').controller('myApp.EditorCtrl', EditorCtrl);

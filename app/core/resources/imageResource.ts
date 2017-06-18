@@ -25,6 +25,10 @@ module myApp {
                     isArray: true,
                    url: config.API + 'images/gallery/:postId',
 
+                },
+                deleteGallery: {
+                    method: 'POST',
+                    url: config.API + 'images/gallery/delete/:postId',
                 }
                 //getBySlug: {
                 //    method: 'GET',

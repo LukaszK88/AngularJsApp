@@ -15,7 +15,10 @@ module myApp{
                 'PostTypeResource',
                 'BlogResource',
                 'config',
-                '$state'
+                '$state',
+                'ImageResource',
+                '$q',
+                '$timeout'
             ];
 
             public postTypes:any = [];
@@ -24,6 +27,10 @@ module myApp{
             posts:any = [];
             postToEdit:any = [];
             postEdit:boolean = false;
+            galleries:any = [];
+            galleryEdit:boolean = false;
+            galleryToEdit:any = [];
+            uploadMore:boolean = false;
 
 
         constructor(public $http:ng.IHttpService,
@@ -36,7 +43,10 @@ module myApp{
                     protected types:any,
                     protected blog:any,
                     protected config:any,
-                    protected $state:any
+                    protected $state:any,
+                    protected image:any,
+                    protected $q:any,
+                    protected $timeout:any
         ){
             //$scope.category = config.editorsDefault.categories;
 
@@ -53,9 +63,58 @@ module myApp{
                     this.activeTab = 1;
                 }else if(newVal === 2){
                     this.activeTab = 2;
-                }else{
+                }else if(newVal === 3){
+                    this.activeTab = 3;
+                    this.fetchGalleries()
+                } else{
                     this.activeTab = 0;
                 }
+            });
+        }
+
+        public uploadMoreImages(gallery){
+            this.postId = gallery.id;
+            this.uploadGalleryPhotos();
+
+                this.uploadMore = false;
+                //fetch single gallery and clear selected photos
+                this.$scope.files = [];
+                //need to ait for upload
+            this.$timeout(() => {
+                this.blog.post.get({postId:this.postId}).$promise.then((response:any) => {
+                    this.galleryToEdit = response;
+                });
+            },1500);
+
+
+
+
+        }
+
+        public deleteGallery(gallery){
+            this.image.deleteGallery({postId:gallery.id}).$promise.then((response:any) => {
+                this.Toast.makeToast('error','Gallery deleted');
+                 let index=this.galleries.indexOf(gallery);
+                 this.galleries.splice(index,1);
+            });
+        }
+
+        public deleteImg(img){
+            this.image.delete({postId:img.id}).$promise.then((response:any) => {
+                this.Toast.makeToast('error','Photo deleted');
+                let index=this.galleryToEdit.image.indexOf(img);
+                this.galleryToEdit.image.splice(index,1);
+            });
+        }
+
+        public editGallery(gallery){
+            this.galleryEdit = true;
+            this.galleryToEdit = gallery;
+        }
+
+        public fetchGalleries(){
+            this.image.query().$promise.then((response:any) => {
+                this.galleries = response;
             });
         }
 
