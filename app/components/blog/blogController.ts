@@ -21,7 +21,9 @@ module myApp{
             post:any = [];
             images:any = [];
             news:any = [];
-        headers:any = [];
+            headers:any = [];
+            tournaments:any =[];
+            currentState:string;
 
 
         constructor(public $http:ng.IHttpService,
@@ -36,10 +38,16 @@ module myApp{
                     protected _:any
         ){
             $scope.methods = {};
+            this.currentState =  $state.current.name;
+
+            if(this.currentState === 'tournaments'){
+                this.fetchTournaments();
+            }
 
             this.Image.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
                 this.images = response;
             });
+
 
 
             // this.BlogResource.post.query().$promise.then((response)=>{
@@ -90,6 +98,19 @@ module myApp{
             };
 
 
+        }
+
+        protected fetchTournaments(){
+            this.BlogResource.post.getByType({type:4}).$promise.then((response)=>{
+                this.tournaments = response;
+                let now = new Date().getTime();
+                this._.forEach(this.tournaments,((value, key) => {
+                  //  let countdown = (new Date(value.date).getTime()) - now;
+                        //value.date = Math.floor((countdown % (1000 * 60)) / 1000);
+                    value.date = ((new Date(value.date).getTime() - now) / 1000);
+                }));
+                console.log(this.tournaments);
+            });
         }
 
         public goBack(){

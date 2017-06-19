@@ -14,14 +14,14 @@
 
 
                 <li>
-                    <a ng-href="/ranking">Ranking</a>
+                    <a ng-href="/ranking">Battle Book</a>
                 </li>
                 <li>
                     <a ui-sref="gallery">Gallery</a>
                 </li>
-                <li>
-                    <a ui-sref="blog">Blog</a>
-                </li>
+                <!--<li>-->
+                    <!--<a ui-sref="blog">Blog</a>-->
+                <!--</li>-->
                 <li ng-if="currentUser">
                   <div ngf-select="main.upload($file)" ng-model="file" ngf-multiple="false" >
                     <img class="img-circle nav-profile-photo" src="{{ image }}">

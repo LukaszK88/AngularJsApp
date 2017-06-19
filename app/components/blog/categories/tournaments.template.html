@@ -1,0 +1,79 @@
+<section class="bg-pages" ng-controller="myApp.BlogCtrl as blog">
+    <div class="container">
+        <div class="col-md-6">
+            <md-card style="padding: 50px">
+                <h2>Upcoming Events</h2>
+
+                <md-card ng-repeat="tournament in blog.tournaments">
+                <md-card-title >
+                    <md-card-title-text>
+                        <span class="md-headline">{{ tournament.title }} in {{ tournament.location }}</span>
+                        <span class="md-subhead">
+                        </span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                    <md-card-content >
+                        <div class="col-md-9">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover myTable ">
+                                <thead>
+
+                                <tr>
+                                    <th>Days</th>
+                                    <th>Hours</th>
+                                    <th>Min</th>
+                                    <th> Sec</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr >
+                                    <td><timer countdown="tournament.date" interval="1000">{{days}}</timer></td>
+                                    <td><timer countdown="tournament.date" interval="1000">{{hours}}</timer>
+                                    <td><timer countdown="tournament.date" interval="1000">{{mminutes}}</timer>
+                                    <td><timer countdown="tournament.date" interval="1000">{{sseconds}}</timer>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>    <!-- /.table-responsive -->
+
+                        </div>
+                        <div class="col-md-3">
+                            <img class="img-responsive" src="{{ tournament.url }}" >
+                        </div>
+                    </md-card-content>
+                </md-card>
+
+
+            </md-card>
+
+        </div>
+
+        <div class="col-md-6">
+            <md-card style="padding: 50px">
+                <md-card>
+                    <md-card-title >
+                        <md-card-title-text>
+                            <span class="md-headline">Past Events</span>
+                            <span class="md-subhead">
+                        </span>
+                        </md-card-title-text>
+                    </md-card-title>
+
+                    <md-card-content >
+
+                        <!--<div class="col-md-3">-->
+                            <!--<img class="img-responsive" src="{{ post.url }}" >-->
+                        <!--</div>-->
+                    </md-card-content>
+                </md-card>
+
+
+            </md-card>
+
+        </div>
+
+    </div>
+</section>

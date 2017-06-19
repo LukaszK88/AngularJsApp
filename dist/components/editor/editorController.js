@@ -58,6 +58,7 @@ var myApp;
             //need to ait for upload
             this.$timeout(function () {
                 _this.blog.post.get({ postId: _this.postId }).$promise.then(function (response) {
+                    _this.Toast.makeToast('success', 'Photos Uploaded');
                     _this.galleryToEdit = response;
                 });
             }, 1500);

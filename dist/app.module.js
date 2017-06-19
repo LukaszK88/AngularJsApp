@@ -25,7 +25,8 @@ var myApp;
         'FBAngular',
         'angularSuperGallery',
         'angularTrix',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'timer'
     ])
         .constant('_', window._)
         .constant('config', {

@@ -19,7 +19,12 @@ var myApp;
             this.images = [];
             this.news = [];
             this.headers = [];
+            this.tournaments = [];
             $scope.methods = {};
+            this.currentState = $state.current.name;
+            if (this.currentState === 'tournaments') {
+                this.fetchTournaments();
+            }
             this.Image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                 _this.images = response;
             });
@@ -62,6 +67,19 @@ var myApp;
                 $scope.methods.prev();
             };
         }
+        BlogCtrl.prototype.fetchTournaments = function () {
+            var _this = this;
+            this.BlogResource.post.getByType({ type: 4 }).$promise.then(function (response) {
+                _this.tournaments = response;
+                var now = new Date().getTime();
+                _this._.forEach(_this.tournaments, (function (value, key) {
+                    //  let countdown = (new Date(value.date).getTime()) - now;
+                    //value.date = Math.floor((countdown % (1000 * 60)) / 1000);
+                    value.date = ((new Date(value.date).getTime() - now) / 1000);
+                }));
+                console.log(_this.tournaments);
+            });
+        };
         BlogCtrl.prototype.goBack = function () {
             this.$state.go("blog");
         };

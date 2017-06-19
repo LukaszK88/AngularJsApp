@@ -86,6 +86,10 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                 url: "/gallery",
                 templateUrl:'app/components/gallery/galleryPage.template.html'
             })
+            .state("tournaments", <any>{
+                url: "/tournaments",
+                templateUrl:'app/components/blog/categories/tournaments.template.html'
+            })
             .state("adminPage", <any>{
                 url: "/admin",
                 templateUrl:'app/components/admin/adminPage.template.html',

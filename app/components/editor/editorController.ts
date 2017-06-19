@@ -82,13 +82,10 @@ module myApp{
                 //need to ait for upload
             this.$timeout(() => {
                 this.blog.post.get({postId:this.postId}).$promise.then((response:any) => {
+                    this.Toast.makeToast('success','Photos Uploaded');
                     this.galleryToEdit = response;
                 });
             },1500);
-
-
-
-
         }
 
         public deleteGallery(gallery){

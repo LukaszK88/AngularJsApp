@@ -30,8 +30,11 @@ var myApp;
             if (this.$auth.isAuthenticated()) {
                 this.Auth.currentUser().then(function (data) {
                     _this.$scope.currentUser = data.data;
-                    if (data.data.role === 2) {
+                    if (data.data.user_role_id === 3) {
                         _this.$scope.admin = true;
+                    }
+                    if (data.data.user_role_id === 2) {
+                        _this.$scope.editor = true;
                     }
                     var fb = data.data.facebook_picture;
                     var google = data.data.google_picture;

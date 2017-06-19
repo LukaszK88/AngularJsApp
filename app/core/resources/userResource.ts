@@ -28,6 +28,11 @@ module myApp {
                         //isArray: true,
                         url: config.API + 'user/recover',
                     },
+                    getUserRoles: {
+                        method: 'GET',
+                        isArray: true,
+                        url: config.API + 'user-roles',
+                    },
                         update: {
                             method: 'PUT'
                         }

@@ -20,6 +20,9 @@ module myApp{
             public unUsers:any = [];
         public blockedUsers:any = [];
         protected placeholder:string;
+        activeUsers:any = [];
+        activeTab:number;
+        userRoles:any = [];
 
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
@@ -34,12 +37,52 @@ module myApp{
         ){
             this.placeholder = this.$location.$$protocol + '://' + this.$location.$$host + '/img/profile_placeholder.png';
 
-            this.fetchBlockedUsers();
-            this.fetchUnautorizedUsers()
+            $scope.$watch('active',(newVal) => {
+                if(newVal === 1){
+                    this.activeTab = 1;
+                    this.fetchActiveUsers();
+                    this.getUserRoles();
+                }else if(newVal === 2){
+                    this.activeTab = 2;
+                }else if(newVal === 3){
+                    this.activeTab = 3;
+                } else{
+                    this.activeTab = 0;
+                    this.fetchBlockedUsers();
+                    this.fetchUnautorizedUsers()
+                }
+            });
 
 
 
+        }
 
+        public deleteUser(user){
+            this.User.user.delete({userId: user.id}).$promise.then((response) => {
+                //this.userRoles = response;
+                this.Toast.makeToast('success','User Deleted');
+                let index = this.activeUsers.indexOf(user);
+                this.activeUsers.splice(index,1);
+            });
+        }
+
+        public updateUserRole(user){
+            this.User.user.update({userId: user.id}, user).$promise.then((response) => {
+                //this.userRoles = response;
+                this.Toast.makeToast('success','Role Updated')
+            });
+        }
+
+        protected getUserRoles(){
+            this.User.user.getUserRoles().$promise.then((response) => {
+                this.userRoles = response;
+            });
+        }
+
+        protected fetchActiveUsers(){
+            this.User.user.query().$promise.then((response) => {
+                this.activeUsers = response;
+            });
         }
 
         protected fetchUnautorizedUsers(){
