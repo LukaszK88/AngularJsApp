@@ -18,10 +18,13 @@ module myApp{
                 '$state',
                 'ImageResource',
                 '$q',
-                '$timeout'
+                '$timeout',
+                'EventResource',
+                '$filter'
             ];
 
-            public postTypes:any = [];
+            postTypes:any = [];
+            eventTypes:any = [];
             postId:string;
             activeTab:number;
             posts:any = [];
@@ -31,6 +34,8 @@ module myApp{
             galleryEdit:boolean = false;
             galleryToEdit:any = [];
             uploadMore:boolean = false;
+            categories:any = [];
+            addCategories:boolean;
 
 
         constructor(public $http:ng.IHttpService,
@@ -46,13 +51,31 @@ module myApp{
                     protected $state:any,
                     protected image:any,
                     protected $q:any,
-                    protected $timeout:any
+                    protected $timeout:any,
+                    protected eventResource:any,
+                    protected $filter:any
         ){
             //$scope.category = config.editorsDefault.categories;
 
             $scope.files = [];
             $scope.photo = [];
 
+
+            $scope.selected = [];
+
+            $scope.toggle =  (item, list) => {
+                var idx = list.indexOf(item);
+                if (idx > -1) {
+                    list.splice(idx, 1);
+                }
+                else {
+                    list.push(item);
+                }
+            };
+
+            $scope.exists =  (item, list) => {
+                return list.indexOf(item) > -1;
+            };
 
             this.types.query().$promise.then((response:any) => {
                 this.postTypes = response;
@@ -66,11 +89,31 @@ module myApp{
                 }else if(newVal === 3){
                     this.activeTab = 3;
                     this.fetchGalleries()
+                }else if(newVal === 4){
+                    this.activeTab = 4;
+                  this.eventResource.getTypes().$promise.then((response:any) => {
+                      this.eventTypes = response;
+                  });
                 } else{
                     this.activeTab = 0;
                 }
             });
+
+            $scope.date = {
+                opened: false
+            };
+
+            $scope.dateOptions = {
+
+            };
+
+            $scope.format = 'dd-MMMM-yyyy';
+
+            $scope.date = () => {
+                $scope.date.opened = true;
+            };
         }
+
 
         public uploadMoreImages(gallery){
             this.postId = gallery.id;
@@ -148,6 +191,35 @@ module myApp{
             }
         }
 
+        public submitEvent(eventData){
+            if(eventData){
+
+                eventData.date = this.$filter('date')(eventData.date, 'yyyy-MM-dd');
+                eventData.user_id = this.$scope.currentUser.id;
+                //add categories
+                eventData.categories = this.$scope.selected;
+                console.log(eventData);
+                this.eventResource.save(eventData).$promise.then((response:any) => {
+                    let eventId = response.id;
+                    if (this.$scope.photo) {
+
+                        this.Upload.upload({
+                            url: this.config.API + 'images/event/' + eventId + '/' + 1,
+                            data: {
+                                file: this.$scope.photo
+                            }
+                        });
+                    }
+
+
+                    this.Toast.makeToast('success','Event added');
+                    this.$state.reload();
+
+                });
+            }
+        }
+
+
         public submit(post){
             if(post){
                 post.user_id = this.$scope.currentUser.id;
@@ -172,7 +244,7 @@ module myApp{
             }
 
         }
-
+//todo can be one method for all
         private uploadHeaderPhoto(){
             if (this.$scope.photo) {
 
@@ -182,7 +254,7 @@ module myApp{
                     file: this.$scope.photo
                 }
             });
-        }
+            }
         }
 
         private uploadGalleryPhotos() {

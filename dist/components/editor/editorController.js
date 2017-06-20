@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var EditorCtrl = (function () {
-        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, image, $q, $timeout) {
+        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, image, $q, $timeout, eventResource, $filter) {
             //$scope.category = config.editorsDefault.categories;
             var _this = this;
             this.$http = $http;
@@ -19,7 +19,10 @@ var myApp;
             this.image = image;
             this.$q = $q;
             this.$timeout = $timeout;
+            this.eventResource = eventResource;
+            this.$filter = $filter;
             this.postTypes = [];
+            this.eventTypes = [];
             this.posts = [];
             this.postToEdit = [];
             this.postEdit = false;
@@ -27,8 +30,22 @@ var myApp;
             this.galleryEdit = false;
             this.galleryToEdit = [];
             this.uploadMore = false;
+            this.categories = [];
             $scope.files = [];
             $scope.photo = [];
+            $scope.selected = [];
+            $scope.toggle = function (item, list) {
+                var idx = list.indexOf(item);
+                if (idx > -1) {
+                    list.splice(idx, 1);
+                }
+                else {
+                    list.push(item);
+                }
+            };
+            $scope.exists = function (item, list) {
+                return list.indexOf(item) > -1;
+            };
             this.types.query().$promise.then(function (response) {
                 _this.postTypes = response;
             });
@@ -43,10 +60,24 @@ var myApp;
                     _this.activeTab = 3;
                     _this.fetchGalleries();
                 }
+                else if (newVal === 4) {
+                    _this.activeTab = 4;
+                    _this.eventResource.getTypes().$promise.then(function (response) {
+                        _this.eventTypes = response;
+                    });
+                }
                 else {
                     _this.activeTab = 0;
                 }
             });
+            $scope.date = {
+                opened: false
+            };
+            $scope.dateOptions = {};
+            $scope.format = 'dd-MMMM-yyyy';
+            $scope.date = function () {
+                $scope.date.opened = true;
+            };
         }
         EditorCtrl.prototype.uploadMoreImages = function (gallery) {
             var _this = this;
@@ -121,6 +152,29 @@ var myApp;
                 });
             }
         };
+        EditorCtrl.prototype.submitEvent = function (eventData) {
+            var _this = this;
+            if (eventData) {
+                eventData.date = this.$filter('date')(eventData.date, 'yyyy-MM-dd');
+                eventData.user_id = this.$scope.currentUser.id;
+                //add categories
+                eventData.categories = this.$scope.selected;
+                console.log(eventData);
+                this.eventResource.save(eventData).$promise.then(function (response) {
+                    var eventId = response.id;
+                    if (_this.$scope.photo) {
+                        _this.Upload.upload({
+                            url: _this.config.API + 'images/event/' + eventId + '/' + 1,
+                            data: {
+                                file: _this.$scope.photo
+                            }
+                        });
+                    }
+                    _this.Toast.makeToast('success', 'Event added');
+                    _this.$state.reload();
+                });
+            }
+        };
         EditorCtrl.prototype.submit = function (post) {
             var _this = this;
             if (post) {
@@ -145,6 +199,7 @@ var myApp;
                 });
             }
         };
+        //todo can be one method for all
         EditorCtrl.prototype.uploadHeaderPhoto = function () {
             if (this.$scope.photo) {
                 this.Upload.upload({
@@ -184,7 +239,9 @@ var myApp;
         '$state',
         'ImageResource',
         '$q',
-        '$timeout'
+        '$timeout',
+        'EventResource',
+        '$filter'
     ];
     myApp.EditorCtrl = EditorCtrl;
     angular.module('myApp').controller('myApp.EditorCtrl', EditorCtrl);

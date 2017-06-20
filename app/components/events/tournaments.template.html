@@ -1,13 +1,13 @@
-<section class="bg-pages" ng-controller="myApp.BlogCtrl as blog">
+<section class="bg-pages" ng-controller="myApp.EventCtrl as event">
     <div class="container">
         <div class="col-md-6">
             <md-card style="padding: 50px">
                 <h2>Upcoming Events</h2>
 
-                <md-card ng-repeat="tournament in blog.tournaments">
+                <md-card ng-repeat="tournament in event.tournaments">
                 <md-card-title >
                     <md-card-title-text>
-                        <span class="md-headline">{{ tournament.title }} in {{ tournament.location }}</span>
+                        <span class="md-headline">{{ tournament.title }} in  <flag country="{{tournament.location}}" size="32"></flag></span>
                         <span class="md-subhead">
                         </span>
                     </md-card-title-text>
