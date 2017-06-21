@@ -31,21 +31,24 @@ var myApp;
             this.galleryToEdit = [];
             this.uploadMore = false;
             this.categories = [];
+            this.eventToEdit = [];
+            this.events = [];
             $scope.files = [];
             $scope.photo = [];
-            $scope.selected = [];
-            $scope.toggle = function (item, list) {
-                var idx = list.indexOf(item);
-                if (idx > -1) {
-                    list.splice(idx, 1);
-                }
-                else {
-                    list.push(item);
-                }
-            };
-            $scope.exists = function (item, list) {
-                return list.indexOf(item) > -1;
-            };
+            $scope.selected = {};
+            // $scope.toggle =  (item, list) => {
+            //     var idx = list.indexOf(item);
+            //     if (idx > -1) {
+            //         list.splice(idx, 1);
+            //     }
+            //     else {
+            //         list.push(item);
+            //     }
+            // };
+            //
+            // $scope.exists =  (item, list) => {
+            //     return list.indexOf(item) > -1;
+            // };
             this.types.query().$promise.then(function (response) {
                 _this.postTypes = response;
             });
@@ -66,6 +69,13 @@ var myApp;
                         _this.eventTypes = response;
                     });
                 }
+                else if (newVal === 5) {
+                    _this.activeTab = 5;
+                    _this.eventResource.getTypes().$promise.then(function (response) {
+                        _this.eventTypes = response;
+                    });
+                    _this.fetchEvents();
+                }
                 else {
                     _this.activeTab = 0;
                 }
@@ -79,6 +89,12 @@ var myApp;
                 $scope.date.opened = true;
             };
         }
+        EditorCtrl.prototype.fetchEvents = function () {
+            var _this = this;
+            this.eventResource.query().$promise.then(function (response) {
+                _this.events = response;
+            });
+        };
         EditorCtrl.prototype.uploadMoreImages = function (gallery) {
             var _this = this;
             this.postId = gallery.id;
@@ -109,6 +125,31 @@ var myApp;
                 var index = _this.galleryToEdit.image.indexOf(img);
                 _this.galleryToEdit.image.splice(index, 1);
             });
+        };
+        EditorCtrl.prototype.deleteEvent = function (event) {
+            var _this = this;
+            this.eventResource["delete"]({ eventId: event.id }).$promise.then(function (response) {
+                _this.Toast.makeToast('error', 'Event deleted');
+                var index = _this.events.indexOf(event);
+                _this.events.splice(index, 1);
+            });
+        };
+        EditorCtrl.prototype.updateEvent = function (eventToEdit) {
+            var _this = this;
+            eventToEdit.categories = this.$scope.selected;
+            this.eventResource.update({ eventId: eventToEdit.id }, eventToEdit).$promise.then(function (response) {
+                _this.Toast.makeToast('success', 'Event updated');
+                _this.$state.reload();
+            });
+        };
+        EditorCtrl.prototype.editEvent = function (event) {
+            var array = {};
+            angular.forEach(event.category, function (value, key) {
+                array[value.name] = true;
+            });
+            this.$scope.selected = array;
+            this.eventEdit = true;
+            this.eventToEdit = event;
         };
         EditorCtrl.prototype.editGallery = function (gallery) {
             this.galleryEdit = true;
@@ -159,7 +200,6 @@ var myApp;
                 eventData.user_id = this.$scope.currentUser.id;
                 //add categories
                 eventData.categories = this.$scope.selected;
-                console.log(eventData);
                 this.eventResource.save(eventData).$promise.then(function (response) {
                     var eventId = response.id;
                     if (_this.$scope.photo) {

@@ -36,6 +36,9 @@ module myApp{
             uploadMore:boolean = false;
             categories:any = [];
             addCategories:boolean;
+            eventEdit:boolean;
+            eventToEdit:any = [];
+            events:any =[];
 
 
         constructor(public $http:ng.IHttpService,
@@ -61,21 +64,21 @@ module myApp{
             $scope.photo = [];
 
 
-            $scope.selected = [];
+            $scope.selected = {};
 
-            $scope.toggle =  (item, list) => {
-                var idx = list.indexOf(item);
-                if (idx > -1) {
-                    list.splice(idx, 1);
-                }
-                else {
-                    list.push(item);
-                }
-            };
-
-            $scope.exists =  (item, list) => {
-                return list.indexOf(item) > -1;
-            };
+            // $scope.toggle =  (item, list) => {
+            //     var idx = list.indexOf(item);
+            //     if (idx > -1) {
+            //         list.splice(idx, 1);
+            //     }
+            //     else {
+            //         list.push(item);
+            //     }
+            // };
+            //
+            // $scope.exists =  (item, list) => {
+            //     return list.indexOf(item) > -1;
+            // };
 
             this.types.query().$promise.then((response:any) => {
                 this.postTypes = response;
@@ -94,6 +97,13 @@ module myApp{
                   this.eventResource.getTypes().$promise.then((response:any) => {
                       this.eventTypes = response;
                   });
+                }else if(newVal === 5){
+                    this.activeTab = 5;
+                    this.eventResource.getTypes().$promise.then((response:any) => {
+                        this.eventTypes = response;
+                    });
+                    this.fetchEvents();
+
                 } else{
                     this.activeTab = 0;
                 }
@@ -112,6 +122,12 @@ module myApp{
             $scope.date = () => {
                 $scope.date.opened = true;
             };
+        }
+
+        public fetchEvents(){
+            this.eventResource.query().$promise.then((response:any) => {
+                this.events = response;
+            });
         }
 
 
@@ -145,6 +161,36 @@ module myApp{
                 let index=this.galleryToEdit.image.indexOf(img);
                 this.galleryToEdit.image.splice(index,1);
             });
+        }
+
+        public deleteEvent(event){
+            this.eventResource.delete({eventId:event.id}).$promise.then((response:any) => {
+                this.Toast.makeToast('error','Event deleted');
+                let index=this.events.indexOf(event);
+                this.events.splice(index,1);
+            });
+        }
+
+        public updateEvent(eventToEdit){
+            eventToEdit.categories = this.$scope.selected;
+
+            this.eventResource.update({eventId:eventToEdit.id}, eventToEdit).$promise.then((response:any) => {
+                this.Toast.makeToast('success', 'Event updated');
+                this.$state.reload();
+            });
+        }
+
+        public editEvent(event){
+
+            let array:any = {};
+            angular.forEach(event.category, function(value, key) {
+                array[value.name] = true;
+            });
+
+            this.$scope.selected = array;
+            this.eventEdit = true;
+            this.eventToEdit = event;
+
         }
 
         public editGallery(gallery){
@@ -198,7 +244,7 @@ module myApp{
                 eventData.user_id = this.$scope.currentUser.id;
                 //add categories
                 eventData.categories = this.$scope.selected;
-                console.log(eventData);
+
                 this.eventResource.save(eventData).$promise.then((response:any) => {
                     let eventId = response.id;
                     if (this.$scope.photo) {
@@ -210,7 +256,6 @@ module myApp{
                             }
                         });
                     }
-
 
                     this.Toast.makeToast('success','Event added');
                     this.$state.reload();

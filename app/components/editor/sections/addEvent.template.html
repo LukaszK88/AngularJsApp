@@ -46,9 +46,8 @@
                                 <div layout="row" layout-wrap flex>
                                     <div flex="50" ng-repeat="category in categories">
                                         <md-checkbox
-                                                ng-checked="exists(category, selected)"
-                                                ng-click="toggle(category, selected)">
-                                            {{ category.name }} <span ng-if="exists(category, selected)">selected</span>
+                                              ng-model="selected[category.name]">
+                                            {{ category.name }}
                                         </md-checkbox>
                                     </div>
                                 </div>
