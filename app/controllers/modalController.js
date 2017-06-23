@@ -31,6 +31,27 @@ angular.module('myApp')
         }
         $scope.ageArray = range;
 
+        $scope.showCategoryAttendance = function (ev, template) {
+            openModal(ev,template);
+        } ;
+
+        function openModal(ev,template) {
+                $mdDialog.show({
+                    controller: DialogController,
+                    templateUrl: 'app/templates/modals/' + template + '.template.html',
+                    //parent: angular.element(document.body),
+                    targetEvent: ev,
+                    focusOnOpen: true,
+                    clickOutsideToClose: true,
+                    fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+                })
+                    .then(function (data) {
+
+                    }, function () {
+                        $scope.status = 'You cancelled the dialog.';
+                    });
+        }
+
         $scope.showLogin = function (ev) {
 
             $mdDialog.show({
@@ -131,6 +152,7 @@ angular.module('myApp')
         };
 
         function DialogController($scope, $mdDialog) {
+            $scope.container = {};
 
             $scope.hide = function () {
                 $mdDialog.hide();

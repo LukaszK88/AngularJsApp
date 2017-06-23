@@ -14,10 +14,17 @@ var myApp;
             this._ = _;
             this.event = event;
             this.tournaments = [];
+            this.tournament = [];
+            this.attendees = [];
             this.currentState = $state.current.name;
             if (this.currentState === 'tournaments') {
                 this.fetchTournaments();
             }
+            if (this.currentState === 'tournament') {
+                this.fetchTournament();
+                this.fetchAttendees();
+            }
+            //fetch categories for modal
             // this.Image.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
             //     this.images = response;
             // });
@@ -29,6 +36,42 @@ var myApp;
             //     });
             // }
         }
+        EventCtrl.prototype.fetchAttendees = function () {
+            var _this = this;
+            this.event.attendees({ eventId: this.$stateParams['tournamentId'] }).$promise.then(function (response) {
+                _this.attendees = response;
+                console.log(_this.attendees);
+            });
+        };
+        EventCtrl.prototype.fetchTournament = function () {
+            var _this = this;
+            console.log('test');
+            this.event.get({ eventId: this.$stateParams['tournamentId'] }).$promise.then(function (response) {
+                _this.tournament = response;
+                _this.attendingCount = response.attendance.length;
+            });
+        };
+        EventCtrl.prototype.submitAttendanceCategories = function (categories) {
+            this.event.attendCategories({ eventAttendId: this.$stateParams['eventAttendId'] }, categories).$promise.then(function (response) {
+            });
+        };
+        EventCtrl.prototype.attend = function (user, event) {
+            var _this = this;
+            var status = {};
+            status['going'] = true;
+            this.event.attend({ eventId: event.id, userId: user.id }, status).$promise.then(function (response) {
+                _this.Toast.makeToast('success', 'You are going to ' + event.title);
+                _this.$state.go('tournaments', { eventAttendId: response.id });
+            });
+        };
+        EventCtrl.prototype.cantGo = function (user, event) {
+            var _this = this;
+            var status = {};
+            status['going'] = false;
+            this.event.attend({ eventId: event.id, userId: user.id }, status).$promise.then(function (response) {
+                _this.Toast.makeToast('error', 'You are not going to ' + event.title);
+            });
+        };
         EventCtrl.prototype.fetchTournaments = function () {
             var _this = this;
             this.event.getByType({ typeId: 1 }).$promise.then(function (response) {

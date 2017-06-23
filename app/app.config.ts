@@ -87,8 +87,15 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                 templateUrl:'app/components/gallery/galleryPage.template.html'
             })
             .state("tournaments", <any>{
-                url: "/tournaments",
-                templateUrl:'app/components/events/tournaments.template.html'
+                url: "/tournaments/:eventAttendId",
+                templateUrl:'app/components/events/tournaments.template.html',
+                params: {
+                    eventAttendId: {value: null, squash: true}
+                }
+            })
+            .state("tournament", <any>{
+                url: "/tournament/:tournamentId",
+                templateUrl:'app/components/events/tournamentDetailPage.template.html'
             })
             .state("adminPage", <any>{
                 url: "/admin",

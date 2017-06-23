@@ -31,6 +31,31 @@ module myApp {
                         isArray: true,
                         url: config.API + 'event-types'
                     },
+                    attend: {
+                        method: 'POST',
+                        //isArray: true,
+                        url: config.API + 'event-attend/:eventId/:userId',
+                        params:{
+                            eventId: '@eventId',
+                            userId: '@userId'
+                        }
+                    },
+                    attendees: {
+                        method: 'GET',
+                        isArray: true,
+                        url: config.API + 'event-attendees/:eventId',
+                        params:{
+                            eventId: '@eventId'
+                        }
+                    },
+                    attendCategories: {
+                        method: 'POST',
+                        //isArray: true,
+                        url: config.API + 'event-attend-categories/:eventAttendId',
+                        params:{
+                            eventAttendId: '@eventAttendId'
+                        }
+                    },
                     getByType: {
                         method: 'GET',
                         isArray: true,

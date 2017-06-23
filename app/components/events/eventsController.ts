@@ -20,6 +20,10 @@ module myApp{
 
             tournaments:any = [];
             currentState:string;
+            eventAttendId:number;
+            tournament:any = [];
+            attendingCount:number;
+            attendees:any =[];
 
 
         constructor(public $http:ng.IHttpService,
@@ -39,7 +43,12 @@ module myApp{
             if(this.currentState === 'tournaments'){
                 this.fetchTournaments();
             }
+            if(this.currentState === 'tournament'){
+                this.fetchTournament();
+                this.fetchAttendees();
+            }
 
+//fetch categories for modal
             // this.Image.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
             //     this.images = response;
             // });
@@ -51,6 +60,47 @@ module myApp{
             //     });
             // }
 
+
+        }
+        public fetchAttendees(){
+
+            this.event.attendees({eventId:this.$stateParams['tournamentId']}).$promise.then((response) => {
+                this.attendees = response;
+                console.log(this.attendees);
+            });
+        }
+
+        public fetchTournament(){
+            console.log('test');
+            this.event.get({eventId:this.$stateParams['tournamentId']}).$promise.then((response) => {
+                this.tournament = response;
+                this.attendingCount = response.attendance.length;
+            });
+        }
+
+        public submitAttendanceCategories(categories){
+
+            this.event.attendCategories({eventAttendId:this.$stateParams['eventAttendId']}, categories).$promise.then((response) => {
+
+            });
+        }
+
+        public attend(user, event) {
+            let status:any ={};
+             status['going'] = true;
+            this.event.attend({eventId: event.id, userId: user.id}, status).$promise.then((response) => {
+
+                this.Toast.makeToast('success','You are going to ' + event.title);
+
+                this.$state.go('tournaments',{eventAttendId:response.id});
+            });
+        }
+        public cantGo(user, event){
+            let status:any ={};
+            status['going'] = false;
+            this.event.attend({eventId: event.id, userId: user.id}, status).$promise.then((response) => {
+                this.Toast.makeToast('error','You are not going to ' + event.title);
+            });
         }
 
         protected fetchTournaments(){
