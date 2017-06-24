@@ -31,17 +31,24 @@ angular.module('myApp')
         }
         $scope.ageArray = range;
 
-        $scope.showCategoryAttendance = function (ev, template) {
-            openModal(ev,template);
+        $scope.showCategoryAttendance = function (ev, template, local) {
+            openModal(ev,template,local);
         } ;
 
-        function openModal(ev,template) {
+        $scope.showFighterEventNotes = function (ev, template, local) {
+            openModal(ev,template,local);
+        } ;
+
+        function openModal(ev,template, local) {
                 $mdDialog.show({
-                    controller: DialogController,
+                    controller: DialogController2,
                     templateUrl: 'app/templates/modals/' + template + '.template.html',
                     //parent: angular.element(document.body),
                     targetEvent: ev,
                     focusOnOpen: true,
+                    locals:{
+                        local: local
+                    },
                     clickOutsideToClose: true,
                     fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
                 })
@@ -150,6 +157,22 @@ angular.module('myApp')
 
             });
         };
+
+        function DialogController2($scope, $mdDialog, local) {
+            $scope.container = {};
+            $scope.local = local;
+            $scope.hide = function () {
+                $mdDialog.hide();
+            };
+
+            $scope.cancel = function () {
+                $mdDialog.cancel();
+            };
+
+            $scope.submit = function (data) {
+                $mdDialog.hide(data);
+            };
+        }
 
         function DialogController($scope, $mdDialog) {
             $scope.container = {};

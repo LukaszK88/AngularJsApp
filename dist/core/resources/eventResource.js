@@ -31,6 +31,14 @@ var myApp;
                     userId: '@userId'
                 }
             },
+            getAttendingEvents: {
+                method: 'GET',
+                isArray: true,
+                url: config.API + 'event-attending/:userId',
+                params: {
+                    userId: '@userId'
+                }
+            },
             attendees: {
                 method: 'GET',
                 isArray: true,

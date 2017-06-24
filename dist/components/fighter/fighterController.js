@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var FighterCtrl = (function () {
-        function FighterCtrl($http, $scope, $location, FighterResource, $stateParams, Upload, Achievement, Toast) {
+        function FighterCtrl($http, $scope, $location, FighterResource, $stateParams, Upload, Achievement, Toast, EventResource) {
             var _this = this;
             this.$http = $http;
             this.$scope = $scope;
@@ -12,8 +12,13 @@ var myApp;
             this.Upload = Upload;
             this.Achievement = Achievement;
             this.Toast = Toast;
+            this.EventResource = EventResource;
             this.achievements = [];
+            this.events = [];
+            this.eventNotes = [];
             this.fetchAchievements();
+            this.getFighterEvents();
+            //this.eventNotes = 'test';
             $scope.$watch('file', function (newVal, oldVal) {
                 if (newVal) {
                     _this.Upload.upload({
@@ -32,6 +37,25 @@ var myApp;
                 $scope.fighter = response.fighters;
             });
         }
+        FighterCtrl.prototype.getOtherAttendees = function (event) {
+            var _this = this;
+            this.EventResource.attendees({ eventId: event.id }).$promise
+                .then(function (response) {
+                event.users = response;
+                _this.FighterResource.getFighterEventInfo({ eventAttendId: event.eventAttendId, userId: _this.$stateParams['fighterId'] }).$promise
+                    .then(function (response) {
+                    event.attending_categories = response.event_attend_category;
+                });
+            });
+        };
+        FighterCtrl.prototype.getFighterEvents = function () {
+            var _this = this;
+            this.EventResource.getAttendingEvents({ userId: this.$stateParams['fighterId'] }).$promise
+                .then(function (response) {
+                _this.events = response;
+                _this.eventAttendingCount = response.length;
+            });
+        };
         FighterCtrl.prototype.hideForm = function () {
             this.$scope.showform = false;
         };
@@ -85,7 +109,8 @@ var myApp;
         '$stateParams',
         'Upload',
         'AchievementResource',
-        'toastService'
+        'toastService',
+        'EventResource'
     ];
     myApp.FighterCtrl = FighterCtrl;
     angular.module('myApp').controller('myApp.FighterCtrl', FighterCtrl);

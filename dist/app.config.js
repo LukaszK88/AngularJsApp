@@ -57,6 +57,10 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
             url: "/fighters/:fighterId",
             templateUrl: 'app/components/fighter/fighterDetail.template.html'
         })
+            .state("fighterPage", {
+            url: "/fighter/page/:fighterId",
+            templateUrl: 'app/components/fighter/fighterPage.template.html'
+        })
             .state("blog", {
             url: "/blog",
             templateUrl: 'app/components/blog/blogPage.template.html'

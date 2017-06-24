@@ -15,11 +15,11 @@
                     <div class="col-md-12">
                         <div flex="300" flex-gt-sm="300" layout="column">
                             <div>
+                               <span ng-hide="local.event">{{ container = local.user }}</span>
                                 <fieldset class="standard" >
                                     <legend>Which Categories you will participate in:</legend>
-                                    {{ container }}
                                     <div layout="row" layout-wrap flex>
-                                        <div flex="50" ng-repeat="category in categories">
+                                        <div flex="50" ng-repeat="category in local.event">
                                             <md-checkbox
                                                     ng-model="container[category.name]">
                                                 {{ category.name }}

@@ -45,7 +45,7 @@
                         </div>
                     </md-card-content>
                     <md-card-actions ng-if="currentUser" layout="row" layout-align="end center">
-                        <md-button ng-click="event.attend(currentUser, tournament); showCategoryAttendance($event,'categoryAttendance')">Attend</md-button>
+                        <md-button ng-click="event.attend(currentUser, tournament); showCategoryAttendance($event,'categoryAttendance',event.categories)">Attend</md-button>
                         <md-button ng-click="event.cantGo(currentUser, tournament)">Cant go</md-button>
                     </md-card-actions>
                 </md-card>

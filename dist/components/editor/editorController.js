@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var EditorCtrl = (function () {
-        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, image, $q, $timeout, eventResource, $filter) {
+        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, image, $q, $timeout, eventResource, $filter, eventNotes) {
             //$scope.category = config.editorsDefault.categories;
             var _this = this;
             this.$http = $http;
@@ -21,6 +21,7 @@ var myApp;
             this.$timeout = $timeout;
             this.eventResource = eventResource;
             this.$filter = $filter;
+            this.eventNotes = eventNotes;
             this.postTypes = [];
             this.eventTypes = [];
             this.posts = [];
@@ -33,22 +34,10 @@ var myApp;
             this.categories = [];
             this.eventToEdit = [];
             this.events = [];
+            this.noteToEdit = [];
             $scope.files = [];
             $scope.photo = [];
             $scope.selected = {};
-            // $scope.toggle =  (item, list) => {
-            //     var idx = list.indexOf(item);
-            //     if (idx > -1) {
-            //         list.splice(idx, 1);
-            //     }
-            //     else {
-            //         list.push(item);
-            //     }
-            // };
-            //
-            // $scope.exists =  (item, list) => {
-            //     return list.indexOf(item) > -1;
-            // };
             this.types.query().$promise.then(function (response) {
                 _this.postTypes = response;
             });
@@ -138,6 +127,15 @@ var myApp;
             var _this = this;
             eventToEdit.categories = this.$scope.selected;
             this.eventResource.update({ eventId: eventToEdit.id }, eventToEdit).$promise.then(function (response) {
+                //TODO flexible method
+                if (_this.$scope.photo) {
+                    _this.Upload.upload({
+                        url: _this.config.API + 'images/event/' + eventToEdit.id + '/' + 1,
+                        data: {
+                            file: _this.$scope.photo
+                        }
+                    });
+                }
                 _this.Toast.makeToast('success', 'Event updated');
                 _this.$state.reload();
             });
@@ -193,24 +191,55 @@ var myApp;
                 });
             }
         };
-        EditorCtrl.prototype.submitEvent = function (eventData) {
+        EditorCtrl.prototype.addEventData = function (eventData) {
+            var _this = this;
+            eventData.date = this.$filter('date')(eventData.date, 'yyyy-MM-dd');
+            eventData.user_id = this.$scope.currentUser.id;
+            //add categories
+            eventData.categories = this.$scope.selected;
+            return this.eventResource.save(eventData).$promise.then(function (response) {
+                _this.Toast.makeToast('success', 'Event added');
+                return response;
+            });
+        };
+        EditorCtrl.prototype.updateNote = function (note) {
+            var _this = this;
+            this.eventNotes.update({ noteId: note.id }, note).$promise.then(function (response) {
+                _this.Toast.makeToast('success', 'Note updated');
+            });
+        };
+        EditorCtrl.prototype.editNote = function (note) {
+            this.showNoteToEdit = true;
+            this.noteToEdit = note;
+        };
+        EditorCtrl.prototype.deleteNote = function (note) {
+            var _this = this;
+            this.eventNotes["delete"]({ noteId: note.id }).$promise.then(function (response) {
+                _this.Toast.makeToast('error', 'Note deleted');
+                var index = _this.eventToEdit.note.indexOf(note);
+                _this.eventToEdit.note.splice(index, 1);
+            });
+        };
+        EditorCtrl.prototype.addNote = function (note, event) {
+            var _this = this;
+            note.event_id = event.id;
+            note.user_id = this.$scope.currentUser.id;
+            this.eventNotes.save(note).$promise.then(function (response) {
+                _this.Toast.makeToast('success', 'Note added');
+                if (_this.eventToEdit) {
+                    //add note to note array
+                    event.note.push(response);
+                }
+            });
+        };
+        EditorCtrl.prototype.submitEvent = function (eventData, note) {
             var _this = this;
             if (eventData) {
-                eventData.date = this.$filter('date')(eventData.date, 'yyyy-MM-dd');
-                eventData.user_id = this.$scope.currentUser.id;
-                //add categories
-                eventData.categories = this.$scope.selected;
-                this.eventResource.save(eventData).$promise.then(function (response) {
-                    var eventId = response.id;
-                    if (_this.$scope.photo) {
-                        _this.Upload.upload({
-                            url: _this.config.API + 'images/event/' + eventId + '/' + 1,
-                            data: {
-                                file: _this.$scope.photo
-                            }
-                        });
+                this.addEventData(eventData).then(function (response) {
+                    if (note) {
+                        _this.addNote(note, response);
                     }
-                    _this.Toast.makeToast('success', 'Event added');
+                    _this.uploadHeaderPhoto('event', response.id);
                     _this.$state.reload();
                 });
             }
@@ -231,7 +260,7 @@ var myApp;
                         _this.$state.reload();
                     }
                     else {
-                        _this.uploadHeaderPhoto();
+                        _this.uploadHeaderPhoto('post', response.id);
                         _this.uploadGalleryPhotos();
                         _this.Toast.makeToast('success', 'Post added');
                         _this.$state.reload();
@@ -240,10 +269,10 @@ var myApp;
             }
         };
         //todo can be one method for all
-        EditorCtrl.prototype.uploadHeaderPhoto = function () {
+        EditorCtrl.prototype.uploadHeaderPhoto = function (where, whatId) {
             if (this.$scope.photo) {
                 this.Upload.upload({
-                    url: this.config.API + 'images/post/' + this.postId + '/' + 1,
+                    url: this.config.API + 'images/' + where + '/' + whatId + '/' + 1,
                     data: {
                         file: this.$scope.photo
                     }
@@ -281,7 +310,8 @@ var myApp;
         '$q',
         '$timeout',
         'EventResource',
-        '$filter'
+        '$filter',
+        'EventNotesResource'
     ];
     myApp.EditorCtrl = EditorCtrl;
     angular.module('myApp').controller('myApp.EditorCtrl', EditorCtrl);

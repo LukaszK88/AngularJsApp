@@ -38,7 +38,8 @@
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span ng-if="admin">Admin </span>{{ currentUser.username }} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref="fighterDetail({fighterId: currentUser.id})">Your page</a></li>
+                        <li><a ui-sref="fighterDetail({fighterId: currentUser.id})">Your profile</a></li>
+                        <li><a ui-sref="fighterPage({fighterId: currentUser.id})">Your page</a></li>
                         <li><a ng-click="showEditProfile($event)">Edit profile</a></li>
                         <li><a ng-click="showSettings($event)">Settings</a></li>
                         <li ng-if="admin || editor" class="divider"></li>

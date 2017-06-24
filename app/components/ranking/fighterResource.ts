@@ -26,11 +26,15 @@ module myApp.ranking {
                 //        id: '@id'
                 //    }
                 //},
-                //getBySlug: {
-                //    method: 'GET',
-                //    isArray: false,
-                //    url: AppConfig.apiPath + AppConfig.API.event + ':slug'
-                //},
+                getFighterEventInfo: {
+                    method: 'GET',
+                    //isArray: true,
+                    url: config.API + 'fighter/event-info/:eventAttendId/:userId',
+                    params: {
+                        eventAttendId: '@eventAttendId',
+                        userId: '@userId'
+                    }
+                },
                 getFighterData: {
                     method: 'GET',
                     url:  config.API + 'fighters/tableData'

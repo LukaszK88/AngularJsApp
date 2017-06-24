@@ -12,11 +12,16 @@ module myApp{
                 '$stateParams',
                 'Upload',
                 'AchievementResource',
-                'toastService'
+                'toastService',
+                'EventResource'
             ];
 
 
         public achievements:any = [];
+        events:any = [];
+        eventAttendingCount:number;
+        eventNotes:any = [];
+        peopleAttending:number;
 
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
@@ -25,10 +30,13 @@ module myApp{
                         protected $stateParams:any,
                         public Upload:any,
                     protected Achievement:any,
-                    protected Toast:any
+                    protected Toast:any,
+                    protected EventResource:any
         ){
             this.fetchAchievements();
+            this.getFighterEvents();
 
+//this.eventNotes = 'test';
 
             $scope.$watch('file',  (newVal,oldVal) => {
                 if(newVal) {
@@ -52,7 +60,27 @@ module myApp{
                     $scope.fighter = response.fighters;
                 });
 
+        }
 
+
+
+        public getOtherAttendees(event){
+            this.EventResource.attendees({eventId:event.id}).$promise
+                .then((response:any) => {
+                    event.users = response;
+                    this.FighterResource.getFighterEventInfo({eventAttendId:event.eventAttendId,userId:this.$stateParams['fighterId']}).$promise
+                        .then((response:any) => {
+                            event.attending_categories = response.event_attend_category;
+                        });
+                });
+        }
+
+        public getFighterEvents(){
+            this.EventResource.getAttendingEvents({userId:this.$stateParams['fighterId']}).$promise
+                .then((response:any) => {
+                   this.events = response;
+                   this.eventAttendingCount = response.length;
+                });
         }
 
         public hideForm(){
