@@ -75,7 +75,7 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                 templateUrl:'app/components/fighter/fighterPage.template.html'
             })
             .state("blog", <any>{
-                url: "/blog",
+                url: "/blog/:categoryId",
                 templateUrl:'app/components/blog/blogPage.template.html'
             })
             .state("blogDetail", <any>{
@@ -97,6 +97,13 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                     eventAttendId: {value: null, squash: true}
                 }
             })
+            // .state("training", <any>{
+            //     url: "/training/:postId",
+            //     templateUrl:'app/components/events/tournaments.template.html',
+            //     params: {
+            //         eventAttendId: {value: null, squash: true}
+            //     }
+            // })
             .state("tournament", <any>{
                 url: "/tournament/:tournamentId",
                 templateUrl:'app/components/events/tournamentDetailPage.template.html'

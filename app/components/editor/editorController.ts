@@ -44,6 +44,10 @@ module myApp{
             showNotesTable:boolean;
             showNoteToEdit:boolean;
             noteToEdit:any = [];
+            hideAddPostType:boolean;
+            hideEditPostType:boolean;
+        showPostTypeToBeEdited:boolean;
+
 
 
         constructor(public $http:ng.IHttpService,
@@ -114,6 +118,39 @@ module myApp{
             $scope.date = () => {
                 $scope.date.opened = true;
             };
+        }
+        private remove(where,what){
+            let index= where.indexOf(what);
+             where.splice(index,1);
+        }
+
+        // todo edit types
+        // public editPostType(type){
+        //     console.log(type);
+        //     this.showPostTypeToBeEdited = true;
+        // }
+
+        public deletePostType(type){
+             this.types.delete({typeId:type}).$promise.then((response:any) => {
+                 angular.forEach(this.postTypes,(value,key) => {
+                     if(value.id == type){
+                         this.remove(this.postTypes,value);
+                     }
+                 });
+                 this.Toast.makeToast('error','Category Deleted');
+             }).catch(()=>{
+                this.Toast.makeToast('error','Most probably there are Active Posts with this category');
+            });
+        }
+
+        public addPostType(type){
+            this.hideAddPostType = false;
+            this.types.save(type).$promise.then((response:any) => {
+                this.postTypes.push(response);
+                this.Toast.makeToast('success','Post Type Added');
+
+            });
+
         }
 
         public fetchEvents(){

@@ -49,6 +49,9 @@ module myApp{
                     this.Auth.currentUser().then((data) => {
 
                         this.$scope.currentUser = data.data;
+                        if(data.data.name === ''){
+
+                        }
 
                         if(data.data.user_role_id === 3){
                             this.$scope.admin = true;

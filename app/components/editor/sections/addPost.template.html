@@ -17,9 +17,23 @@
             <md-radio-group layout="row" ng-model="editorCtrl.post.post_type">
 
                 <md-radio-button ng-repeat="type in editorCtrl.postTypes"
-                                 value="{{ type.id }}" class="md-primary">{{ type.type }}</md-radio-button>
-
+                                 value="{{ type.id }}" class="md-primary">
+                    {{ type.type }}
+                </md-radio-button>
             </md-radio-group>
+            <md-button ng-if="editorCtrl.hideEditPostType"><a ng-click="editorCtrl.deletePostType(editorCtrl.post.post_type)" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span>Remove</a></md-button>
+
+            <!--todo checkbox to edit types-->
+            <!--<md-button ng-if="!editorCtrl.showPostTypeToBeEdited" ng-if="editorCtrl.hideEditPostType"><a ng-click="editorCtrl.editPostType(editorCtrl.post.post_type)" class="btn btn-xs btn-danger"><span class="fa fa-pencil-square-o"></span>Edit</a></md-button>-->
+
+            <!--<span ng-if="editorCtrl.showPostTypeToBeEdited">  <input type="text" ng-model="editorCtrl.postTypeToEdit.type" ><i ng-click="editorCtrl.updatePostType(editorCtrl.postTypeToEdit)" class="fa fa-check" aria-hidden="true"></i></span>-->
+
+
+            <div class="row">
+                <span ng-if="!editorCtrl.hideAddPostType" ng-click="editorCtrl.hideAddPostType=!editorCtrl.hideAddPostType"><i  class="fa fa-plus-square" aria-hidden="true"></i> Add Category</span>
+                <span ng-click="editorCtrl.hideEditPostType=!editorCtrl.hideEditPostType"><i  class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Category</span>
+                <span ng-if="editorCtrl.hideAddPostType"> <input  ng-model="editorCtrl.addPostNewType.type" type="text"><i ng-click="editorCtrl.addPostType(editorCtrl.addPostNewType)" class="fa fa-plus-square" aria-hidden="true"></i></span>
+            </div>
             <br>
             <div class="row text-center">
                 <h4>Body:</h4>

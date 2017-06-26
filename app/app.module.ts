@@ -25,7 +25,8 @@ module myApp{
             'angularSuperGallery',
             'angularTrix',
             'ui.bootstrap',
-            'timer'
+            'timer',
+            'videosharing-embed'
 
         ])
         .constant('_', window._)

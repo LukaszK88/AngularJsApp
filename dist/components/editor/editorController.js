@@ -78,6 +78,36 @@ var myApp;
                 $scope.date.opened = true;
             };
         }
+        EditorCtrl.prototype.remove = function (where, what) {
+            var index = where.indexOf(what);
+            where.splice(index, 1);
+        };
+        // todo edit types
+        // public editPostType(type){
+        //     console.log(type);
+        //     this.showPostTypeToBeEdited = true;
+        // }
+        EditorCtrl.prototype.deletePostType = function (type) {
+            var _this = this;
+            this.types["delete"]({ typeId: type }).$promise.then(function (response) {
+                angular.forEach(_this.postTypes, function (value, key) {
+                    if (value.id == type) {
+                        _this.remove(_this.postTypes, value);
+                    }
+                });
+                _this.Toast.makeToast('error', 'Category Deleted');
+            })["catch"](function () {
+                _this.Toast.makeToast('error', 'Most probably there are Active Posts with this category');
+            });
+        };
+        EditorCtrl.prototype.addPostType = function (type) {
+            var _this = this;
+            this.hideAddPostType = false;
+            this.types.save(type).$promise.then(function (response) {
+                _this.postTypes.push(response);
+                _this.Toast.makeToast('success', 'Post Type Added');
+            });
+        };
         EditorCtrl.prototype.fetchEvents = function () {
             var _this = this;
             this.eventResource.query().$promise.then(function (response) {

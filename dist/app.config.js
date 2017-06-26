@@ -62,7 +62,7 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
             templateUrl: 'app/components/fighter/fighterPage.template.html'
         })
             .state("blog", {
-            url: "/blog",
+            url: "/blog/:categoryId",
             templateUrl: 'app/components/blog/blogPage.template.html'
         })
             .state("blogDetail", {

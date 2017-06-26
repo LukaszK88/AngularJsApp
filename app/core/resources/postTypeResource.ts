@@ -14,10 +14,12 @@ module myApp {
     ){
 
         return $resource(
-            config.API + 'types',
-            {   },
+            config.API + 'types/:typeId',
+            {  typeId: '@typeId' },
             {
-
+                update: {
+                    method: 'PUT'
+                }
             });
     }
 

@@ -33,7 +33,8 @@
     "angular-bootstrap": "^2.5.0",
     "angular-timer": "^1.3.5",
     "humanize-duration": "^3.10.0",
-    "moment": "momentjs#^2.18.1"
+    "moment": "momentjs#^2.18.1",
+    "ng-videosharing-embed": "^0.3.8"
   },
   "resolutions": {
     "moment": "~2.9.0"

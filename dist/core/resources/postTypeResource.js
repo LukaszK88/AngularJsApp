@@ -6,7 +6,11 @@ var myApp;
         'config'
     ];
     function PostTypeResource($resource, config) {
-        return $resource(config.API + 'types', {}, {});
+        return $resource(config.API + 'types/:typeId', { typeId: '@typeId' }, {
+            update: {
+                method: 'PUT'
+            }
+        });
     }
     angular.module('myApp')
         .factory('PostTypeResource', PostTypeResource);
