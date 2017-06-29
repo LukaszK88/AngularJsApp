@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var GalleryCtrl = (function () {
-        function GalleryCtrl($http, $scope, $rootScope, $location, BlogResource, $stateParams, Upload, Image, Toast, $state, _) {
+        function GalleryCtrl($http, $scope, $rootScope, $location, BlogResource, $stateParams, Upload, media, Toast, $state, _) {
             var _this = this;
             this.$http = $http;
             this.$scope = $scope;
@@ -11,7 +11,7 @@ var myApp;
             this.BlogResource = BlogResource;
             this.$stateParams = $stateParams;
             this.Upload = Upload;
-            this.Image = Image;
+            this.media = media;
             this.Toast = Toast;
             this.$state = $state;
             this._ = _;
@@ -24,10 +24,10 @@ var myApp;
                 _this.post = response;
             });
             //Main gallery
-            this.Image.query().$promise.then(function (response) {
+            this.media.image.query().$promise.then(function (response) {
                 _this.galleryImages = response;
             });
-            this.Image.getGalleryById({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+            this.media.image.getGalleryById({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                 _this.images = response;
             });
             $scope.conf = {
@@ -54,7 +54,7 @@ var myApp;
         'BlogResource',
         '$stateParams',
         'Upload',
-        'ImageResource',
+        'MediaResource',
         'toastService',
         '$state',
         '_'

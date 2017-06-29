@@ -14,8 +14,7 @@ module myApp.ranking{
 
             public path:string;
 
-
-            constructor(public $http:ng.IHttpService,
+        constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
                         public $location:any,
                         protected FighterResource:any,
@@ -41,6 +40,7 @@ module myApp.ranking{
                             break;
                         case 1:
                             this.$scope.bohurt = true;
+
                             break;
                         case 2:
                             this.$scope.profight = true;
@@ -63,18 +63,25 @@ module myApp.ranking{
                     }
                 });
 
+
+
                 this.FighterResource.get().$promise
                     .then((response:any) => {
                         $scope.fighters = response.fighters;
                     });
 
-
-
-
             }
-      }
 
-      angular.module('myApp.ranking').controller('myApp.ranking.TableAllController', TableAllController);
+            public getSum(category,column){
+                let total = 0;
+                for (var y in category) {
+                    total += category[y][column];
+                }
+                return total;
+            }
+        }
+
+    angular.module('myApp.ranking').controller('myApp.ranking.TableAllController', TableAllController);
 }
 
 

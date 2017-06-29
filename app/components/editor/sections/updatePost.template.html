@@ -5,14 +5,14 @@
             <div class="row">
                 <font color="red" ><span ng-show="!editorCtrl.post.post_type">Select Category to filter posts</span> </font>
             </div>
-            <md-radio-group ng-change="editorCtrl.fetchPosts(editorCtrl.post.post_type)" layout="row" ng-model="editorCtrl.post.post_type">
+            <md-radio-group ng-change="editorCtrl.fetchPosts(editorCtrl.post.type)" layout="row" ng-model="editorCtrl.post.type">
 
                 <md-radio-button  ng-repeat="type in editorCtrl.postTypes"
-                                 value="{{ type.id }}" class="md-primary">{{ type.type }}</md-radio-button>
+                                 value="{{ type.slug }}" class="md-primary">{{ type.type }}</md-radio-button>
 
             </md-radio-group>
             <hr>
-            <div ng-show="editorCtrl.post.post_type && !editorCtrl.postEdit" class="row">
+            <div ng-show="editorCtrl.post.type && !editorCtrl.postEdit" class="row">
                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover myTable ">
                         <thead>
@@ -26,7 +26,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="post in editorCtrl.posts">
-                            <td><a ui-sref="blogDetail({postId:post.id})">{{ post.title }}</a></td>
+                            <td><a ui-sref="postDetail({postId:post.id})">{{ post.title }}</a></td>
                             <td>{{ post.user.username }}</td>
                             <td>{{ post.created_at | limitTo: 16 }}</td>
                             <td><a ng-click="editorCtrl.editPost(post)" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-pencil"></span></a></td>
@@ -57,10 +57,18 @@
             <br>
             <trix-editor required style="height: 300px" angular-trix ng-model="editorCtrl.postToEdit.body"></trix-editor>
             <br>
+        <div class="row">
+            <div class="col-md-6">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Header Video </label>
+                    <input placeholder="Enter youtube link" type="text" name="video" ng-model="editorCtrl.postToEdit.video_url">
+                </md-input-container>
+            </div>
+        </div>
     <hr>
 </div>
     <div ng-if="editorCtrl.postEdit" class="row">
-        <button ng-disabled="!editorCtrl.post.post_type || updatePost.$invalid" ng-click="editorCtrl.update(editorCtrl.postToEdit)" class="btn wc-theme">Update</button>
+        <button ng-disabled="!editorCtrl.post.type || updatePost.$invalid" ng-click="editorCtrl.update(editorCtrl.postToEdit)" class="btn wc-theme">Update</button>
     </div>
 
 

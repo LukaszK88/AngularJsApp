@@ -26,12 +26,14 @@ module myApp{
             'angularTrix',
             'ui.bootstrap',
             'timer',
-            'videosharing-embed'
+            'videosharing-embed',
+            '720kb.socialshare'
 
         ])
         .constant('_', window._)
         .constant('config',{
-            API : 'http://127.0.0.1:8000/api/'
+            API : 'http://127.0.0.1:8000/api/',
+            basePath: 'http://ranking.com/'
             // editorsDefault : {
             //     categories: {
             //         1 : false,

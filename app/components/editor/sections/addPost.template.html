@@ -15,7 +15,6 @@
                 <font color="red" ><span ng-show="!editorCtrl.post.post_type">Select Category required</span> </font>
             </div>
             <md-radio-group layout="row" ng-model="editorCtrl.post.post_type">
-
                 <md-radio-button ng-repeat="type in editorCtrl.postTypes"
                                  value="{{ type.id }}" class="md-primary">
                     {{ type.type }}
@@ -42,13 +41,24 @@
             <trix-editor required style="height: 300px" angular-trix ng-model="editorCtrl.post.body"></trix-editor>
             <br>
             <div class="row text-center">
-                <h4>Upload Photos:</h4>
+                <h4>Select Photos or Video as Header:</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-lg-offset-5 ">
+                    <md-radio-group layout="row" ng-model="header">
+                        <md-radio-button value="photo" class="md-primary">
+                                Photo
+                        </md-radio-button>
+                        <md-radio-button value="video" class="md-primary">
+                                Video
+                        </md-radio-button>
+                    </md-radio-group>
+                </div>
             </div>
             <br>
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-
-                    <div ng-required="editorCtrl.post.post_type == 1 || editorCtrl.post.post_type == 3 "
+                <div ng-if="header == 'photo'" class="col-md-6 ">
+                    <div ng-required="(editorCtrl.post.post_type == 1 || editorCtrl.post.post_type == 3) && header != 'video' "
                          ngf-drop
                          ngf-select
                          ng-model="photo.header"
@@ -62,19 +72,28 @@
 
                     </div>
                     <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
                 </div>
-                <div class="col-md-4 col-md-offset-4">
-                    <img style="height: 150px;width: 100%" ng-show="addPost.photo.header.$valid" ngf-thumbnail="photo.header">
+                <div class="col-md-6 ">
+                    <div ng-if="header == 'video'" class="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Header Video </label>
+                            <input placeholder="Enter youtube link" type="text" name="video" ng-model="video.url">
+                        </md-input-container>
+                    </div>
+                    <div ng-if="header == 'photo'" class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            <img style="height: 100px; width: 100%" ng-show="addPost.photo.header.$valid" ngf-thumbnail="photo.header">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <md-checkbox ng-model="editorCtrl.post.gallery"  ng-click="addGallery=!addGallery" aria-label="Checkbox 1">
                     <label>Add Gallery</label>
                 </md-checkbox>
             </div>
             <div ng-if="addGallery" class="row">
-
                 <div class="col-md-8 col-md-offset-2">
                     <div ngf-drop
                          ngf-select
@@ -85,9 +104,7 @@
                          accept="image/*"
                          ngf-pattern="'image/*'">Upload Gallery Photos
                     </div>
-
                     <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-
                 </div>
             </div>
             <div ng-if="addGallery" class="row">

@@ -6,10 +6,18 @@
                 <md-card ng-repeat="post in blog.posts">
                 <md-card-title >
                     <md-card-title-text>
-                        <span class="md-headline text-left"><a ui-sref="blogDetail({postId: post.id})">{{ post.title }}</a></span>
+                        <span class="md-headline text-left"><a ui-sref="postDetail({postId: post.id})">{{ post.title }}</a></span>
                         <span class="md-subhead">{{ post.created_at | limitTo: 10}}|
                                                 By: {{ post.user.username}}|
-                                                Category: {{ post.type}}
+                                                Category: {{ post.type}} |
+                            <a href="#"
+                               socialshare
+                               socialshare-provider="facebook"
+                               socialshare-url="{{shareUrl(post.id)}}">
+                            <button class="btn wc-theme-reverse">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            Share</button>
+                            </a>
                         </span>
                     </md-card-title-text>
                 </md-card-title>
@@ -26,14 +34,9 @@
 
                     </div>
                     <div class="col-md-3">
-                        <img class="img-responsive" src="{{ post.url }}" >
+                        <img ng-if="!post.video_url" class="img-responsive" src="{{ post.url }}" >
+                        <embed-video iframe-id="vimeo1" width=100% api="1" player_id="player" ng-href="{{ post.video_url }}"><a href="{{ post.video_url }}">Watch</a></embed-video>
                     </div>
-                        <div class="col-md-3">
-                            <embed-video iframe-id="vimeo1" width=100% api="1" player_id="player" ng-href="{{ post.video_url }}"><a href="{{ post.video_url }}">Watch</a></embed-video>
-
-                        </div>
-
-
                     </md-card-content>
                 </md-card>
 

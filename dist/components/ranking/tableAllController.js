@@ -55,6 +55,13 @@ var myApp;
                     $scope.fighters = response.fighters;
                 });
             }
+            TableAllController.prototype.getSum = function (category, column) {
+                var total = 0;
+                for (var y in category) {
+                    total += category[y][column];
+                }
+                return total;
+            };
             return TableAllController;
         }());
         TableAllController.$inject = [

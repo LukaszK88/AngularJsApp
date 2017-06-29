@@ -1,6 +1,7 @@
 /// <reference path="_all.ts" />
 /// <reference path="components/ranking/tableAllController.ts" />
-angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authProvider',
+angular.module('myApp')
+    .config(['$stateProvider', '$locationProvider', '$authProvider',
     function routes($stateProvider, $locationProvider, $authProvider) {
         $authProvider.facebook({
             clientId: '1884018281856728'
@@ -65,8 +66,8 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
             url: "/blog/:categoryId",
             templateUrl: 'app/components/blog/blogPage.template.html'
         })
-            .state("blogDetail", {
-            url: "/blog/:postId",
+            .state("postDetail", {
+            url: "/post/:postId",
             templateUrl: 'app/components/blog/blogDetailPage.template.html'
         })
             .state("galleryDetail", {

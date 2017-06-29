@@ -1,7 +1,8 @@
 
 /// <reference path="_all.ts" />
 /// <reference path="components/ranking/tableAllController.ts" />
-angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authProvider',
+angular.module('myApp')
+.config(['$stateProvider', '$locationProvider', '$authProvider',
     function routes($stateProvider: any,
                     $locationProvider: ng.ILocationProvider,
                     $authProvider: any
@@ -78,8 +79,8 @@ angular.module('myApp').config(['$stateProvider', '$locationProvider', '$authPro
                 url: "/blog/:categoryId",
                 templateUrl:'app/components/blog/blogPage.template.html'
             })
-            .state("blogDetail", <any>{
-                url: "/blog/:postId",
+            .state("postDetail", <any>{
+                url: "/post/:postId",
                 templateUrl:'app/components/blog/blogDetailPage.template.html'
             })
             .state("galleryDetail", <any>{

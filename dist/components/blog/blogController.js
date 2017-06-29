@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var BlogCtrl = (function () {
-        function BlogCtrl($http, $scope, $location, BlogResource, $stateParams, Upload, Image, Toast, $state, _) {
+        function BlogCtrl($http, $scope, $location, BlogResource, $stateParams, Upload, media, Toast, $state, _, config) {
             var _this = this;
             this.$http = $http;
             this.$scope = $scope;
@@ -10,16 +10,20 @@ var myApp;
             this.BlogResource = BlogResource;
             this.$stateParams = $stateParams;
             this.Upload = Upload;
-            this.Image = Image;
+            this.media = media;
             this.Toast = Toast;
             this.$state = $state;
             this._ = _;
+            this.config = config;
             this.posts = [];
             this.post = [];
             this.images = [];
             this.news = [];
             this.headers = [];
             this.tournaments = [];
+            $scope.shareUrl = function (postId) {
+                return config.basePath + 'post/' + postId;
+            };
             //youtube player
             function onYouTubeIframeAPIReady() {
                 this.player = new YT.Player('player', {
@@ -49,9 +53,10 @@ var myApp;
             function stopVideo() {
                 this.player.stopVideo();
             }
+            // end of YT player
             $scope.methods = {};
             this.currentState = $state.current.name;
-            this.Image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
+            this.media.image.query({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                 _this.images = response;
             });
             if ($stateParams['categoryId']) {
@@ -59,15 +64,18 @@ var myApp;
                     _this.posts = response;
                 });
             }
-            //For front page, maybe we can change to pull trough one call
-            this.BlogResource.post.getByType({ type: 'news' }).$promise.then(function (response) {
-                _this.news = response;
-            });
-            this.BlogResource.post.getByType({ type: 'header' }).$promise.then(function (response) {
-                _this.headers = response;
-            });
-            //-----
+            if ($state.current.name == 'index') {
+                //For front page, maybe we can change to pull trough one call
+                this.BlogResource.post.getByType({ type: 'news' }).$promise.then(function (response) {
+                    _this.news = response;
+                });
+                this.BlogResource.post.getByType({ type: 'header' }).$promise.then(function (response) {
+                    _this.headers = response;
+                });
+                //-----
+            }
             if ($stateParams['postId']) {
+                console.log('post');
                 this.BlogResource.post.get({ postId: $stateParams['postId'] }).$promise.then(function (response) {
                     _this.post = response;
                 });
@@ -108,10 +116,11 @@ var myApp;
         'BlogResource',
         '$stateParams',
         'Upload',
-        'ImageResource',
+        'MediaResource',
         'toastService',
         '$state',
-        '_'
+        '_',
+        'config'
     ];
     myApp.BlogCtrl = BlogCtrl;
     angular.module('myApp').controller('myApp.BlogCtrl', BlogCtrl);

@@ -5,56 +5,50 @@ module myApp {
 
     'use strict';
 
-    ImageResource.$inject = [
+    MediaResource.$inject = [
         '$resource',
         'config'
     ];
 
-    function ImageResource(
+    function MediaResource(
         $resource:any,
         config:any
     ){
 
-        return $resource(
-            config.API + 'images/:postId/:userId',
-            {   postId: '@postId',
-                userId: '@userId' },
+        return {
+
+
+            image:$resource(config.API + 'images/:postId/:userId',
+            {
+                postId: '@postId',
+                userId: '@userId'
+            },
             {
                 getGalleryById: {
-                   method: 'GET',
+                    method: 'GET',
                     isArray: true,
-                   url: config.API + 'images/gallery/:postId',
+                    url: config.API + 'images/gallery/:postId',
 
                 },
                 deleteGallery: {
                     method: 'POST',
                     url: config.API + 'images/gallery/delete/:postId',
                 }
-                //getBySlug: {
-                //    method: 'GET',
-                //    isArray: false,
-                //    url: AppConfig.apiPath + AppConfig.API.event + ':slug'
-                //},
-                // getFighterData: {
-                //     method: 'GET',
-                //     url:  'http://127.0.0.1:8000/api/fighters/tableData'
-                // },
-                // templateFields: {
-                //     method: 'GET',
-                //     isArray:true,
-                //     url: AppConfig.apiPath + AppConfig.API.event + ':eventId/template-fields',
-                //     params: {
-                //         eventId: '@eventId'
-                //     }
-                // },
-                // update: {
-                //     method: 'PUT'
-                // },
 
-            });
+
+            }),
+            video:$resource(config.API + 'video/:postId/:userId',
+                {
+                    postId: '@postId',
+                    userId: '@userId'
+                },
+                {
+
+                })
+        }
     }
 
     angular.module('myApp')
-        .factory('ImageResource', ImageResource);
+        .factory('MediaResource', MediaResource);
 
 }

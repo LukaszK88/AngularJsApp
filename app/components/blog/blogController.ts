@@ -11,10 +11,11 @@ module myApp{
                 'BlogResource',
                 '$stateParams',
                 'Upload',
-                'ImageResource',
+                'MediaResource',
                 'toastService',
                 '$state',
-                '_'
+                '_',
+                'config'
             ];
 
             posts:any = [];
@@ -33,11 +34,16 @@ module myApp{
                         protected BlogResource:any,
                         protected $stateParams:any,
                         public Upload:any,
-                    protected Image:any,
+                    protected media:any,
                     protected Toast:any,
                     protected $state:any,
-                    protected _:any
+                    protected _:any,
+                    protected config:any
         ){
+
+            $scope.shareUrl = (postId:number) => {
+                return config.basePath + 'post/'+ postId;
+            } ;
             //youtube player
             function onYouTubeIframeAPIReady() {
                 this.player = new YT.Player('player', {
@@ -69,13 +75,12 @@ module myApp{
             function stopVideo() {
                 this.player.stopVideo();
             }
-
-
+            // end of YT player
             $scope.methods = {};
             this.currentState =  $state.current.name;
 
 
-            this.Image.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
+            this.media.image.query({ postId:$stateParams['postId']}).$promise.then((response)=>{
                 this.images = response;
             });
             if($stateParams['categoryId']) {
@@ -84,16 +89,19 @@ module myApp{
 
                 });
             }
-            //For front page, maybe we can change to pull trough one call
-            this.BlogResource.post.getByType({type:'news'}).$promise.then((response)=>{
-                this.news = response;
-            });
+            if($state.current.name == 'index') {
+                //For front page, maybe we can change to pull trough one call
+                this.BlogResource.post.getByType({type: 'news'}).$promise.then((response) => {
+                    this.news = response;
+                });
 
-            this.BlogResource.post.getByType({type:'header'}).$promise.then((response)=>{
-                this.headers = response;
-            });
-            //-----
+                this.BlogResource.post.getByType({type: 'header'}).$promise.then((response) => {
+                    this.headers = response;
+                });
+                //-----
+            }
             if($stateParams['postId']) {
+                console.log('post');
                 this.BlogResource.post.get({postId: $stateParams['postId']}).$promise.then((response) => {
                     this.post = response;
                 });

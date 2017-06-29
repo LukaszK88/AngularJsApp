@@ -16,7 +16,7 @@ module myApp{
                 'BlogResource',
                 'config',
                 '$state',
-                'ImageResource',
+                'MediaResource',
                 '$q',
                 '$timeout',
                 'EventResource',
@@ -50,6 +50,7 @@ module myApp{
 
 
 
+
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
                         public $location:any,
@@ -61,7 +62,7 @@ module myApp{
                     protected blog:any,
                     protected config:any,
                     protected $state:any,
-                    protected image:any,
+                    protected media:any,
                     protected $q:any,
                     protected $timeout:any,
                     protected eventResource:any,
@@ -72,6 +73,7 @@ module myApp{
 
             $scope.files = [];
             $scope.photo = [];
+            $scope.video = {};
 
 
             $scope.selected = {};
@@ -176,7 +178,7 @@ module myApp{
         }
 
         public deleteGallery(gallery){
-            this.image.deleteGallery({postId:gallery.id}).$promise.then((response:any) => {
+            this.media.image.deleteGallery({postId:gallery.id}).$promise.then((response:any) => {
                 this.Toast.makeToast('error','Gallery deleted');
                  let index=this.galleries.indexOf(gallery);
                  this.galleries.splice(index,1);
@@ -184,7 +186,7 @@ module myApp{
         }
 
         public deleteImg(img){
-            this.image.delete({postId:img.id}).$promise.then((response:any) => {
+            this.media.image.delete({postId:img.id}).$promise.then((response:any) => {
                 this.Toast.makeToast('error','Photo deleted');
                 let index=this.galleryToEdit.image.indexOf(img);
                 this.galleryToEdit.image.splice(index,1);
@@ -238,7 +240,7 @@ module myApp{
         }
 
         public fetchGalleries(){
-            this.image.query().$promise.then((response:any) => {
+            this.media.image.query().$promise.then((response:any) => {
                 this.galleries = response;
             });
         }
@@ -246,6 +248,12 @@ module myApp{
         public update(post){
             if(post){
                 post.post_type = this.post.post_type;
+                //make video
+                let video:any = {};
+                video.url = post.video_url;
+
+                this.uploadHeaderVideo(post,video);
+
                 this.blog.post.update({postId:post.id},post).$promise.then((response:any) => {
                     this.Toast.makeToast('success','Post updated');
                     this.postEdit = false;
@@ -256,6 +264,7 @@ module myApp{
         }
 
         public editPost(post){
+            console.log(post);
             this.postEdit = true;
             this.postToEdit = post;
         }
@@ -347,6 +356,7 @@ module myApp{
                         this.Toast.makeToast('success','Gallery added');
                         this.$state.reload();
                     }else {
+                        this.uploadHeaderVideo(response, this.$scope.video);
                         this.uploadHeaderPhoto('post',response.id);
                         this.uploadGalleryPhotos();
                         this.Toast.makeToast('success','Post added');
@@ -356,9 +366,23 @@ module myApp{
             }
 
         }
+
+        private uploadHeaderVideo(post,videoUrl){
+            //if (this.$scope.video && this.$scope.header == 'video') {
+                let video:any = {};
+                video.user_id = this.$scope.currentUser.id;
+                video.post_id = post.id;
+                video.video_type_id = 1;
+                video.url = videoUrl.url;
+                console.log(video);
+                this.media.video.save(video).$promise.then((response:any) => {
+                    console.log(response);
+                });
+           // }
+        }
 //todo can be one method for all
         private uploadHeaderPhoto(where,whatId){
-            if (this.$scope.photo) {
+            if (this.$scope.photo && this.$scope.header == 'photo') {
                 this.Upload.upload({
                     url: this.config.API + 'images/'+ where +'/' + whatId + '/' + 1,
                     data: {

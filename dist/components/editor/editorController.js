@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var EditorCtrl = (function () {
-        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, image, $q, $timeout, eventResource, $filter, eventNotes) {
+        function EditorCtrl($http, $scope, $location, $stateParams, Upload, Toast, _, types, blog, config, $state, media, $q, $timeout, eventResource, $filter, eventNotes) {
             //$scope.category = config.editorsDefault.categories;
             var _this = this;
             this.$http = $http;
@@ -16,7 +16,7 @@ var myApp;
             this.blog = blog;
             this.config = config;
             this.$state = $state;
-            this.image = image;
+            this.media = media;
             this.$q = $q;
             this.$timeout = $timeout;
             this.eventResource = eventResource;
@@ -37,6 +37,7 @@ var myApp;
             this.noteToEdit = [];
             $scope.files = [];
             $scope.photo = [];
+            $scope.video = {};
             $scope.selected = {};
             this.types.query().$promise.then(function (response) {
                 _this.postTypes = response;
@@ -131,7 +132,7 @@ var myApp;
         };
         EditorCtrl.prototype.deleteGallery = function (gallery) {
             var _this = this;
-            this.image.deleteGallery({ postId: gallery.id }).$promise.then(function (response) {
+            this.media.image.deleteGallery({ postId: gallery.id }).$promise.then(function (response) {
                 _this.Toast.makeToast('error', 'Gallery deleted');
                 var index = _this.galleries.indexOf(gallery);
                 _this.galleries.splice(index, 1);
@@ -139,7 +140,7 @@ var myApp;
         };
         EditorCtrl.prototype.deleteImg = function (img) {
             var _this = this;
-            this.image["delete"]({ postId: img.id }).$promise.then(function (response) {
+            this.media.image["delete"]({ postId: img.id }).$promise.then(function (response) {
                 _this.Toast.makeToast('error', 'Photo deleted');
                 var index = _this.galleryToEdit.image.indexOf(img);
                 _this.galleryToEdit.image.splice(index, 1);
@@ -185,7 +186,7 @@ var myApp;
         };
         EditorCtrl.prototype.fetchGalleries = function () {
             var _this = this;
-            this.image.query().$promise.then(function (response) {
+            this.media.image.query().$promise.then(function (response) {
                 _this.galleries = response;
             });
         };
@@ -193,6 +194,10 @@ var myApp;
             var _this = this;
             if (post) {
                 post.post_type = this.post.post_type;
+                //make video
+                var video = {};
+                video.url = post.video_url;
+                this.uploadHeaderVideo(post, video);
                 this.blog.post.update({ postId: post.id }, post).$promise.then(function (response) {
                     _this.Toast.makeToast('success', 'Post updated');
                     _this.postEdit = false;
@@ -202,6 +207,7 @@ var myApp;
             }
         };
         EditorCtrl.prototype.editPost = function (post) {
+            console.log(post);
             this.postEdit = true;
             this.postToEdit = post;
         };
@@ -290,6 +296,7 @@ var myApp;
                         _this.$state.reload();
                     }
                     else {
+                        _this.uploadHeaderVideo(response, _this.$scope.video);
                         _this.uploadHeaderPhoto('post', response.id);
                         _this.uploadGalleryPhotos();
                         _this.Toast.makeToast('success', 'Post added');
@@ -298,9 +305,22 @@ var myApp;
                 });
             }
         };
+        EditorCtrl.prototype.uploadHeaderVideo = function (post, videoUrl) {
+            //if (this.$scope.video && this.$scope.header == 'video') {
+            var video = {};
+            video.user_id = this.$scope.currentUser.id;
+            video.post_id = post.id;
+            video.video_type_id = 1;
+            video.url = videoUrl.url;
+            console.log(video);
+            this.media.video.save(video).$promise.then(function (response) {
+                console.log(response);
+            });
+            // }
+        };
         //todo can be one method for all
         EditorCtrl.prototype.uploadHeaderPhoto = function (where, whatId) {
-            if (this.$scope.photo) {
+            if (this.$scope.photo && this.$scope.header == 'photo') {
                 this.Upload.upload({
                     url: this.config.API + 'images/' + where + '/' + whatId + '/' + 1,
                     data: {
@@ -336,7 +356,7 @@ var myApp;
         'BlogResource',
         'config',
         '$state',
-        'ImageResource',
+        'MediaResource',
         '$q',
         '$timeout',
         'EventResource',

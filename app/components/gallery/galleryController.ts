@@ -12,7 +12,7 @@ module myApp{
                 'BlogResource',
                 '$stateParams',
                 'Upload',
-                'ImageResource',
+                'MediaResource',
                 'toastService',
                 '$state',
                 '_'
@@ -31,7 +31,7 @@ module myApp{
                         protected BlogResource:any,
                         protected $stateParams:any,
                         public Upload:any,
-                    protected Image:any,
+                    protected media:any,
                     protected Toast:any,
                     protected $state:any,
                     protected _:any
@@ -44,11 +44,11 @@ module myApp{
             });
 
             //Main gallery
-            this.Image.query().$promise.then((response)=>{
+            this.media.image.query().$promise.then((response)=>{
                 this.galleryImages = response;
             });
 
-            this.Image.getGalleryById({postId:$stateParams['postId']}).$promise.then((response)=>{
+            this.media.image.getGalleryById({postId:$stateParams['postId']}).$promise.then((response)=>{
                 this.images = response;
             });
 
