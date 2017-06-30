@@ -11,15 +11,9 @@ var myApp;
             'config'
         ];
         function FighterResource($resource, config) {
-            return $resource(config.API + 'fighters/:fighterId', { fighterId: '@fighterId' }, {
-                //confirmDelete: {
-                //    method: 'GET',
-                //    isArray: false,
-                //    url: AppConfig.apiPath + AppConfig.API.event + 'confirm-delete/:id',
-                //    params: {
-                //        id: '@id'
-                //    }
-                //},
+            return $resource(config.API + 'fighters/:fighterId', {
+                fighterId: '@fighterId'
+            }, {
                 getFighterEventInfo: {
                     method: 'GET',
                     //isArray: true,
@@ -28,6 +22,11 @@ var myApp;
                         eventAttendId: '@eventAttendId',
                         userId: '@userId'
                     }
+                },
+                getLeaderboardData: {
+                    method: 'GET',
+                    //isArray: true,
+                    url: config.API + 'fighters-leaderboard'
                 },
                 getFighterData: {
                     method: 'GET',
@@ -40,14 +39,6 @@ var myApp;
                         type: '@type'
                     }
                 },
-                // templateFields: {
-                //     method: 'GET',
-                //     isArray:true,
-                //     url: AppConfig.apiPath + AppConfig.API.event + ':eventId/template-fields',
-                //     params: {
-                //         eventId: '@eventId'
-                //     }
-                // },
                 update: {
                     method: 'PUT'
                 }

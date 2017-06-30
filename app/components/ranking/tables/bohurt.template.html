@@ -26,7 +26,7 @@
                 <td>{{ fighter.bohurt | arrayHelper:'last'}}</td>
                 <td>{{ fighter.bohurt | arrayHelper:'down'}}</td>
                 <td>{{ fighter.bohurt | arrayHelper:'suicide'}}</td>
-                <td>{{ (((((fighter.bohurt | arrayHelper:'suicide') + (fighter.bohurt | arrayHelper:'down'))/ (fighter.bohurt | arrayHelper:'fights'))*100)-100) | abs | limitTo:2 }} %</td>
+                <td>{{ (((((fighter.bohurt | arrayHelper:'suicide') + (fighter.bohurt | arrayHelper:'down'))/ (fighter.bohurt | arrayHelper:'fights'))*100)-100) | abs | limitTo:3 }} %</td>
                 <td>{{ fighter.bohurt | arrayHelper:'points'  }}</td>
                 <td>{{ fighter.bohurt[0].updated_at | limitTo: 10 }}</td>
                 <td ng-if="admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Bohurt')"><button class="btn btn-success btn-sm">x</button></td>

@@ -13,6 +13,8 @@ module myApp.ranking{
             ];
 
             public path:string;
+        leaderboard:any = [];
+        newLeaderboard:any = [];
 
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
@@ -22,24 +24,14 @@ module myApp.ranking{
             ){
 
                 $scope.selectedIndex = 0;
+            this.getLeaderboardData();
+               $scope.$watch('selectedIndex', (current, old) => {
 
-                $scope.$watch('selectedIndex', (current, old) => {
-                    if(current){
-                        this.$scope.total = false;
-                        this.$scope.bohurt = false;
-                        this.$scope.profight = false;
-                        this.$scope.swordShield = false;
-                        this.$scope.longsword = false;
-                        this.$scope.swordBuckler = false;
-                        this.$scope.polearm = false;
-                        this.$scope.triathlon = false;
-                    }
                     switch (current) {
                         case 0:
                             this.$scope.total = true;
                             break;
                         case 1:
-                            this.$scope.bohurt = true;
 
                             break;
                         case 2:
@@ -63,13 +55,27 @@ module myApp.ranking{
                     }
                 });
 
+            this.FighterResource.get().$promise
+                .then((response:any) => {
+                    $scope.fighters = response.fighters;
+                });
 
+            }
 
-                this.FighterResource.get().$promise
+            public getLeaderboardData(){
+                this.FighterResource.getLeaderboardData().$promise
                     .then((response:any) => {
-                        $scope.fighters = response.fighters;
-                    });
 
+                        this.leaderboard = response;
+
+                        angular.forEach(this.leaderboard,(value,key) => {
+
+                            this.leaderboard[key.replace('_',' ')] = value;
+
+                        });
+                        delete this.leaderboard['sword_shield'];
+                        delete this.leaderboard['sword_buckler'];
+                    });
             }
 
             public getSum(category,column){

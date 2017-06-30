@@ -11,24 +11,16 @@ var myApp;
                 this.$location = $location;
                 this.FighterResource = FighterResource;
                 this.$stateParams = $stateParams;
+                this.leaderboard = [];
+                this.newLeaderboard = [];
                 $scope.selectedIndex = 0;
+                this.getLeaderboardData();
                 $scope.$watch('selectedIndex', function (current, old) {
-                    if (current) {
-                        _this.$scope.total = false;
-                        _this.$scope.bohurt = false;
-                        _this.$scope.profight = false;
-                        _this.$scope.swordShield = false;
-                        _this.$scope.longsword = false;
-                        _this.$scope.swordBuckler = false;
-                        _this.$scope.polearm = false;
-                        _this.$scope.triathlon = false;
-                    }
                     switch (current) {
                         case 0:
                             _this.$scope.total = true;
                             break;
                         case 1:
-                            _this.$scope.bohurt = true;
                             break;
                         case 2:
                             _this.$scope.profight = true;
@@ -55,6 +47,18 @@ var myApp;
                     $scope.fighters = response.fighters;
                 });
             }
+            TableAllController.prototype.getLeaderboardData = function () {
+                var _this = this;
+                this.FighterResource.getLeaderboardData().$promise
+                    .then(function (response) {
+                    _this.leaderboard = response;
+                    angular.forEach(_this.leaderboard, function (value, key) {
+                        _this.leaderboard[key.replace('_', ' ')] = value;
+                    });
+                    delete _this.leaderboard['sword_shield'];
+                    delete _this.leaderboard['sword_buckler'];
+                });
+            };
             TableAllController.prototype.getSum = function (category, column) {
                 var total = 0;
                 for (var y in category) {

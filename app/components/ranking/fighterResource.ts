@@ -16,16 +16,11 @@ module myApp.ranking {
     ){
 
         return $resource(
-            config.API + 'fighters/:fighterId', { fighterId: '@fighterId' },
+            config.API + 'fighters/:fighterId',
             {
-                //confirmDelete: {
-                //    method: 'GET',
-                //    isArray: false,
-                //    url: AppConfig.apiPath + AppConfig.API.event + 'confirm-delete/:id',
-                //    params: {
-                //        id: '@id'
-                //    }
-                //},
+                fighterId: '@fighterId'
+            },
+            {
                 getFighterEventInfo: {
                     method: 'GET',
                     //isArray: true,
@@ -34,6 +29,11 @@ module myApp.ranking {
                         eventAttendId: '@eventAttendId',
                         userId: '@userId'
                     }
+                },
+                getLeaderboardData:{
+                    method: 'GET',
+                    //isArray: true,
+                    url: config.API + 'fighters-leaderboard',
                 },
                 getFighterData: {
                     method: 'GET',
@@ -46,14 +46,6 @@ module myApp.ranking {
                         type: '@type'
                     }
                 },
-                // templateFields: {
-                //     method: 'GET',
-                //     isArray:true,
-                //     url: AppConfig.apiPath + AppConfig.API.event + ':eventId/template-fields',
-                //     params: {
-                //         eventId: '@eventId'
-                //     }
-                // },
                 update: {
                     method: 'PUT'
                 },
