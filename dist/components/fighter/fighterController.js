@@ -16,9 +16,12 @@ var myApp;
             this.achievements = [];
             this.events = [];
             this.eventNotes = [];
+            this.eventSelect = [];
             this.fetchAchievements();
             this.getFighterEvents();
+            this.getEvents();
             //this.eventNotes = 'test';
+            //TODO in the future drop down only events which attended only by the user
             $scope.$watch('file', function (newVal, oldVal) {
                 if (newVal) {
                     _this.Upload.upload({
@@ -37,6 +40,12 @@ var myApp;
                 $scope.fighter = response.fighters;
             });
         }
+        FighterCtrl.prototype.getEvents = function () {
+            var _this = this;
+            this.EventResource.query().$promise.then(function (response) {
+                _this.eventSelect = response;
+            });
+        };
         FighterCtrl.prototype.getOtherAttendees = function (event) {
             var _this = this;
             this.EventResource.attendees({ eventId: event.id }).$promise
@@ -68,14 +77,15 @@ var myApp;
         };
         FighterCtrl.prototype.updateAchievement = function (achievement) {
             var _this = this;
-            this.Achievement.save({ userId: this.$stateParams['fighterId'] }, achievement).$promise.then(function (response) {
+            this.Achievement.update({ userId: achievement.id }, achievement).$promise.then(function (response) {
                 _this.fetchAchievements();
                 _this.Toast.makeToast('success', 'Achievement updated');
             });
         };
         FighterCtrl.prototype.addAchievement = function (data) {
             var _this = this;
-            this.Achievement.save({ userId: this.$stateParams['fighterId'] }, data).$promise.then(function (response) {
+            data.user_id = this.$scope.currentUser.id;
+            this.Achievement.save(data).$promise.then(function (response) {
                 console.log(response.data);
                 _this.achievements.data.push(response.data);
                 _this.fetchAchievements();

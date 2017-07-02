@@ -11,7 +11,7 @@
                 <th width="5%">Last Man</th>
                 <th width="5%">Down</th>
                 <th width="5%">Suicides</th>
-                <th width="5%">Ratio</th>
+                <th width="7%">Ratio</th>
                 <th width="5%">Points</th>
                 <th width="5%">Last Update</th>
                 <th ng-if="admin">edit</th>
@@ -29,7 +29,7 @@
                 <td>{{ (((((fighter.bohurt | arrayHelper:'suicide') + (fighter.bohurt | arrayHelper:'down'))/ (fighter.bohurt | arrayHelper:'fights'))*100)-100) | abs | limitTo:3 }} %</td>
                 <td>{{ fighter.bohurt | arrayHelper:'points'  }}</td>
                 <td>{{ fighter.bohurt[0].updated_at | limitTo: 10 }}</td>
-                <td ng-if="admin" width="3%" ng-click="showUpdateRecord($event, fighter.id, 'Bohurt')"><button class="btn btn-success btn-sm">x</button></td>
+                <td ng-if="admin" width="3%" ng-click="showUpdateRecordRanking($event,'ranking/updateBohurtRecord',[fighter, ctrl.events])"><button class="btn btn-success btn-sm">x</button></td>
             </tr>
             </tbody>
         </table>

@@ -13,6 +13,7 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <form name="updateForm" >
+                    <!--<span ng-hide="local[0].id">{{fighter.fighterId = local[0].id}}</span>-->
                     <span class="md-body-1">Won</span><br>
                     <md-slider-container>
                         <md-slider  flex ng-model="fighter.bohurt.won" min="0" max="20" aria-label="blue" id="blue-slider" class="md-primary">
@@ -61,13 +62,22 @@
                         </md-input-container>
                     </md-slider-container>
 
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-select placeholder="Select Competition" ng-model="fighter.bohurt.event_id" required>
+                            <md-option ng-repeat="event in local[1]" ng-value="event.id">
+                            {{ event.title }}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+
+
                 </form>
             </div>
         </md-dialog-content>
 
-        <md-dialog-actions  layout="row">
+        <md-dialog-actions ng-controller="myApp.ranking.TableAllController as ranking" layout="row">
 
-            <md-button ng-click="submit(fighter)">
+            <md-button ng-click="ranking.submitRecord(fighter, local[0].id)">
                Submit
 
             </md-button>

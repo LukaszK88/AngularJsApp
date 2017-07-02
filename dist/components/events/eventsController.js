@@ -2,13 +2,13 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var EventCtrl = (function () {
-        function EventCtrl($http, $scope, $location, BlogResource, $stateParams, Image, Toast, $state, _, event, FighterResource) {
+        function EventCtrl($http, $scope, $location, BlogResource, $stateParams, media, Toast, $state, _, event, FighterResource) {
             this.$http = $http;
             this.$scope = $scope;
             this.$location = $location;
             this.BlogResource = BlogResource;
             this.$stateParams = $stateParams;
-            this.Image = Image;
+            this.media = media;
             this.Toast = Toast;
             this.$state = $state;
             this._ = _;
@@ -92,7 +92,7 @@ var myApp;
         '$location',
         'BlogResource',
         '$stateParams',
-        'ImageResource',
+        'MediaResource',
         'toastService',
         '$state',
         '_',

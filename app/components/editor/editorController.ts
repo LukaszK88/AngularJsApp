@@ -207,7 +207,7 @@ module myApp{
             this.eventResource.update({eventId:eventToEdit.id}, eventToEdit).$promise.then((response:any) => {
 //TODO flexible method
                 if (this.$scope.photo) {
-
+                    console.log('photo');
                     this.Upload.upload({
                         url: this.config.API + 'images/event/' + eventToEdit.id + '/' + 1,
                         data: {
@@ -356,9 +356,13 @@ module myApp{
                         this.Toast.makeToast('success','Gallery added');
                         this.$state.reload();
                     }else {
+
+
                         this.uploadHeaderVideo(response, this.$scope.video);
+
                         this.uploadHeaderPhoto('post',response.id);
                         this.uploadGalleryPhotos();
+                        console.log('submit test');
                         this.Toast.makeToast('success','Post added');
                         this.$state.reload();
                     }
@@ -368,7 +372,7 @@ module myApp{
         }
 
         private uploadHeaderVideo(post,videoUrl){
-            //if (this.$scope.video && this.$scope.header == 'video') {
+            if (this.$scope.video) {
                 let video:any = {};
                 video.user_id = this.$scope.currentUser.id;
                 video.post_id = post.id;
@@ -378,11 +382,14 @@ module myApp{
                 this.media.video.save(video).$promise.then((response:any) => {
                     console.log(response);
                 });
-           // }
+            }
         }
 //todo can be one method for all
         private uploadHeaderPhoto(where,whatId){
-            if (this.$scope.photo && this.$scope.header == 'photo') {
+            console.log(whatId);
+            console.log(where);
+            if (this.$scope.photo) {
+                console.log('test');
                 this.Upload.upload({
                     url: this.config.API + 'images/'+ where +'/' + whatId + '/' + 1,
                     data: {

@@ -33,11 +33,11 @@ angular.module('myApp')
 
         $scope.showCategoryAttendance = function (ev, template, local) {
             openModal(ev,template,local);
-        } ;
+        };
 
         $scope.showFighterEventNotes = function (ev, template, local) {
             openModal(ev,template,local);
-        } ;
+        };
 
         function openModal(ev,template, local) {
                 $mdDialog.show({
@@ -130,6 +130,10 @@ angular.module('myApp')
                 }, function () {
                     $scope.status = 'You cancelled the dialog.';
                 });
+        };
+
+        $scope.showUpdateRecordRanking = function (ev, template, local) {
+            openModal(ev,template,local);
         };
 
         $scope.showUpdateRecord = function (ev, id, type) {

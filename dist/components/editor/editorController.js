@@ -160,6 +160,7 @@ var myApp;
             this.eventResource.update({ eventId: eventToEdit.id }, eventToEdit).$promise.then(function (response) {
                 //TODO flexible method
                 if (_this.$scope.photo) {
+                    console.log('photo');
                     _this.Upload.upload({
                         url: _this.config.API + 'images/event/' + eventToEdit.id + '/' + 1,
                         data: {
@@ -299,6 +300,7 @@ var myApp;
                         _this.uploadHeaderVideo(response, _this.$scope.video);
                         _this.uploadHeaderPhoto('post', response.id);
                         _this.uploadGalleryPhotos();
+                        console.log('submit test');
                         _this.Toast.makeToast('success', 'Post added');
                         _this.$state.reload();
                     }
@@ -306,21 +308,24 @@ var myApp;
             }
         };
         EditorCtrl.prototype.uploadHeaderVideo = function (post, videoUrl) {
-            //if (this.$scope.video && this.$scope.header == 'video') {
-            var video = {};
-            video.user_id = this.$scope.currentUser.id;
-            video.post_id = post.id;
-            video.video_type_id = 1;
-            video.url = videoUrl.url;
-            console.log(video);
-            this.media.video.save(video).$promise.then(function (response) {
-                console.log(response);
-            });
-            // }
+            if (this.$scope.video) {
+                var video = {};
+                video.user_id = this.$scope.currentUser.id;
+                video.post_id = post.id;
+                video.video_type_id = 1;
+                video.url = videoUrl.url;
+                console.log(video);
+                this.media.video.save(video).$promise.then(function (response) {
+                    console.log(response);
+                });
+            }
         };
         //todo can be one method for all
         EditorCtrl.prototype.uploadHeaderPhoto = function (where, whatId) {
-            if (this.$scope.photo && this.$scope.header == 'photo') {
+            console.log(whatId);
+            console.log(where);
+            if (this.$scope.photo) {
+                console.log('test');
                 this.Upload.upload({
                     url: this.config.API + 'images/' + where + '/' + whatId + '/' + 1,
                     data: {

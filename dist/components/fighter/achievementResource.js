@@ -18,6 +18,9 @@ var myApp;
                     userId: '@userId',
                     achievementId: '@achievementId'
                 }
+            },
+            update: {
+                method: 'PUT'
             }
         });
     }

@@ -9,22 +9,28 @@ module myApp.ranking{
                 '$scope',
                 '$location',
                 'FighterResource',
-                '$stateParams'
+                '$stateParams',
+                'EventResource',
+                'toastService'
             ];
 
             public path:string;
         leaderboard:any = [];
-        newLeaderboard:any = [];
+        events:any = [];
+        finalRecordData:any = [];
 
         constructor(public $http:ng.IHttpService,
                         public $scope:ng.IScope,
                         public $location:any,
                         protected FighterResource:any,
-                        protected $stateParams:any
+                        protected $stateParams:any,
+                        protected event:any,
+                    protected toastService:any
             ){
 
                 $scope.selectedIndex = 0;
             this.getLeaderboardData();
+            this.getEvents();
                $scope.$watch('selectedIndex', (current, old) => {
 
                     switch (current) {
@@ -60,6 +66,22 @@ module myApp.ranking{
                     $scope.fighters = response.fighters;
                 });
 
+            }
+
+            public getEvents(){
+                this.event.query().$promise.then((response:any) => {
+                    this.events = response;
+                });
+            }
+
+            public submitRecord(data, fighterId){
+                this.finalRecordData = data;
+                this.finalRecordData.fighterId = fighterId;
+                let keys;
+                keys = Object.keys(data);
+                this.FighterResource.saveUpdate({type: keys[0]},this.finalRecordData).$promise.then((response:any) => {
+                    this.toastService.makeToast('success', response.message);
+                });
             }
 
             public getLeaderboardData(){

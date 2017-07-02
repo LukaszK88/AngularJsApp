@@ -15,7 +15,9 @@ module myApp{
                 'toastService',
                 '$state',
                 '_',
-                'config'
+                'config',
+                'CommentResource',
+                'CommentReplyResource'
             ];
 
             posts:any = [];
@@ -26,6 +28,11 @@ module myApp{
             tournaments:any =[];
             currentState:string;
             player:any;
+            showEditComment:boolean = false;
+            commentToEdit:any = [];
+            showReply:boolean = false;
+            showEditReply:boolean = false;
+            replyToEdit:any = [];
 
 
         constructor(public $http:ng.IHttpService,
@@ -38,7 +45,9 @@ module myApp{
                     protected Toast:any,
                     protected $state:any,
                     protected _:any,
-                    protected config:any
+                    protected config:any,
+                    protected commentResource:any,
+                    protected commentReplyResource:any
         ){
 
             $scope.shareUrl = (postId:number) => {
@@ -101,10 +110,7 @@ module myApp{
                 //-----
             }
             if($stateParams['postId']) {
-                console.log('post');
-                this.BlogResource.post.get({postId: $stateParams['postId']}).$promise.then((response) => {
-                    this.post = response;
-                });
+                this.fetchPost();
             }
             $scope.conf = {
                 thumbnails 	: 	true,
@@ -138,6 +144,75 @@ module myApp{
 
         }
 
+        public fetchPost(){
+
+            this.BlogResource.post.get({postId: this.$stateParams['postId']}).$promise.then((response) => {
+                this.post = response;
+            });
+        }
+
+        public editComment(comment){
+            this.showEditComment ? this.showEditComment = false : this.showEditComment = true;
+            this.commentToEdit = comment;
+        }
+
+        public editReply(reply){
+            this.showEditReply ? this.showEditReply = false : this.showEditReply = true;
+            this.replyToEdit = reply;
+        }
+
+        public updateComment(comment){
+            this.commentResource.update({commentId:comment.id},comment).$promise.then((response:any) => {
+                this.showEditComment = false;
+                this.commentToEdit.id = null;
+                this.fetchPost();
+                this.Toast.makeToast('success', response.message);
+            });
+        }
+
+        public updateReply(reply){
+            this.commentReplyResource.update({replyId:reply.id},reply).$promise.then((response:any) => {
+                this.showEditReply = false;
+                this.replyToEdit.id = null;
+                this.fetchPost();
+                this.Toast.makeToast('success', response.message);
+            });
+        }
+
+        public addReply(reply, comment){
+            reply.comment_id = comment.id;
+            reply.user_id = this.$scope.currentUser.id;
+            console.log(reply);
+            this.commentReplyResource.save(reply).$promise.then((response:any) => {
+                this.fetchPost();
+                this.Toast.makeToast('success', response.message);
+            });
+        }
+
+        public deleteReply(reply){
+            console.log(reply);
+            this.commentReplyResource.delete({replyId:reply.id}).$promise.then((response:any) => {
+                this.fetchPost();
+                this.Toast.makeToast('error', response.message);
+            });
+        }
+
+        public addComment(comment, post){
+            comment.post_id = post.id;
+            comment.user_id = this.$scope.currentUser.id;
+            console.log(comment);
+            this.commentResource.save(comment).$promise.then((response:any) => {
+                this.fetchPost();
+                this.Toast.makeToast('success', response.message);
+            });
+        }
+
+        public deleteComment(comment){
+            this.commentResource.delete({commentId:comment.id}).$promise.then((response:any) => {
+                this.fetchPost();
+                this.Toast.makeToast('error', response.message);
+            });
+        }
 
         public goBack(){
 

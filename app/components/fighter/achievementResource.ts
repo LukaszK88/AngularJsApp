@@ -28,26 +28,9 @@ module myApp {
                        achievementId: '@achievementId'
                    }
                 },
-                //getBySlug: {
-                //    method: 'GET',
-                //    isArray: false,
-                //    url: AppConfig.apiPath + AppConfig.API.event + ':slug'
-                //},
-                // getFighterData: {
-                //     method: 'GET',
-                //     url:  'http://127.0.0.1:8000/api/fighters/tableData'
-                // },
-                // templateFields: {
-                //     method: 'GET',
-                //     isArray:true,
-                //     url: AppConfig.apiPath + AppConfig.API.event + ':eventId/template-fields',
-                //     params: {
-                //         eventId: '@eventId'
-                //     }
-                // },
-                // update: {
-                //     method: 'PUT'
-                // },
+                update: {
+                    method: 'PUT'
+                },
 
             });
     }

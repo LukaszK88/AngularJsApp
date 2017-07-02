@@ -2,7 +2,7 @@ var myApp;
 (function (myApp) {
     'use-strict';
     var BlogCtrl = (function () {
-        function BlogCtrl($http, $scope, $location, BlogResource, $stateParams, Upload, media, Toast, $state, _, config) {
+        function BlogCtrl($http, $scope, $location, BlogResource, $stateParams, Upload, media, Toast, $state, _, config, commentResource, commentReplyResource) {
             var _this = this;
             this.$http = $http;
             this.$scope = $scope;
@@ -15,12 +15,19 @@ var myApp;
             this.$state = $state;
             this._ = _;
             this.config = config;
+            this.commentResource = commentResource;
+            this.commentReplyResource = commentReplyResource;
             this.posts = [];
             this.post = [];
             this.images = [];
             this.news = [];
             this.headers = [];
             this.tournaments = [];
+            this.showEditComment = false;
+            this.commentToEdit = [];
+            this.showReply = false;
+            this.showEditReply = false;
+            this.replyToEdit = [];
             $scope.shareUrl = function (postId) {
                 return config.basePath + 'post/' + postId;
             };
@@ -75,10 +82,7 @@ var myApp;
                 //-----
             }
             if ($stateParams['postId']) {
-                console.log('post');
-                this.BlogResource.post.get({ postId: $stateParams['postId'] }).$promise.then(function (response) {
-                    _this.post = response;
-                });
+                this.fetchPost();
             }
             $scope.conf = {
                 thumbnails: true,
@@ -104,6 +108,73 @@ var myApp;
                 $scope.methods.prev();
             };
         }
+        BlogCtrl.prototype.fetchPost = function () {
+            var _this = this;
+            this.BlogResource.post.get({ postId: this.$stateParams['postId'] }).$promise.then(function (response) {
+                _this.post = response;
+            });
+        };
+        BlogCtrl.prototype.editComment = function (comment) {
+            this.showEditComment ? this.showEditComment = false : this.showEditComment = true;
+            this.commentToEdit = comment;
+        };
+        BlogCtrl.prototype.editReply = function (reply) {
+            this.showEditReply ? this.showEditReply = false : this.showEditReply = true;
+            this.replyToEdit = reply;
+        };
+        BlogCtrl.prototype.updateComment = function (comment) {
+            var _this = this;
+            this.commentResource.update({ commentId: comment.id }, comment).$promise.then(function (response) {
+                _this.showEditComment = false;
+                _this.commentToEdit.id = null;
+                _this.fetchPost();
+                _this.Toast.makeToast('success', response.message);
+            });
+        };
+        BlogCtrl.prototype.updateReply = function (reply) {
+            var _this = this;
+            this.commentReplyResource.update({ replyId: reply.id }, reply).$promise.then(function (response) {
+                _this.showEditReply = false;
+                _this.replyToEdit.id = null;
+                _this.fetchPost();
+                _this.Toast.makeToast('success', response.message);
+            });
+        };
+        BlogCtrl.prototype.addReply = function (reply, comment) {
+            var _this = this;
+            reply.comment_id = comment.id;
+            reply.user_id = this.$scope.currentUser.id;
+            console.log(reply);
+            this.commentReplyResource.save(reply).$promise.then(function (response) {
+                _this.fetchPost();
+                _this.Toast.makeToast('success', response.message);
+            });
+        };
+        BlogCtrl.prototype.deleteReply = function (reply) {
+            var _this = this;
+            console.log(reply);
+            this.commentReplyResource["delete"]({ replyId: reply.id }).$promise.then(function (response) {
+                _this.fetchPost();
+                _this.Toast.makeToast('error', response.message);
+            });
+        };
+        BlogCtrl.prototype.addComment = function (comment, post) {
+            var _this = this;
+            comment.post_id = post.id;
+            comment.user_id = this.$scope.currentUser.id;
+            console.log(comment);
+            this.commentResource.save(comment).$promise.then(function (response) {
+                _this.fetchPost();
+                _this.Toast.makeToast('success', response.message);
+            });
+        };
+        BlogCtrl.prototype.deleteComment = function (comment) {
+            var _this = this;
+            this.commentResource["delete"]({ commentId: comment.id }).$promise.then(function (response) {
+                _this.fetchPost();
+                _this.Toast.makeToast('error', response.message);
+            });
+        };
         BlogCtrl.prototype.goBack = function () {
             this.$state.go("blog");
         };
@@ -120,7 +191,9 @@ var myApp;
         'toastService',
         '$state',
         '_',
-        'config'
+        'config',
+        'CommentResource',
+        'CommentReplyResource'
     ];
     myApp.BlogCtrl = BlogCtrl;
     angular.module('myApp').controller('myApp.BlogCtrl', BlogCtrl);

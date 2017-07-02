@@ -4,17 +4,21 @@ var myApp;
     (function (ranking) {
         'use-strict';
         var TableAllController = (function () {
-            function TableAllController($http, $scope, $location, FighterResource, $stateParams) {
+            function TableAllController($http, $scope, $location, FighterResource, $stateParams, event, toastService) {
                 var _this = this;
                 this.$http = $http;
                 this.$scope = $scope;
                 this.$location = $location;
                 this.FighterResource = FighterResource;
                 this.$stateParams = $stateParams;
+                this.event = event;
+                this.toastService = toastService;
                 this.leaderboard = [];
-                this.newLeaderboard = [];
+                this.events = [];
+                this.finalRecordData = [];
                 $scope.selectedIndex = 0;
                 this.getLeaderboardData();
+                this.getEvents();
                 $scope.$watch('selectedIndex', function (current, old) {
                     switch (current) {
                         case 0:
@@ -47,6 +51,22 @@ var myApp;
                     $scope.fighters = response.fighters;
                 });
             }
+            TableAllController.prototype.getEvents = function () {
+                var _this = this;
+                this.event.query().$promise.then(function (response) {
+                    _this.events = response;
+                });
+            };
+            TableAllController.prototype.submitRecord = function (data, fighterId) {
+                var _this = this;
+                this.finalRecordData = data;
+                this.finalRecordData.fighterId = fighterId;
+                var keys;
+                keys = Object.keys(data);
+                this.FighterResource.saveUpdate({ type: keys[0] }, this.finalRecordData).$promise.then(function (response) {
+                    _this.toastService.makeToast('success', response.message);
+                });
+            };
             TableAllController.prototype.getLeaderboardData = function () {
                 var _this = this;
                 this.FighterResource.getLeaderboardData().$promise
@@ -73,7 +93,9 @@ var myApp;
             '$scope',
             '$location',
             'FighterResource',
-            '$stateParams'
+            '$stateParams',
+            'EventResource',
+            'toastService'
         ];
         ranking.TableAllController = TableAllController;
         angular.module('myApp.ranking').controller('myApp.ranking.TableAllController', TableAllController);

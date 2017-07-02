@@ -3,10 +3,10 @@
         <div class="col-md-12">
             <md-card >
 
-                <div ng-repeat="galleryImage in gallery.galleryImages">
+                <div ng-repeat="galleryImage in gallery.galleryImages | limitTo:12">
                 <md-card-title >
                     <md-card-title-text>
-                        <span class="md-headline text-left">Gallery for {{ galleryImage.title }}</span>
+                        <span class="md-headline text-left">Gallery for <a ui-sref="galleryDetail({postId: galleryImage.id})">{{ galleryImage.title }}</a></span>
                         <span class="md-subhead">
                         </span>
                     </md-card-title-text>
